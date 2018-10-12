@@ -1,0 +1,1087 @@
+char-set: UTF-8
+#
+#  File exported Wed Aug 19 15:24:30 2015
+#
+begin schema
+   name           : XM:Action
+   core-version   : 2
+   upgrade-version: 0
+   num-fields     : 17
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   default-vui    : Default Administrator View
+   num-vuis       : 1
+   export-version : 12
+   schema-type    : 1
+   next-field-id  : 536870912
+   permission     : 0\2
+   help-text      : This form is based on SYS:Action.03/02/2012:This form is used to separate the transactions of the Remedy workflow from the workflow of sending eve
+   help-text      : nt information to xMatters.
+   object-prop    : 3\60048\4\0\\90015\2\4\90016\4\1\1\
+   archive        : 1\2\0
+      arch-time   : 0\127\1\0
+      arch-from   : 
+      arch-query  : 4\4\1\6\3\2\2\1\2\3\3\3\3\3\3\2\2\60\2\2\60\2\2\24\2\2\7\
+vui  {
+   id             : 536870912
+   name           : Default Administrator View
+   label          : Default Administrator View
+   timestamp      : 1440013992
+   vui-locale     : 
+   vui-type       : 1
+   owner          : Demo
+   last-changed   : Demo
+   display-prop   : 2\20\4\26\Default Administrator View\168\40\5\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 1
+   name           : Request ID
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1440013992
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 15
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\1
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\14\3\41\2\5399\2500\28233\4600\4\6\1\7\40\2147483640\20\4\10\Request ID\21\41\2\0\400\7086\2100\27\8\16\28\6\4\29\6\1\60\40\1\65\41\2\0\0\0\0\143\4&
+ display-instance : 0\4294967295\151\41\2\7649\0\22834\2100\170\40\0\231\6\1\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 2
+   name           : Submitter
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   default        : $-1$
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\6074\5000\31158\7100\4\6\1\7\40\2147483641\20\4\9\Submitter\21\41\2\0\400\6411\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\30\65\41\2\0\0\0\&
+ display-instance : 0\66\41\2\22722\0\25084\2100\143\40\4294967295\151\41\2\6974\0\22159\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 3
+   name           : Create Date
+   datatype       : 7
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\5061\7500\31157\9600\4\6\1\7\40\2147483642\20\4\11\Create Date\21\41\2\0\400\7424\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\23\65\41\2\0\0&
+ display-instance : \0\0\66\41\2\23734\0\26096\2100\143\40\4294967295\151\41\2\7986\0\23171\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 4
+   name           : Assigned To
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\5511\10000\31157\12100\4\6\1\7\40\2147483643\20\4\11\Assigned To\21\41\2\0\400\6974\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\30\65\41\2\0&
+ display-instance : \0\0\0\66\41\2\23284\0\25646\2100\143\40\4294967295\151\41\2\7536\0\22721\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 5
+   name           : Last Modified By
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\2699\12500\31157\14600\4\6\1\7\40\2147483644\20\4\16\Last Modified By\21\41\2\0\400\9786\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\33\65\4&
+ display-instance : 1\2\0\0\0\0\66\41\2\26096\0\28458\2100\143\40\4294967295\151\41\2\10348\0\25533\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 6
+   name           : Modified Date
+   datatype       : 7
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\4049\15000\31158\17100\4\6\1\7\40\2147483645\20\4\13\Modified Date\21\41\2\0\400\8436\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\23\65\41\2&
+ display-instance : \0\0\0\0\66\41\2\24746\0\27108\2100\143\40\4294967295\151\41\2\8998\0\24183\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 7
+   name           : Status
+   datatype       : 6
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 1
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   enum-value     : New
+   enum-value     : Assigned
+   enum-value     : Fixed
+   enum-value     : Rejected
+   enum-value     : Closed
+   default        : 0
+   permission     : 3\1
+   permission     : 4\2
+ display-instance : 536870912\17\3\41\2\7986\17500\42406\19300\4\6\1\7\40\2147483646\20\4\6\Status\21\41\2\0\400\4499\1800\27\8\16\28\6\4\29\6\1\60\40\1\61\40\0\64\6\1\65\41\2\0&
+ display-instance : \0\0\0\143\40\4294967295\151\41\2\5061\400\34419\2200\170\40\0\230\4\46\5\0\New\1\Assigned\2\Fixed\3\Rejected\4\Closed\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 8
+   name           : Short Description
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\1012\20000\31158\22100\4\6\1\7\40\2147483647\20\4\17\Short Description\21\41\2\0\400\11473\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\50\65&
+ display-instance : \41\2\0\0\0\0\66\41\2\27784\0\30146\2100\143\40\4294967295\151\41\2\12035\0\27220\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 15
+   name           : Status History
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   permission     : 3\1
+   permission     : 4\2
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870913
+   name           : Request ID01
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\1
+   permission     : 20000\2
+ display-instance : 536870912\16\3\41\2\4949\25400\31945\27500\4\6\1\5\6\2\7\40\2147483648\14\40\1\20\4\12\Request ID01\21\41\2\0\400\8323\2100\60\40\1\66\41\2\24634\0\26996\210&
+ display-instance : 0\143\40\4294967295\151\41\2\8886\0\24071\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870914
+   name           : Action
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\1
+   permission     : 20000\2
+ display-instance : 536870912\16\3\41\2\3824\28500\30820\30600\4\6\1\5\6\2\7\40\2147483649\14\40\1\20\4\6\Action\21\41\2\0\400\8323\2100\60\40\1\66\41\2\24634\0\26996\2100\143\4&
+ display-instance : 0\4294967295\151\41\2\8886\0\24071\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870915
+   name           : Request Type
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 30
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\1
+   permission     : 20000\2
+ display-instance : 536870912\16\3\41\2\4499\32300\28570\34400\4\6\1\5\6\2\7\40\2147483650\14\40\1\20\4\12\Request Type\21\41\2\0\400\8323\2100\60\40\1\66\41\2\0\0\0\0\143\40\42&
+ display-instance : 94967295\151\41\2\8886\0\24071\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870916
+   name           : Additional Data
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\1
+ display-instance : 536870912\18\3\41\2\5961\36000\34982\38100\4\6\1\5\6\2\7\40\2147483651\14\40\1\20\4\15\Additional Data\21\41\2\0\400\10348\2100\60\40\1\66\41\2\26659\0\29021&
+ display-instance : \2100\143\40\4294967295\151\41\2\10911\0\26096\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870917
+   name           : Form
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\1
+   permission     : 20000\2
+ display-instance : 536870912\18\3\41\2\48143\25800\77164\27900\4\6\1\5\6\2\7\40\2147483652\14\40\1\20\4\4\Form\21\41\2\0\400\10348\2100\60\40\1\66\41\2\26659\0\29021\2100\143\4&
+ display-instance : 0\4294967295\151\41\2\10911\0\26096\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870918
+   name           : Message
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\1
+   permission     : 20000\2
+ display-instance : 536870912\18\3\41\2\48256\29300\77277\31400\4\6\1\5\6\2\7\40\2147483653\14\40\1\20\4\15\Worklog Message\21\41\2\0\400\10348\2100\60\40\1\66\41\2\26659\0\2902&
+ display-instance : 1\2100\143\40\4294967295\151\41\2\10911\0\26096\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870919
+   name           : Incident Priority
+   datatype       : 6
+   fieldtype      : 1
+   create-mode    : 1
+   option         : 2
+   fieldOption    : 1
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   enum-value     : Critical
+   enum-value     : High
+   enum-value     : Medium
+   enum-value     : Low
+   permission     : 0\1
+   permission     : 20000\2
+ display-instance : 536870912\30\3\41\2\81102\25700\113947\27800\4\6\1\5\6\2\7\40\2147483654\14\40\1\20\4\17\Incident Priority\21\41\2\0\400\8436\2100\27\8\16\28\6\4\29\6\1\60\4&
+ display-instance : 0\1\61\40\25\62\6\0\64\6\0\65\41\2\0\0\0\0\66\41\2\0\0\0\0\143\40\20\151\41\2\13160\0\32845\2100\170\40\0\230\4\34\4\0\Critical\1\High\2\Medium\3\Low\23&
+ display-instance : 1\6\0\240\40\0\246\2\-1\250\6\0\287\2\1\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\317\2\1\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870920
+   name           : Incident Status
+   datatype       : 6
+   fieldtype      : 1
+   create-mode    : 1
+   option         : 2
+   fieldOption    : 1
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   enum-value     : New
+   enum-value     : Assigned
+   enum-value     : In Progress
+   enum-value     : Pending
+   enum-value     : Resolved
+   enum-value     : Closed
+   enum-value     : Cancelled
+   default        : 0
+   permission     : 0\1
+   permission     : 20000\2
+ display-instance : 536870912\29\3\41\2\81439\29600\114172\31700\4\6\1\5\6\2\7\40\2147483655\14\40\1\20\4\15\Incident Status\21\41\2\0\400\8323\2100\27\8\16\28\6\4\29\6\1\60\40\&
+ display-instance : 1\61\40\0\62\6\0\64\6\0\65\41\2\4500\0\4500\0\66\41\2\4500\0\4500\0\143\40\8\151\41\2\13160\0\32732\2100\170\40\0\230\4\74\7\0\New\1\Assigned\2\In Progr&
+ display-instance : ess\3\Pending\4\Resolved\5\Closed\6\Cancelled\231\6\0\246\2\-1\250\6\0\287\2\1\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\317\2\1\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+end
+begin schema
+   name           : XM:Event Injection
+   core-version   : 2
+   upgrade-version: 0
+   num-fields     : 16
+   timestamp      : 1440013994
+   owner          : xMatters
+   last-changed   : Demo
+   default-vui    : Default Administrator View
+   num-vuis       : 1
+   export-version : 12
+   schema-type    : 1
+   next-field-id  : 536870912
+   permission     : 0\1
+   index          : 1\7\0
+   get-list-flds  : 4\1\10\0\\536870913\10\0\\7\10\0\\536870915\10\0\
+   help-text      : 2012/01/11This form is the staging form for sending events to xMatters.  The main purpose of the form is to provide a Remedy ID which can be used to q
+   help-text      : uery for more information using web services and an Action keyword that describes what should be done in xMatters.  The current Actions are:Add: cre
+   help-text      : ates a user/group/event in xMatters.Update: modifies a user/group in xMatters.Delete: deletes a user/group/event in xMatters.Load: Start a batch l
+   help-text      : oad of user/group information to xMatters. Note: No Remedy ID is required for this action.The Remedy ID is used to determine if the Add/Update/Delet
+   help-text      : e operation should be performed on a user: PPL, group: SGP, incident: INC.
+   object-prop    : 3\60048\4\0\\90015\2\4\90016\4\1\1\
+   archive        : 1\2\0
+      arch-time   : 0\127\1\0
+      arch-from   : 
+      arch-query  : 4\4\1\6\3\6\2\0\
+vui  {
+   id             : 536870912
+   name           : Default Administrator View
+   label          : Default Administrator View
+   timestamp      : 1440013993
+   vui-locale     : 
+   vui-type       : 1
+   owner          : Demo
+   last-changed   : Demo
+   display-prop   : 2\20\4\26\Default Administrator View\168\40\5\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 1
+   name           : Request ID
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 15
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\14\3\41\2\5399\2500\28233\4600\4\6\1\7\40\2147483640\20\4\10\Request ID\21\41\2\0\400\7086\2100\27\8\16\28\6\4\29\6\1\60\40\1\65\41\2\0\0\0\0\143\4&
+ display-instance : 0\4294967295\151\41\2\7649\0\22834\2100\170\40\0\231\6\1\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 2
+   name           : Submitter
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   default        : $-1$
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\6074\5000\31158\7100\4\6\1\7\40\2147483641\20\4\9\Submitter\21\41\2\0\400\6411\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\30\65\41\2\0\0\0\&
+ display-instance : 0\66\41\2\22722\0\25084\2100\143\40\4294967295\151\41\2\6974\0\22159\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 3
+   name           : Create Date
+   datatype       : 7
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\5061\7500\31157\9600\4\6\1\7\40\2147483642\20\4\11\Create Date\21\41\2\0\400\7424\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\23\65\41\2\0\0&
+ display-instance : \0\0\66\41\2\23734\0\26096\2100\143\40\4294967295\151\41\2\7986\0\23171\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 4
+   name           : Assigned To
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   default        : xmatters
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\5511\10000\31157\12100\4\6\1\7\40\2147483643\20\4\11\Assigned To\21\41\2\0\400\6974\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\30\65\41\2\0&
+ display-instance : \0\0\0\66\41\2\23284\0\25646\2100\143\40\4294967295\151\41\2\7536\0\22721\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 5
+   name           : Last Modified By
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\2699\12500\31157\14600\4\6\1\7\40\2147483644\20\4\16\Last Modified By\21\41\2\0\400\9786\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\33\65\4&
+ display-instance : 1\2\0\0\0\0\66\41\2\26096\0\28458\2100\143\40\4294967295\151\41\2\10348\0\25533\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 6
+   name           : Modified Date
+   datatype       : 7
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\4049\15000\31158\17100\4\6\1\7\40\2147483645\20\4\13\Modified Date\21\41\2\0\400\8436\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\23\65\41\2&
+ display-instance : \0\0\0\0\66\41\2\24746\0\27108\2100\143\40\4294967295\151\41\2\8998\0\24183\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 7
+   name           : Status
+   datatype       : 6
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 1
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   enum-value     : New
+   enum-value     : Error
+   enum-value     : Received
+   default        : 0
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\17\3\41\2\7986\17500\29470\19300\4\6\1\7\40\2147483646\20\4\6\Status\21\41\2\0\400\4499\1800\27\8\16\28\6\4\29\6\1\60\40\1\61\40\0\64\6\1\65\41\2\0&
+ display-instance : \0\0\0\143\40\4294967295\151\41\2\5061\400\21483\2200\170\40\0\230\4\26\3\0\New\1\Error\2\Received\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 8
+   name           : Short Description
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1440013993
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   default        : New event to inject to xMatters.
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\1012\20000\55680\22100\4\6\1\7\40\2147483647\20\4\17\Short Description\21\41\2\0\400\11473\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\50\65&
+ display-instance : \41\2\0\0\0\0\66\41\2\52305\0\54667\2100\143\40\4294967295\151\41\2\12035\0\51742\2100\170\40\0\231\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 15
+   name           : Status History
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1440013994
+   owner          : Demo
+   last-changed   : Demo
+   permission     : 3\1
+   permission     : 4\1
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870913
+   name           : ID
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 1
+   option         : 2
+   timestamp      : 1440013994
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\9336\23200\31495\25300\4\6\1\5\6\2\7\40\2147483648\14\40\1\20\4\2\ID\21\41\2\0\400\2812\2100\60\40\1\66\41\2\19797\0\22159\2100\143\40\42&
+ display-instance : 94967295\151\41\2\3374\0\19234\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870914
+   name           : Request Type
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1440013994
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 30
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\5624\34700\29695\36800\4\6\1\5\6\2\7\40\2147483652\14\40\1\20\4\12\Request Type\21\41\2\0\400\8323\2100\60\40\1\66\41\2\0\0\0\0\143\40\42&
+ display-instance : 94967295\151\41\2\8886\0\24071\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870915
+   name           : Send Attempts
+   datatype       : 2
+   fieldtype      : 1
+   create-mode    : 1
+   option         : 2
+   timestamp      : 1440013994
+   owner          : Demo
+   last-changed   : Demo
+   range-low      : 0
+   range-high     : 2147483647
+   default        : 0
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\15\3\41\2\5736\30700\31157\32800\4\6\1\5\6\2\7\40\2147483650\14\40\1\20\4\13\Send Attempts\21\41\2\0\400\9673\2100\62\6\1\66\41\2\0\0\0\0\143\40\42&
+ display-instance : 94967295\151\41\2\10236\0\25421\2100\170\40\0\288\6\0\289\4\4\0x00\290\4\4\0x00\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870916
+   name           : Action
+   datatype       : 6
+   fieldtype      : 1
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1440013994
+   owner          : Demo
+   last-changed   : Demo
+   enum-value     : Add
+   enum-value     : Update
+   enum-value     : Delete
+   enum-value     : Load
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\16\3\41\2\5961\26600\28120\28700\4\6\1\5\6\2\7\40\2147483651\14\40\1\20\4\6\Action\21\41\2\0\400\4499\2100\60\40\1\64\6\0\143\40\4294967295\151\41\&
+ display-instance : 2\5061\0\22158\2100\170\40\0\230\4\32\4\0\Add\1\Update\2\Delete\3\Load\288\6\0\289\4\4\0x00\290\4\4\0x00\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870917
+   name           : Additional Data
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1440013994
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\1
+ display-instance : 536870912\18\3\41\2\6861\38400\35882\40500\4\6\1\5\6\2\7\40\2147483653\14\40\1\20\4\15\Additional Data\21\41\2\0\400\10348\2100\60\40\1\66\41\2\26659\0\29021&
+ display-instance : \2100\143\40\4294967295\151\41\2\10911\0\26096\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870919
+   name           : Form
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1440013994
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\1
+   permission     : 20000\2
+ display-instance : 536870912\18\3\41\2\48143\25800\77164\27900\4\6\1\5\6\2\7\40\2147483654\14\40\1\20\4\4\Form\21\41\2\0\400\10348\2100\60\40\1\66\41\2\26659\0\29021\2100\143\4&
+ display-instance : 0\4294967295\151\41\2\10911\0\26096\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870918
+   name           : Message
+   datatype       : 4
+   fieldtype      : 1
+   create-mode    : 2
+   option         : 2
+   timestamp      : 1440013994
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\1
+   permission     : 20000\2
+ display-instance : 536870912\18\3\41\2\48256\29300\77277\31400\4\6\1\5\6\2\7\40\2147483655\14\40\1\20\4\15\Worklog Message\21\41\2\0\400\10348\2100\60\40\1\66\41\2\26659\0\2902&
+ display-instance : 1\2100\143\40\4294967295\151\41\2\10911\0\26096\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\310\6\0\5116\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+end
+begin filter
+   name           : XM:ACT:DeleteOnSubmit_050
+   timestamp      : 1440013994
+   owner          : Remedy
+   last-changed   : Demo
+   filter-op      : 20
+   enable         : 1
+   filter-order   : 50
+   wk-conn-type   : 1
+   schema-name    : XM:Action
+   export-version : 12
+   filter-query   : 4\6\99\536870914\2\0\
+   action {
+      command     : Application-Delete-Entry "$-5$" $1$
+   }
+   object-prop    : 2\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:ACT:PushEventOnDelete
+   timestamp      : 1440014074
+   owner          : Demo
+   last-changed   : Demo
+   filter-op      : 8
+   enable         : 1
+   filter-order   : 500
+   wk-conn-type   : 1
+   schema-name    : XM:Action
+   export-version : 12
+   filter-query   : 1\1\4\6\99\536870914\2\0\4\6\99\536870917\2\4\10\SLM Alerts\4\6\2\1\1\2\4\11\AR_ARCHIVER\
+   action {
+      push-field  : 0\1\@\18\XM:Event Injection\1\536870917\0\4\6\102\1\@\1\@\1\536870916\0\1\4\
+      push-field  : 1\1\@\18\XM:Event Injection\1\536870916\0\4\6\102\1\@\1\@\1\536870914\0\1\4\
+      push-field  : 2\1\@\18\XM:Event Injection\1\536870914\0\4\6\102\1\@\1\@\1\536870915\0\1\4\
+      push-field  : 3\1\@\18\XM:Event Injection\1\536870913\0\4\6\102\1\@\1\@\1\536870913\0\1\4\
+      push-field  : 4\1\@\18\XM:Event Injection\1\8\0\4\6\102\1\@\1\@\1\8\0\1\4\
+      push-field  : 5\1\@\18\XM:Event Injection\1\536870919\0\4\6\102\1\@\1\@\1\536870917\0\1\4\
+      push-field  : 6\1\@\18\XM:Event Injection\1\536870918\0\4\6\102\1\@\1\@\1\536870918\0\1\4\
+   }
+   object-prop    : 2\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:EI:EventInjectionError
+   timestamp      : 1440013994
+   owner          : Demo
+   last-changed   : Demo
+   filter-op      : 0
+   enable         : 1
+   filter-order   : 500
+   wk-conn-type   : 1
+   schema-name    : XM:Event Injection
+   export-version : 12
+   action {
+      set-field   : 0\8\104\1\104\1\104\1\104\1\104\1\104\1\101\4\8\Error - \101\1\42\101\4\2\: \101\1\43\101\4\6\ for (\102\1\@\1\@\1\8\0\1\4\101\4\1\)\
+      set-field   : 1\7\101\4\5\Error\
+   }
+   object-prop    : 2\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin container
+   name           : XM:Foundation Packing List
+   type           : 3
+   num-references : 9
+   timestamp      : 1440013994
+   owner          : Demo
+   last-changed   : Demo
+   export-version : 12
+   label          : xMatters Foundation Packing List
+   description    : This packing list includes all the xMatters objects required by all other xMatters integration modules.
+   object-prop    : 2\90015\2\4\90016\4\1\1\
+reference {
+   type           : 2
+   datatype       : 0
+   object         : XM:Action
+}
+reference {
+   type           : 2
+   datatype       : 0
+   object         : XM:Event Injection
+}
+reference {
+   type           : 32801
+   datatype       : 1
+   value          : 0\
+}
+reference {
+   type           : 6
+   datatype       : 0
+   object         : XM_COM_Company_WS
+}
+reference {
+   type           : 32801
+   datatype       : 1
+   value          : 0\
+}
+reference {
+   type           : 6
+   datatype       : 0
+   object         : XM_CTM_Support_Group_WS
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:ACT:DeleteOnSubmit_050
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:ACT:PushEventOnDelete
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:EI:EventInjectionError
+}
+end
+begin container
+   name           : XM_COM_Company_WS
+   type           : 5
+   num-references : 8
+   timestamp      : 1440013994
+   owner          : Demo
+   owning-obj     : 1\2\11\COM:Company\
+   last-changed   : Demo
+   export-version : 12
+   permission     : 0\1
+   description    : xMatters web service to obtain companies for the subscription panel.
+   object-prop    : 3\90002\4\25\Remedy Foundation Company\90015\2\4\90016\4\1\1\
+reference {
+   type           : 32797
+   datatype       : 1
+   value          : 4\174\<?xml version="1.0"?><portProperties name="Company"><portType name=""/><xmlSchemaSource name="embedded"/><externalSchema name=""/><portName name=
+   value          : "Company"/></portProperties>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32798
+   datatype       : 1
+   value          : 4\585\<?xml version="1.0" encoding="UTF-8"?><operation maxLimit="XPATH(/ROOT/maxLimit)" name="CompanyList"    qualification="XPATH(/ROOT/Qualification
+   value          : )"    startRecord="XPATH(/ROOT/startRecord)" type="get">    <arOptions>        <setOptions>            <type>setFirst</type>            <documentTy
+   value          : pe>full</documentType>        </setOptions>    </arOptions>    <inputMapping name="InputMapping1" namespace="XM_COM_Company_WS" topLevelElement="Comp
+   value          : anyList"/>    <outputMapping name="OutputMapping1" namespace="XM_COM_Company_WS" topLevelElement="CompanyListResponse"/></operation>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32828
+   datatype       : 1
+   value          : 4\0\\
+   ref-groups     : 0
+}
+reference {
+   type           : 32843
+   datatype       : 1
+   value          : 0\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\920\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping1" schemaS
+   value          : ource="generated">    <element all="false" dataType="ROOT" default="" maxOccurs="1"        minOccurs="1" name="ROOT" targetNamespace="urn:XM_COM_Compa
+   value          : ny_WS">        <formMapping>            <form distinguishingKeyId="1" foreignKeyId="1"                formName="COM:Company" primaryKeyId="1"/>     
+   value          :        <element all="" dataType="" default="" maxOccurs="unbounded"                minOccurs="1" name="getListValues">                <element dataTyp
+   value          : e="string" default="" maxOccurs="1"                    minOccurs="1" name="Company" nillable="false" xmlType="false">                    <fieldMapping
+   value          :  arFieldId="1000000001" arFieldPart="" defaultAttachName=""/>                </element>            </element>        </formMapping>    </element></
+   value          : arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\914\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping1" schemaSo
+   value          : urce="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1" formName="" primaryKeyId="1"/>        <element all="false" d
+   value          : ataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_COM_Company_WS">            <element dataType="st
+   value          : ring" default="" maxOccurs="1"                minOccurs="1" name="Qualification" nillable="false" xmlType="false"/>            <element dataType="stri
+   value          : ng" default="" maxOccurs="1"                minOccurs="1" name="startRecord" nillable="false" xmlType="false"/>            <element dataType="string" 
+   value          : default="" maxOccurs="1"                minOccurs="1" name="maxLimit" nillable="false" xmlType="false"/>        </element>    </formMapping></arDocM
+   value          : apping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32800
+   datatype       : 1
+   value          : 4\3492\<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="urn:XM_COM_Company_WS" xmlns:s0="urn:XM_COM_Company_WS" xmlns:soap="ht
+   value          : tp://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="
+   value          : http://www.w3.org/2001/XMLSchema"> <wsdl:types>  <xsd:schema elementFormDefault="qualified" targetNamespace="urn:XM_COM_Company_WS">   <xsd:elemen
+   value          : t name="CompanyList" type="s0:InputMapping1"/>   <xsd:complexType name="InputMapping1">    <xsd:sequence>     <xsd:element name="Qualification" ty
+   value          : pe="xsd:string"/>     <xsd:element name="startRecord" type="xsd:string"/>     <xsd:element name="maxLimit" type="xsd:string"/>    </xsd:sequence>
+   value          :    </xsd:complexType>   <xsd:element name="CompanyListResponse" type="s0:OutputMapping1"/>   <xsd:complexType name="OutputMapping1">    <xsd:seq
+   value          : uence>     <xsd:element maxOccurs="unbounded" name="getListValues">      <xsd:complexType>       <xsd:sequence>        <xsd:element name="Compan
+   value          : y" type="xsd:string"/>       </xsd:sequence>      </xsd:complexType>     </xsd:element>    </xsd:sequence>   </xsd:complexType>   <xsd:eleme
+   value          : nt name="AuthenticationInfo" type="s0:AuthenticationInfo"/>   <xsd:complexType name="AuthenticationInfo">    <xsd:sequence>     <xsd:element name=
+   value          : "userName" type="xsd:string"/>     <xsd:element name="password" type="xsd:string"/>     <xsd:element minOccurs="0" name="authentication" type="xsd:s
+   value          : tring"/>     <xsd:element minOccurs="0" name="locale" type="xsd:string"/>     <xsd:element minOccurs="0" name="timeZone" type="xsd:string"/>    </
+   value          : xsd:sequence>   </xsd:complexType>  </xsd:schema> </wsdl:types>   <wsdl:message name="CompanyListSoapIn">      <wsdl:part element="s0:Compan
+   value          : yList" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="ARAuthenticate">      <wsdl:part element="s0:Authenticat
+   value          : ionInfo" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="CompanyListSoapOut">      <wsdl:part element="s0:Compa
+   value          : nyListResponse" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:portType name="CompanyPortType">      <wsdl:operation name="C
+   value          : ompanyList">         <wsdl:input message="s0:CompanyListSoapIn">       </wsdl:input>         <wsdl:output message="s0:CompanyListSoapOut">  
+   value          :      </wsdl:output>      </wsdl:operation>   </wsdl:portType>   <wsdl:binding name="CompanySoapBinding" type="s0:CompanyPortType">      <soa
+   value          : p:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>      <wsdl:operation name="CompanyList">         <soap:operation soa
+   value          : pAction="urn:XM_COM_Company_WS/CompanyList" style="document"/>         <wsdl:input>            <soap:header message="s0:ARAuthenticate" part="para
+   value          : meters" use="literal">            </soap:header>            <soap:body use="literal"/>         </wsdl:input>         <wsdl:output>       
+   value          :      <soap:body use="literal"/>         </wsdl:output>      </wsdl:operation>   </wsdl:binding>   <wsdl:service name="XM_COM_Company_WSServi
+   value          : ce">  <wsdl:documentation>xMatters web service to obtain companies for the subscription panel.  </wsdl:documentation>      <wsdl:port binding="s
+   value          : 0:CompanySoapBinding" name="CompanySoap">         <soap:address location="@LOCATION@"/>      </wsdl:port>   </wsdl:service></wsdl:definition
+   value          : s>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32802
+   datatype       : 1
+   value          : 4\74\http://<midtier_server>/arsys/WSDL/public/vic-vw-remedy8/XM_COM_Company_WS\
+   ref-groups     : 0
+}
+end
+begin container
+   name           : XM_CTM_Support_Group_WS
+   type           : 5
+   num-references : 7
+   timestamp      : 1440013994
+   owner          : Demo
+   owning-obj     : 1\2\17\CTM:Support Group\
+   last-changed   : Demo
+   export-version : 12
+   permission     : 0\1
+   description    : xMatters web service to expose CTM:Support Group. This web service is meant to expose those fields that belong to CTM:Support Group which can be used to
+   description    :  create an xMatters group.
+   object-prop    : 3\90002\4\26\Remedy Foundation Elements\90015\2\4\90016\4\1\1\
+reference {
+   type           : 32797
+   datatype       : 1
+   value          : 4\170\<?xml version="1.0"?><portProperties name="Group"><portType name=""/><xmlSchemaSource name="embedded"/><externalSchema name=""/><portName name="G
+   value          : roup"/></portProperties>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32798
+   datatype       : 1
+   value          : 4\607\<?xml version="1.0" encoding="UTF-8"?><operation maxLimit="XPATH(/ROOT/maxLimit)" name="GroupList"    qualification="XPATH(/ROOT/Qualification)"
+   value          :     startRecord="XPATH(/ROOT/startRecord)" type="get">    <arOptions>        <setOptions>            <type>setFirst</type>            <documentType
+   value          : >full</documentType>        </setOptions>    </arOptions>    <inputMapping name="InputMapping1"        namespace="XM_CTM_Support_Group_WS" topLevelE
+   value          : lement="GroupList"/>    <outputMapping name="OutputMapping1"        namespace="XM_CTM_Support_Group_WS" topLevelElement="GroupListResponse"/></operat
+   value          : ion>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32828
+   datatype       : 1
+   value          : 4\0\\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\2477\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping1" schema
+   value          : Source="generated">    <element all="false" dataType="ROOT" default="" maxOccurs="1"        minOccurs="1" name="ROOT" targetNamespace="urn:XM_CTM_Supp
+   value          : ort_Group_WS">        <formMapping>            <form distinguishingKeyId="1" foreignKeyId="1"                formName="CTM:Support Group" primaryKeyI
+   value          : d="1"/>            <element all="" dataType="" default="" maxOccurs="unbounded"                minOccurs="1" name="getListValues">                <el
+   value          : ement dataType="string" default="" maxOccurs="1"                    minOccurs="1" name="Support_Group_ID"                    nillable="false" xmlType=
+   value          : "false">                    <fieldMapping arFieldId="1" arFieldPart="" defaultAttachName=""/>                </element>                <element dataT
+   value          : ype="string" default="" maxOccurs="1"                    minOccurs="1" name="Company" nillable="false" xmlType="false">                    <fieldMappi
+   value          : ng arFieldId="1000000001" arFieldPart="" defaultAttachName=""/>                </element>                <element dataType="string" default="" maxOccu
+   value          : rs="1"                    minOccurs="1" name="Support_Organization"                    nillable="false" xmlType="false">                    <fieldMap
+   value          : ping arFieldId="1000000014" arFieldPart="" defaultAttachName=""/>                </element>                <element dataType="string" default="" maxOc
+   value          : curs="1"                    minOccurs="1" name="Support_Group_Name"                    nillable="false" xmlType="false">                    <fieldMap
+   value          : ping arFieldId="1000000015" arFieldPart="" defaultAttachName=""/>                </element>                <element dataType="string" default="" maxOc
+   value          : curs="1"                    minOccurs="1" name="Description" nillable="false" xmlType="false">                    <fieldMapping arFieldId="1000000000"
+   value          :  arFieldPart="" defaultAttachName=""/>                </element>                <element dataType="string" default=""                    enumValues="
+   value          : Proposed,Enabled,Offline,Obsolete,Archive,Delete"                    maxOccurs="1" minOccurs="1" name="Status"                    nillable="false" xml
+   value          : Type="false">                    <fieldMapping arFieldId="7" arFieldPart="" defaultAttachName=""/>                </element>            </element>  
+   value          :       </formMapping>    </element></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\761\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping1" schemaSo
+   value          : urce="generated">    <element all="false" dataType="ROOT" default="" maxOccurs="1"        minOccurs="1" name="ROOT" targetNamespace="urn:XM_CTM_Suppor
+   value          : t_Group_WS">        <element dataType="string" default="" maxOccurs="1"            minOccurs="1" name="Qualification" nillable="false" xmlType="false"
+   value          : />        <element dataType="string" default="" maxOccurs="1"            minOccurs="1" name="startRecord" nillable="false" xmlType="false"/>        <
+   value          : element dataType="string" default="" maxOccurs="1"            minOccurs="1" name="maxLimit" nillable="false" xmlType="false"/>    </element></arDocMa
+   value          : pping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32800
+   datatype       : 1
+   value          : 4\4297\<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="urn:XM_CTM_Support_Group_WS" xmlns:s0="urn:XM_CTM_Support_Group_WS" xm
+   value          : lns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+   value          :  xmlns:xsd="http://www.w3.org/2001/XMLSchema"> <wsdl:types>  <xsd:schema elementFormDefault="qualified" targetNamespace="urn:XM_CTM_Support_Group_WS
+   value          : ">   <xsd:element name="GroupList" type="s0:InputMapping1"/>   <xsd:complexType name="InputMapping1">    <xsd:sequence>     <xsd:element name="Q
+   value          : ualification" type="xsd:string"/>     <xsd:element name="startRecord" type="xsd:string"/>     <xsd:element name="maxLimit" type="xsd:string"/>    
+   value          : </xsd:sequence>   </xsd:complexType>   <xsd:element name="GroupListResponse" type="s0:OutputMapping1"/>   <xsd:complexType name="OutputMapping1">
+   value          :     <xsd:sequence>     <xsd:element maxOccurs="unbounded" name="getListValues">      <xsd:complexType>       <xsd:sequence>        <xsd:elemen
+   value          : t name="Support_Group_ID" type="xsd:string"/>        <xsd:element name="Company" type="xsd:string"/>        <xsd:element name="Support_Organization"
+   value          :  type="xsd:string"/>        <xsd:element name="Support_Group_Name" type="xsd:string"/>        <xsd:element name="Description" type="xsd:string"/> 
+   value          :        <xsd:element name="Status" type="s0:StatusType"/>       </xsd:sequence>      </xsd:complexType>     </xsd:element>    </xsd:sequence>  
+   value          :  </xsd:complexType>   <xsd:simpleType name="StatusType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Proposed"/>     <xsd
+   value          : :enumeration value="Enabled"/>     <xsd:enumeration value="Offline"/>     <xsd:enumeration value="Obsolete"/>     <xsd:enumeration value="Archive"
+   value          : />     <xsd:enumeration value="Delete"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:element name="AuthenticationInfo" type="s0:Authenticat
+   value          : ionInfo"/>   <xsd:complexType name="AuthenticationInfo">    <xsd:sequence>     <xsd:element name="userName" type="xsd:string"/>     <xsd:element
+   value          :  name="password" type="xsd:string"/>     <xsd:element minOccurs="0" name="authentication" type="xsd:string"/>     <xsd:element minOccurs="0" name="l
+   value          : ocale" type="xsd:string"/>     <xsd:element minOccurs="0" name="timeZone" type="xsd:string"/>    </xsd:sequence>   </xsd:complexType>  </xsd:sch
+   value          : ema> </wsdl:types>   <wsdl:message name="GroupListSoapIn">      <wsdl:part element="s0:GroupList" name="parameters">      </wsdl:part>   <
+   value          : /wsdl:message>   <wsdl:message name="ARAuthenticate">      <wsdl:part element="s0:AuthenticationInfo" name="parameters">      </wsdl:part>  
+   value          :  </wsdl:message>   <wsdl:message name="GroupListSoapOut">      <wsdl:part element="s0:GroupListResponse" name="parameters">      </wsdl:part>
+   value          :    </wsdl:message>   <wsdl:portType name="GroupPortType">      <wsdl:operation name="GroupList">         <wsdl:input message="s0:GroupListSoap
+   value          : In">       </wsdl:input>         <wsdl:output message="s0:GroupListSoapOut">       </wsdl:output>      </wsdl:operation>   </wsdl:portTyp
+   value          : e>   <wsdl:binding name="GroupSoapBinding" type="s0:GroupPortType">      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap
+   value          : /http"/>      <wsdl:operation name="GroupList">         <soap:operation soapAction="urn:XM_CTM_Support_Group_WS/GroupList" style="document"/>  
+   value          :        <wsdl:input>            <soap:header message="s0:ARAuthenticate" part="parameters" use="literal">            </soap:header>            <
+   value          : soap:body use="literal"/>         </wsdl:input>         <wsdl:output>            <soap:body use="literal"/>         </wsdl:output>      <
+   value          : /wsdl:operation>   </wsdl:binding>   <wsdl:service name="XM_CTM_Support_Group_WSService">  <wsdl:documentation>xMatters web service to expose
+   value          :  CTM:Support Group. This web service is meant to expose those fields that belong to CTM:Support Group which can be used to create an xMatters group.  </
+   value          : wsdl:documentation>      <wsdl:port binding="s0:GroupSoapBinding" name="GroupSoap">         <soap:address location="@LOCATION@"/>      </wsdl:p
+   value          : ort>   </wsdl:service></wsdl:definitions>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32802
+   datatype       : 1
+   value          : 4\78\http://<midtier_server>/arsys/WSDL/public/<servername>/XM_CTM_Support_Group_WS\
+   ref-groups     : 0
+}
+end

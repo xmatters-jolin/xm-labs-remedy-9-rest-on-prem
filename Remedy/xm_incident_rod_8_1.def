@@ -1,0 +1,1967 @@
+char-set: UTF-8
+#
+#  File exported Wed Aug 19 17:23:24 2015
+#
+begin schema
+   name           : XM:SupportGrp_SupportGrpAssoci_join_form
+   core-version   : 2
+   upgrade-version: 0
+   num-fields     : 10
+   timestamp      : 1440014019
+   owner          : Demo
+   last-changed   : Demo
+   default-vui    : Default Administrator View
+   num-vuis       : 1
+   export-version : 12
+   schema-type    : 2
+      primary     : CTM:Support Group
+      secondary   : CTM:Support Group Association
+      join-option : 0
+      join-query  : 4\1\99\1\1\1000000079\
+   next-field-id  : 536870912
+   permission     : 20004\2
+   help-text      : The purpose of this form is to address the out of box behaviour of the CTM:Support Group Association form where Company, Support Organization and Suppor
+   help-text      : t Group fields are not populated.This join form is modelled after CTM:SupportGrp_SupportGrpAssoci_join_form which provides most of the same informatio
+   help-text      : n.  The xMatters version includes the fields Login ID and Fullname.
+   object-prop    : 3\60048\4\0\\90015\2\4\90016\4\1\1\
+vui  {
+   id             : 536870912
+   name           : Default Administrator View
+   label          : Default Administrator View
+   timestamp      : 1440014019
+   vui-locale     : 
+   vui-type       : 1
+   owner          : Demo
+   last-changed   : Demo
+   display-prop   : 2\20\4\26\Default Administrator View\168\40\5\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 1
+   name           : Request ID
+   datatype       : 4
+   fieldtype      : 2
+      mapschema   : 0
+      mapfield    : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1440014019
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 255
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 1
+   fulltext-optns : 0
+   permission     : 0\1
+   permission     : 3\1
+   permission     : 4\1
+ display-instance : 536870912\14\3\41\2\2699\26700\25533\28800\4\6\1\7\40\2147483643\20\4\10\Request ID\21\41\2\0\400\7086\2100\27\8\16\28\6\4\29\6\1\60\40\1\65\41\2\0\0\0\0\143&
+ display-instance : \40\4294967295\151\41\2\7649\0\22834\2100\170\40\0\231\6\1\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 4
+   name           : Login ID
+   datatype       : 4
+   fieldtype      : 2
+      mapschema   : 1
+      mapfield    : 4
+   create-mode    : 2
+   option         : 1
+   timestamp      : 1440014019
+   owner          : Remedy
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 1
+   qbe-match-op   : 2
+   fulltext-optns : 0
+   permission     : -20000\2
+   permission     : 0\1
+ display-instance : 536870912\19\3\41\2\73678\9200\100787\11300\4\6\1\5\6\2\7\40\2147483646\20\4\8\Login ID\21\41\2\0\400\8325\2300\27\8\16\28\6\4\29\6\1\60\40\1\61\40\26\65\41\&
+ display-instance : 2\5895112\0\5895112\0\66\41\2\24746\0\27108\2100\143\40\4294967295\151\41\2\8886\0\24184\2100\170\40\0\231\6\0\246\2\-1\250\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 536870914
+   name           : Support Group Association ID
+   datatype       : 4
+   fieldtype      : 2
+      mapschema   : 1
+      mapfield    : 1
+   create-mode    : 2
+   option         : 3
+   timestamp      : 1440014019
+   owner          : Remedy
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 15
+   clob-store-opt : 0
+   menu-style     : 1
+   qbe-match-op   : 3
+   fulltext-optns : 0
+   default        : SGA
+   permission     : -1000000000\1
+   permission     : 7\1
+ display-instance : 536870912\18\3\41\2\65466\2900\96174\5000\4\6\1\7\40\2147483642\20\4\28\Support Group Association ID\21\41\2\0\400\16537\2100\27\8\16\28\6\4\29\6\1\60\40\1\6&
+ display-instance : 1\40\22\65\41\2\0\0\0\0\66\41\2\0\0\0\0\143\40\4294967295\151\41\2\17097\0\30707\2100\170\40\0\231\6\0\246\2\-1\250\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 1000000001
+   name           : Company
+   datatype       : 4
+   fieldtype      : 2
+      mapschema   : 0
+      mapfield    : 1000000001
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1440014019
+   owner          : Remedy
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 254
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 3
+   fulltext-optns : 0
+   char-menu      : COM:CPY:Company=Oper/Cust/Vend-Q
+   pattern        : $-107$
+   permission     : -20000\2
+   permission     : 0\1
+ display-instance : 536870912\19\3\41\2\1912\7100\43531\9200\4\6\1\5\6\2\7\40\2147483645\20\4\16\Support Company*\21\41\2\0\400\20250\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\30&
+ display-instance : \65\41\2\38807\0\41169\2100\66\41\2\5512\0\5512\0\143\40\2\151\41\2\20809\0\38694\2100\170\40\0\231\6\1\246\2\-1\250\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 1000000014
+   name           : Support Organization
+   datatype       : 4
+   fieldtype      : 2
+      mapschema   : 0
+      mapfield    : 1000000014
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1440014019
+   owner          : Remedy
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 60
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 3
+   fulltext-optns : 0
+   char-menu      : CTM:SGP:SupportOrganization1-Q
+   permission     : -20000\2
+   permission     : 0\1
+ display-instance : 536870912\19\3\41\2\1912\9500\43531\11600\4\6\1\5\6\2\7\40\2147483647\20\4\21\Support Organization*\21\41\2\0\400\20250\2100\27\8\16\28\6\4\29\6\1\60\40\1\61&
+ display-instance : \40\30\65\41\2\38807\0\41169\2100\66\41\2\3150\0\3150\0\143\40\3\151\41\2\20809\0\38694\2100\170\40\0\231\6\0\246\2\-1\250\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 1000000015
+   name           : Support Group Name
+   datatype       : 4
+   fieldtype      : 2
+      mapschema   : 0
+      mapfield    : 1000000015
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1440014019
+   owner          : Remedy
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 60
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 3
+   fulltext-optns : 0
+   char-menu      : CTM:SGP:SupportGroup1-Q
+   permission     : -20000\2
+   permission     : 0\1
+ display-instance : 536870912\19\3\41\2\2137\12600\43081\14700\4\6\1\5\6\2\7\40\2147483648\20\4\19\Support Group Name*\21\41\2\0\400\20250\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\&
+ display-instance : 40\30\65\41\2\38582\0\40944\2100\66\41\2\7762\0\7762\0\143\40\4\151\41\2\20809\0\38019\2100\170\40\0\231\6\0\246\2\-1\250\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 1000000017
+   name           : Full Name
+   datatype       : 4
+   fieldtype      : 2
+      mapschema   : 1
+      mapfield    : 1000000017
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1440014019
+   owner          : Remedy
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 128
+   clob-store-opt : 0
+   menu-style     : 2
+   qbe-match-op   : 3
+   fulltext-optns : 0
+   char-menu      : CTM:SGL:Assignee-COI-Q
+   permission     : -20000\2
+   permission     : 0\1
+ display-instance : 536870912\19\3\41\2\73678\11900\100787\14000\4\6\1\5\6\2\7\40\2147483651\20\4\9\Full Name\21\41\2\0\400\8325\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\20\65\4&
+ display-instance : 1\2\21822\0\24184\2100\66\41\2\24746\0\27108\2100\143\40\4294967295\151\41\2\8886\0\21259\2100\170\40\0\231\6\0\246\2\-1\250\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 1000000075
+   name           : Default
+   datatype       : 6
+   fieldtype      : 2
+      mapschema   : 1
+      mapfield    : 1000000075
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1440014019
+   owner          : Remedy
+   last-changed   : Demo
+   enum-value     : Yes
+   enum-value     : No
+   default        : 1
+   permission     : -20000\2
+   permission     : 0\1
+ display-instance : 536870912\21\3\41\2\76940\17900\90213\19700\4\6\1\5\6\2\7\40\2147483649\20\4\7\Default\21\41\2\0\400\5061\1800\27\8\16\28\6\4\29\6\1\60\40\1\61\40\25\64\6\1\&
+ display-instance : 65\41\2\0\0\0\0\66\41\2\0\0\0\0\143\40\4294967295\151\41\2\5624\400\13273\2200\170\40\0\230\4\12\2\0\Yes\1\No\231\6\0\246\2\-1\250\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 1000000079
+   name           : Support Group ID
+   datatype       : 4
+   fieldtype      : 2
+      mapschema   : 1
+      mapfield    : 1000000079
+   create-mode    : 2
+   option         : 1
+   timestamp      : 1440014019
+   owner          : Demo
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 15
+   clob-store-opt : 0
+   menu-style     : 1
+   qbe-match-op   : 3
+   fulltext-optns : 0
+   permission     : -20000\2
+   permission     : 0\1
+ display-instance : 536870912\17\3\41\2\2362\3700\42969\5800\4\6\1\5\6\2\7\40\2147483652\14\40\1\20\4\16\Support Group ID\21\41\2\0\400\19910\2100\27\8\16\60\40\1\66\41\2\38245\&
+ display-instance : 0\40607\2100\143\40\4294967295\151\41\2\20472\0\37682\2100\170\40\0\231\6\0\288\6\0\289\4\4\0x00\290\4\4\0x00\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+field {
+   id             : 1000000080
+   name           : Person ID
+   datatype       : 4
+   fieldtype      : 2
+      mapschema   : 1
+      mapfield    : 1000000080
+   create-mode    : 1
+   option         : 1
+   timestamp      : 1440014019
+   owner          : Remedy
+   last-changed   : Demo
+   length-units   : 0
+   maxlength      : 15
+   clob-store-opt : 0
+   menu-style     : 1
+   qbe-match-op   : 3
+   fulltext-optns : 0
+   permission     : -20000\2
+   permission     : 0\1
+ display-instance : 536870912\18\3\41\2\73678\6200\97862\8300\4\6\1\7\40\2147483650\20\4\9\Person ID\21\41\2\0\400\8325\2100\27\8\16\28\6\4\29\6\1\60\40\1\61\40\26\65\41\2\7987\&
+ display-instance : 0\7987\0\66\41\2\7987\0\7987\0\143\40\4294967295\151\41\2\8886\0\24184\2100\170\40\0\231\6\0\246\2\-1\250\6\0\
+   object-prop    : 2\90016\4\1\1\90015\2\4\
+}
+end
+begin filter
+   name           : XM:ACT:PushEvent_SLMStatusRed_010
+   timestamp      : 1440014020
+   owner          : Demo
+   last-changed   : Demo
+   filter-op      : 20
+   enable         : 1
+   filter-order   : 10
+   wk-conn-type   : 1
+   schema-name    : XM:Action
+   export-version : 12
+   filter-query   : 1\1\1\1\1\4\1\99\536870914\2\4\3\Add\4\1\99\536870917\2\4\10\SLM Alerts\4\6\99\536870913\2\0\4\4\99\536870920\2\6\4\4\5\99\536870919\2\6\1\4\7\99\8\2\4\
+   filter-query   : 47\%Sending Service Targets Breached for Incident%\
+   action {
+      push-field  : 0\1\@\18\XM:Event Injection\1\536870919\0\4\6\102\1\@\1\@\1\536870917\0\1\4\
+      push-field  : 1\1\@\18\XM:Event Injection\1\536870918\0\4\6\102\1\@\1\@\1\536870918\0\1\4\
+      push-field  : 2\1\@\18\XM:Event Injection\1\536870917\0\4\6\102\1\@\1\@\1\536870916\0\1\4\
+      push-field  : 3\1\@\18\XM:Event Injection\1\536870916\0\4\6\102\1\@\1\@\1\536870914\0\1\4\
+      push-field  : 4\1\@\18\XM:Event Injection\1\536870914\0\4\6\102\1\@\1\@\1\536870915\0\1\4\
+      push-field  : 5\1\@\18\XM:Event Injection\1\536870913\0\4\6\102\1\@\1\@\1\536870913\0\1\4\
+      push-field  : 6\1\@\18\XM:Event Injection\1\8\0\4\6\102\1\@\1\@\1\8\0\1\4\
+   }
+   object-prop    : 2\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:ACT:PushEvent_SLMStatusYellow_010
+   timestamp      : 1440014020
+   owner          : Demo
+   last-changed   : Demo
+   filter-op      : 20
+   enable         : 1
+   filter-order   : 10
+   wk-conn-type   : 1
+   schema-name    : XM:Action
+   export-version : 12
+   filter-query   : 1\1\1\1\1\4\1\99\536870914\2\4\3\Add\4\1\99\536870917\2\4\10\SLM Alerts\4\6\99\536870913\2\0\4\4\99\536870920\2\6\4\4\5\99\536870919\2\6\1\4\7\99\8\2\4\
+   filter-query   : 45\%Sending Service Target Warning for Incident%\
+   action {
+      push-field  : 0\1\@\18\XM:Event Injection\1\536870919\0\4\6\102\1\@\1\@\1\536870917\0\1\4\
+      push-field  : 1\1\@\18\XM:Event Injection\1\536870918\0\4\6\102\1\@\1\@\1\536870918\0\1\4\
+      push-field  : 2\1\@\18\XM:Event Injection\1\536870917\0\4\6\102\1\@\1\@\1\536870916\0\1\4\
+      push-field  : 3\1\@\18\XM:Event Injection\1\536870916\0\4\6\102\1\@\1\@\1\536870914\0\1\4\
+      push-field  : 4\1\@\18\XM:Event Injection\1\536870914\0\4\6\102\1\@\1\@\1\536870915\0\1\4\
+      push-field  : 5\1\@\18\XM:Event Injection\1\536870913\0\4\6\102\1\@\1\@\1\536870913\0\1\4\
+      push-field  : 6\1\@\18\XM:Event Injection\1\8\0\4\6\102\1\@\1\@\1\8\0\1\4\
+   }
+   object-prop    : 2\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:ACT:SLM_GetFieldValues_000
+   timestamp      : 1440014020
+   owner          : Demo
+   last-changed   : Demo
+   filter-op      : 20
+   enable         : 1
+   filter-order   : 0
+   wk-conn-type   : 1
+   schema-name    : XM:Action
+   export-version : 12
+   filter-query   : 1\1\4\1\99\536870914\2\4\3\Add\4\1\99\536870917\2\4\10\SLM Alerts\4\6\99\536870913\2\0\
+   action {
+      set-field   : 0\536870920\102\1\@\13\HPD:Help Desk\1\7\4\1\1\1000000161\99\536870913\2\3\
+      set-field   : 1\536870919\102\1\@\13\HPD:Help Desk\1\1000000164\4\1\1\1000000161\99\536870913\2\3\
+   }
+   object-prop    : 2\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:EI:EventInjection_100
+   timestamp      : 1440029742
+   owner          : Demo
+   last-changed   : Demo
+   filter-op      : 4
+   enable         : 1
+   filter-order   : 100
+   wk-conn-type   : 1
+   schema-name    : XM:Event Injection
+   export-version : 12
+   filter-query   : 1\4\4\99\536870916\2\6\3\4\7\99\536870913\2\4\4\INC%\
+   action {
+      set-field   : 0\536870915\101\2\1\
+   }
+   action {
+      set-field   : 0\8\108\20\ARSYS.ARF.WEBSERVICE\20\101\4\36\c4245525-eeff-460b-a51a-79820047329f\101\4\20\WebServiceSoapClient\101\4\4\call\101\4\39\([Ljava/lang/String;
+      set-field   : 0\)Ljava/lang/String;\101\4\72\C:\Documents and Settings\Administrator\Desktop\apia_http_bmcremedy.wsdl\101\4\27\apia_http_bmcRemedyIncident\101\4\619\<?
+      set-field   : 0\xml version="1.0" encoding="UTF-8"?><operation bindingStyle="document" name="triggerIncident"    soapActionURI="triggerIncident" type="create" useSty
+      set-field   : 0\le="literal">    <arOptions>        <setOptions>            <type>setFirst</type>            <documentType>full</documentType>        </setOptions
+      set-field   : 0\>    </arOptions>    <inputMapping name="TriggerRequest"        namespace="http://www.xmatters.com/apia_http_bmcremedy/" topLevelElement="TriggerReq
+      set-field   : 0\uest"/>    <outputMapping name="TriggerResponse"        namespace="http://www.xmatters.com/apia_http_bmcremedy/" topLevelElement="TriggerResponse"/>
+      set-field   : 0\</operation>\101\4\61\http://localhost:8081/http/applications_bmcremedyincident-5-1\101\4\44\http://www.xmatters.com/apia_http_bmcremedy/\101\4\1955\<
+      set-field   : 0\?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="TriggerRequest" schemaSource=
+      set-field   : 0\"imported">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="XM:Event Injection" primaryKeyId="1"/>     
+      set-field   : 0\   <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="http://www.xmatters.com/apia_ht
+      set-field   : 0\tp_bmcremedy/">            <element dataType="string" default="" form="qualified"                maxOccurs="1" minOccurs="1" name="action"          
+      set-field   : 0\      nillable="false"                targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/" xmlType="false">                <fieldMapping ar
+      set-field   : 0\FieldId="536870916" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" form="qualified"   
+      set-field   : 0\             maxOccurs="1" minOccurs="1" name="id" nillable="false"                targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/" xmlT
+      set-field   : 0\ype="false">                <fieldMapping arFieldId="536870913" arFieldPart="" defaultAttachName=""/>            </element>            <element data
+      set-field   : 0\Type="string" default="" form="qualified"                maxOccurs="1" minOccurs="0" name="form" nillable="false"                targetNamespace="htt
+      set-field   : 0\p://www.xmatters.com/apia_http_bmcremedy/" xmlType="false">                <fieldMapping arFieldId="536870919" arFieldPart="" defaultAttachName=""/> 
+      set-field   : 0\           </element>            <element dataType="string" default="" form="qualified"                maxOccurs="1" minOccurs="0" name="message"   
+      set-field   : 0\             nillable="false"                targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/" xmlType="false">                <fieldMap
+      set-field   : 0\ping arFieldId="536870918" arFieldPart="" defaultAttachName=""/>            </element>        </element>    </formMapping></arDocMapping>\101\4\12
+      set-field   : 0\48\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="TriggerResponse" schemaSo
+      set-field   : 0\urce="imported">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="XM:Event Injection" primaryKeyId="1"/>
+      set-field   : 0\        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="http://www.xmatters.com/ap
+      set-field   : 0\ia_http_bmcremedy/">            <element dataType="string" default="" form="qualified"                maxOccurs="1" minOccurs="1" name="status"     
+      set-field   : 0\           nillable="false"                targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/" xmlType="false">                <fieldMappi
+      set-field   : 0\ng arFieldId="7" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" form="qualified"      
+      set-field   : 0\          maxOccurs="1" minOccurs="1" name="description"                nillable="false"                targetNamespace="http://www.xmatters.com/apia
+      set-field   : 0\_http_bmcremedy/" xmlType="false">                <fieldMapping arFieldId="8" arFieldPart="" defaultAttachName=""/>            </element>        </e
+      set-field   : 0\lement>    </formMapping></arDocMapping>\101\4\31\apia_http_bmcRemedyIncidentSOAP\101\0\101\0\101\0\101\0\101\0\101\0\101\0\101\0\8\
+   }
+   object-prop    : 2\90015\2\4\90016\4\1\1\
+   errhandler-opt : 1
+   errhandler-name: XM:EI:EventInjectionError
+end
+begin filter
+   name           : XM:Incident_Closed_899
+   timestamp      : 1440014020
+   owner          : AlarmPoint
+   last-changed   : Demo
+   filter-op      : 2
+   enable         : 1
+   filter-order   : 899
+   wk-conn-type   : 1
+   schema-name    : HPD:Help Desk
+   export-version : 12
+   filter-query   : 1\1\4\3\99\7\2\6\4\4\4\51\7\2\6\4\4\5\99\1000000164\2\6\1\
+   action {
+      push-field  : 0\1\@\9\XM:Action\1\536870918\0\4\6\101\4\65\Events terminated in xMatters because related incident was closed\
+      push-field  : 1\1\@\9\XM:Action\1\536870914\0\4\6\101\4\6\Delete\
+      push-field  : 2\1\@\9\XM:Action\1\536870913\0\4\6\102\1\@\1\@\1\1000000161\0\1\4\
+      push-field  : 3\1\@\9\XM:Action\1\8\0\4\6\104\1\104\1\101\4\28\Sending Delete for Incident \102\1\@\1\@\1\1000000161\0\1\4\101\4\12\ to xMatters\
+   }
+   object-prop    : 7\60006\4\0\\60008\40\0\60009\4\0\\60010\4\0\\90002\4\26\Remedy Incident Management\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:Incident_PrioritySetCritical_899
+   timestamp      : 1440014020
+   owner          : AlarmPoint
+   last-changed   : Demo
+   filter-op      : 2
+   enable         : 1
+   filter-order   : 899
+   wk-conn-type   : 1
+   schema-name    : HPD:Help Desk
+   export-version : 12
+   filter-query   : 1\1\4\4\99\7\2\6\4\4\1\99\1000000164\2\6\0\4\2\51\1000000164\2\6\0\
+   action {
+      push-field  : 0\1\@\9\XM:Action\1\536870917\0\4\6\101\4\32\Incident Priority Upgrade Alerts\
+      push-field  : 1\1\@\9\XM:Action\1\536870914\0\4\6\101\4\3\Add\
+      push-field  : 2\1\@\9\XM:Action\1\536870913\0\4\6\102\1\@\1\@\1\1000000161\0\1\4\
+      push-field  : 3\1\@\9\XM:Action\1\8\0\4\6\104\1\104\1\101\4\45\Sending Priority set to Critical of Incident \102\1\@\1\@\1\1000000161\0\1\4\101\4\12\ to xMatters\
+   }
+   object-prop    : 7\60006\4\0\\60008\40\0\60009\4\0\\60010\4\0\\90002\4\26\Remedy Incident Management\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:Incident_PriorityUpgradeHigh_899
+   timestamp      : 1440014020
+   owner          : AlarmPoint
+   last-changed   : Demo
+   filter-op      : 2
+   enable         : 1
+   filter-order   : 899
+   wk-conn-type   : 1
+   schema-name    : HPD:Help Desk
+   export-version : 12
+   filter-query   : 1\1\4\4\99\7\2\6\4\4\1\99\1000000164\2\6\1\4\2\51\1000000164\2\6\1\
+   action {
+      push-field  : 0\1\@\9\XM:Action\1\536870917\0\4\6\101\4\32\Incident Priority Upgrade Alerts\
+      push-field  : 1\1\@\9\XM:Action\1\536870914\0\4\6\101\4\3\Add\
+      push-field  : 2\1\@\9\XM:Action\1\536870913\0\4\6\102\1\@\1\@\1\1000000161\0\1\4\
+      push-field  : 3\1\@\9\XM:Action\1\8\0\4\6\104\1\104\1\101\4\46\Sending Priority Upgrade2 to High of Incident \102\1\@\1\@\1\1000000161\0\1\4\101\4\12\ to xMatters\
+   }
+   object-prop    : 7\60006\4\0\\60008\40\0\60009\4\0\\60010\4\0\\90002\4\26\Remedy Incident Management\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:Incident_Re-Assigned_899
+   timestamp      : 1440014020
+   owner          : AlarmPoint
+   last-changed   : Demo
+   filter-op      : 2
+   enable         : 1
+   filter-order   : 899
+   wk-conn-type   : 1
+   schema-name    : HPD:Help Desk
+   export-version : 12
+   filter-query   : 1\1\1\1\4\4\99\7\2\6\4\4\5\99\1000000164\2\6\1\2\4\6\99\1000000218\51\1000000218\1\4\6\99\1000000217\51\1000000217\4\1\99\1000000218\2\0\4\6\99\4\2\1\1\
+   filter-query   : 4\6\2\1\1\2\4\8\xmatters\
+   action {
+      push-field  : 0\1\@\9\XM:Action\1\536870917\0\4\6\101\4\26\Reassigned Incident Alerts\
+      push-field  : 1\1\@\9\XM:Action\1\536870914\0\4\6\101\4\3\Add\
+      push-field  : 2\1\@\9\XM:Action\1\536870913\0\4\6\102\1\@\1\@\1\1000000161\0\1\4\
+      push-field  : 3\1\@\9\XM:Action\1\8\0\4\6\104\1\104\1\101\4\34\Sending re-assignment of Incident \102\1\@\1\@\1\1000000161\0\1\4\101\4\12\ to xMatters\
+   }
+   object-prop    : 7\60006\4\0\\60008\40\0\60009\4\0\\60010\4\0\\90002\4\26\Remedy Incident Management\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:Incident_Re-Opened_899
+   timestamp      : 1440014020
+   owner          : AlarmPoint
+   last-changed   : Demo
+   filter-op      : 2
+   enable         : 1
+   filter-order   : 899
+   wk-conn-type   : 1
+   schema-name    : HPD:Help Desk
+   export-version : 12
+   filter-query   : 1\1\1\4\4\99\7\2\6\4\4\3\51\7\2\6\4\4\5\99\1000000164\2\6\1\4\6\99\4\2\1\1\
+   action {
+      push-field  : 0\1\@\9\XM:Action\1\536870917\0\4\6\101\4\24\Reopened Incident Alerts\
+      push-field  : 1\1\@\9\XM:Action\1\536870914\0\4\6\101\4\3\Add\
+      push-field  : 2\1\@\9\XM:Action\1\536870913\0\4\6\102\1\@\1\@\1\1000000161\0\1\4\
+      push-field  : 3\1\@\9\XM:Action\1\8\0\4\6\104\1\104\1\101\4\29\Sending Re-opend Incident to \102\1\@\1\@\1\1000000161\0\1\4\101\4\12\ to xMatters\
+   }
+   help-text      : This is an example filter for sending an xMatters notification when a ticket is re-opened.  It is disabled by default because this feature is considered
+   help-text      :  very customer specific and as such the qualification should be reviewed to determine if it meets specific needs or should be changed.
+   object-prop    : 7\60006\4\0\\60008\40\0\60009\4\0\\60010\4\0\\90002\4\26\Remedy Incident Management\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:Incident_SLMStatusRed_899
+   timestamp      : 1440014020
+   owner          : Demo
+   last-changed   : Demo
+   filter-op      : 2
+   enable         : 1
+   filter-order   : 899
+   wk-conn-type   : 1
+   schema-name    : SLM:Measurement
+   export-version : 12
+   filter-query   : 1\1\1\1\1\4\1\99\300411700\2\4\13\HPD:Help Desk\4\1\99\1000003009\2\6\3\2\4\6\50\300365100\2\0\4\1\99\301330100\2\4\3\Yes\4\1\99\490009100\2\4\30\SL0011
+   filter-query   : 43D417CBsXFOQwuS6MAgFscA\4\6\99\300365100\51\300365100\4\6\99\300365100\2\6\5\
+   action {
+      push-field  : 0\1\@\9\XM:Action\1\536870917\0\4\6\101\4\10\SLM Alerts\
+      push-field  : 1\1\@\9\XM:Action\1\536870914\0\4\6\101\4\3\Add\
+      push-field  : 2\1\@\9\XM:Action\1\536870913\0\4\6\102\1\@\1\@\1\301238500\0\1\4\
+      push-field  : 3\1\@\9\XM:Action\1\8\0\4\6\104\1\104\1\101\4\46\Sending Service Targets Breached for Incident \102\1\@\1\@\1\301238500\0\1\4\101\4\12\ to xMatters\
+   }
+   object-prop    : 3\90002\4\31\Remedy Service Level Management\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:Incident_SLMStatusYellow_899
+   timestamp      : 1440014020
+   owner          : Demo
+   last-changed   : Demo
+   filter-op      : 2
+   enable         : 1
+   filter-order   : 899
+   wk-conn-type   : 1
+   schema-name    : SLM:Measurement
+   export-version : 12
+   filter-query   : 1\1\1\1\1\4\1\99\300411700\2\4\13\HPD:Help Desk\4\1\99\1000003009\2\6\2\2\4\6\50\300365100\2\0\4\1\99\301330100\2\4\3\Yes\4\1\99\490009100\2\4\30\SL0011
+   filter-query   : 43D417CBsXFOQwuS6MAgFscA\4\6\99\300365100\51\300365100\4\6\99\300365100\2\6\5\
+   action {
+      push-field  : 0\1\@\9\XM:Action\1\536870917\0\4\6\101\4\10\SLM Alerts\
+      push-field  : 1\1\@\9\XM:Action\1\536870914\0\4\6\101\4\3\Add\
+      push-field  : 2\1\@\9\XM:Action\1\536870913\0\4\6\102\1\@\1\@\1\301238500\0\1\4\
+      push-field  : 3\1\@\9\XM:Action\1\8\0\4\6\104\1\104\1\101\4\44\Sending Service Target Warning for Incident \102\1\@\1\@\1\301238500\0\1\4\101\4\12\ to xMatters\
+   }
+   object-prop    : 3\90002\4\31\Remedy Service Level Management\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:Incident_Submitted_899
+   timestamp      : 1440014020
+   owner          : AlarmPoint
+   last-changed   : Demo
+   filter-op      : 4
+   enable         : 1
+   filter-order   : 899
+   wk-conn-type   : 1
+   schema-name    : HPD:Help Desk
+   export-version : 12
+   filter-query   : 1\4\4\99\7\2\6\4\4\5\99\1000000164\2\6\1\
+   action {
+      push-field  : 0\1\@\9\XM:Action\1\536870917\0\4\6\101\4\19\New Incident Alerts\
+      push-field  : 1\1\@\9\XM:Action\1\536870914\0\4\6\101\4\3\Add\
+      push-field  : 2\1\@\9\XM:Action\1\536870913\0\4\6\102\1\@\1\@\1\1000000161\0\1\4\
+      push-field  : 3\1\@\9\XM:Action\1\8\0\4\6\104\1\104\1\101\4\17\Sending Incident \102\1\@\1\@\1\1000000161\0\1\4\101\4\12\ to xMatters\
+   }
+   object-prop    : 7\60006\4\0\\60008\40\0\60009\4\0\\60010\4\0\\90002\4\26\Remedy Incident Management\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:Incident_TerminateEventsWhenDowngraded_899
+   timestamp      : 1440014021
+   owner          : AlarmPoint
+   last-changed   : Demo
+   filter-op      : 2
+   enable         : 1
+   filter-order   : 899
+   wk-conn-type   : 1
+   schema-name    : HPD:Help Desk
+   export-version : 12
+   filter-query   : 1\1\4\4\99\7\2\6\4\4\2\99\1000000164\2\6\1\4\5\51\1000000164\2\6\1\
+   action {
+      push-field  : 0\1\@\9\XM:Action\1\536870918\0\4\6\101\4\56\Events terminated in xMatters due to downgraded priority\
+      push-field  : 1\1\@\9\XM:Action\1\536870914\0\4\6\101\4\6\Delete\
+      push-field  : 2\1\@\9\XM:Action\1\536870913\0\4\6\102\1\@\1\@\1\1000000161\0\1\4\
+      push-field  : 3\1\@\9\XM:Action\1\8\0\4\6\104\1\104\1\104\1\101\4\24\Sending Delete Incident \102\1\@\1\@\1\1000000161\0\1\4\101\4\54\ to xMatters because the priority
+      push-field  : 3\ has been lowered to \102\1\@\1\@\1\1000000164\0\1\4\
+   }
+   object-prop    : 7\60006\4\0\\60008\40\0\60009\4\0\\60010\4\0\\90002\4\26\Remedy Incident Management\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:Incident_TerminateEventsWhenRe-AssignedToMe_899
+   timestamp      : 1440014021
+   owner          : AlarmPoint
+   last-changed   : Demo
+   filter-op      : 2
+   enable         : 1
+   filter-order   : 899
+   wk-conn-type   : 1
+   schema-name    : HPD:Help Desk
+   export-version : 12
+   filter-query   : 1\1\1\4\4\99\7\2\6\4\4\5\99\1000000164\2\6\1\4\6\99\1000000218\51\1000000218\4\1\99\4\2\1\1\
+   action {
+      push-field  : 0\1\@\9\XM:Action\1\536870914\0\4\6\101\4\6\Delete\
+      push-field  : 1\1\@\9\XM:Action\1\536870913\0\4\6\102\1\@\1\@\1\1000000161\0\1\4\
+      push-field  : 2\1\@\9\XM:Action\1\8\0\4\6\104\1\104\1\104\1\104\1\101\4\24\Sending Delete Incident \102\1\@\1\@\1\1000000161\0\1\4\101\4\21\ to xMatters because \101\1
+      push-field  : 2\\1\101\4\37\has assigned the ticket to themselves\
+   }
+   object-prop    : 7\60006\4\0\\60008\40\0\60009\4\0\\60010\4\0\\90002\4\26\Remedy Incident Management\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin filter
+   name           : XM:Task_Assigned_899
+   timestamp      : 1440014021
+   owner          : Demo
+   last-changed   : Demo
+   filter-op      : 6
+   enable         : 0
+   filter-order   : 899
+   wk-conn-type   : 1
+   schema-name    : TMS:Task
+   export-version : 12
+   filter-query   : 1\4\1\50\7\2\6\2000\4\1\99\10001980\2\6\2000\
+   action {
+      push-field  : 0\1\@\9\XM:Action\1\536870914\0\4\5\101\4\3\Add\
+      push-field  : 1\1\@\9\XM:Action\1\536870913\0\4\5\102\1\@\1\@\1\1\0\1\4\
+      push-field  : 2\1\@\9\XM:Action\1\8\0\4\5\104\1\104\1\101\4\22\Sending Assigned Task \102\1\@\1\@\1\1\0\1\4\101\4\12\ to xMatters\
+   }
+   help-text      : This object is currently unsupported in the xMatters integration but is included for future enhancements that may add support.
+   object-prop    : 3\90002\4\22\Remedy Task Management\90015\2\4\90016\4\1\1\
+   errhandler-opt : 0
+end
+begin container
+   name           : XM:Incident Packing List
+   type           : 3
+   num-references : 22
+   timestamp      : 1440014021
+   owner          : Demo
+   last-changed   : Demo
+   export-version : 12
+   label          : xMatters Incident Packing List
+   description    : This packing list includes xMatters objects required by the incident integration module.  It depends on the objects in XM:Foundation Packing List.
+   object-prop    : 2\90015\2\4\90016\4\1\1\
+reference {
+   type           : 2
+   datatype       : 0
+   object         : XM:SupportGrp_SupportGrpAssoci_join_form
+}
+reference {
+   type           : 32801
+   datatype       : 1
+   value          : 0\
+}
+reference {
+   type           : 6
+   datatype       : 0
+   object         : XM_SupportGrp_SupportGrpAssoci_WS
+}
+reference {
+   type           : 32801
+   datatype       : 1
+   value          : 0\
+}
+reference {
+   type           : 6
+   datatype       : 0
+   object         : XM_HPD_IncidentInterface_WS
+}
+reference {
+   type           : 32801
+   datatype       : 1
+   value          : 0\
+}
+reference {
+   type           : 6
+   datatype       : 0
+   object         : XM_HPD_HelpDesk_WS
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:Incident_PriorityUpgradeHigh_899
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:Incident_PrioritySetCritical_899
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:ACT:PushEvent_SLMStatusYellow_010
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:Incident_SLMStatusRed_899
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:Incident_TerminateEventsWhenRe-AssignedToMe_899
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:Incident_Submitted_899
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:Task_Assigned_899
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:Incident_Closed_899
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:Incident_TerminateEventsWhenDowngraded_899
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:EI:EventInjection_100
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:ACT:PushEvent_SLMStatusRed_010
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:ACT:SLM_GetFieldValues_000
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:Incident_Re-Opened_899
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:Incident_Re-Assigned_899
+}
+reference {
+   type           : 3
+   datatype       : 0
+   object         : XM:Incident_SLMStatusYellow_899
+}
+end
+begin container
+   name           : XM_HPD_HelpDesk_WS
+   type           : 5
+   num-references : 10
+   timestamp      : 1440014021
+   owner          : Demo
+   owning-obj     : 1\2\13\HPD:Help Desk\
+   last-changed   : Demo
+   export-version : 12
+   permission     : 0\1
+   description    : xMatters web service to obtain information from HPD:Help Desk.  This web service provides more information than HPD:IncidentInterface; however HPD:Incid
+   description    : entInterface should be used to update incidents as it is the method BMC supports for ensuring workflow associated with HPD:Help Desk is run.
+   object-prop    : 3\90002\4\26\Remedy Incident Management\90015\2\4\90016\4\1\1\
+reference {
+   type           : 32797
+   datatype       : 1
+   value          : 4\190\<?xml version="1.0"?><portProperties name="XM_HPD_HelpDesk"><portType name=""/><xmlSchemaSource name="embedded"/><externalSchema name=""/><portNa
+   value          : me name="XM_HPD_HelpDesk"/></portProperties>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32798
+   datatype       : 1
+   value          : 4\528\<?xml version="1.0" encoding="UTF-8"?><operation name="GetIncident"    qualification="'1000000161' = XPATH(/ROOT/Incident_Number)" type="get"> 
+   value          :    <arOptions>        <setOptions>            <type>setFirst</type>            <documentType>full</documentType>        </setOptions>    </arOption
+   value          : s>    <inputMapping name="InputMapping2" namespace="XM_HPD_HelpDesk_WS" topLevelElement="GetIncident"/>    <outputMapping name="OutputMapping2" namesp
+   value          : ace="XM_HPD_HelpDesk_WS" topLevelElement="GetIncidentResponse"/></operation>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32828
+   datatype       : 1
+   value          : 4\0\\
+   ref-groups     : 0
+}
+reference {
+   type           : 32843
+   datatype       : 1
+   value          : 0\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\18322\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping2" schem
+   value          : aSource="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="HPD:Help Desk" primaryKeyId="1"/>  
+   value          :       <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_HPD_HelpDesk_WS">    
+   value          :         <element dataType="string" default="New"                enumValues="New,Assigned,In Progress,Pending,Resolved,Closed,Cancelled"               
+   value          :  maxOccurs="1" minOccurs="1" name="Status"                nillable="false" xmlType="false">                <fieldMapping arFieldId="7" arFieldPart="" 
+   value          : defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Produc
+   value          : t_Categorization_Tier_1"                nillable="false" xmlType="false">                <fieldMapping arFieldId="200000003" arFieldPart="" defaultAtt
+   value          : achName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Product_Categori
+   value          : zation_Tier_2"                nillable="false" xmlType="false">                <fieldMapping arFieldId="200000004" arFieldPart="" defaultAttachName=""
+   value          : />            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Product_Categorization_Tie
+   value          : r_3"                nillable="false" xmlType="false">                <fieldMapping arFieldId="200000005" arFieldPart="" defaultAttachName=""/>       
+   value          :      </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Department" nillable="false" xmlType
+   value          : ="false">                <fieldMapping arFieldId="200000006" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType
+   value          : ="string" default="" maxOccurs="1"                minOccurs="1" name="Site_Group" nillable="false" xmlType="false">                <fieldMapping arFie
+   value          : ldId="200000007" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"          
+   value          :       minOccurs="1" name="Region" nillable="false" xmlType="false">                <fieldMapping arFieldId="200000012" arFieldPart="" defaultAttachName
+   value          : =""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Product_Name" nillable=
+   value          : "false" xmlType="false">                <fieldMapping arFieldId="240001002" arFieldPart="" defaultAttachName=""/>            </element>            <e
+   value          : lement dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Manufacturer" nillable="false" xmlType="false">                <f
+   value          : ieldMapping arFieldId="240001003" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="Product M
+   value          : odel Version"                maxOccurs="1" minOccurs="1" name="Product_Model_Version"                nillable="false" xmlType="false">               
+   value          :  <fieldMapping arFieldId="240001005" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxO
+   value          : ccurs="1"                minOccurs="1" name="Site" nillable="false" xmlType="false">                <fieldMapping arFieldId="260000001" arFieldPart=""
+   value          :  defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="0" name="Servi
+   value          : ceCI" nillable="false" xmlType="false">                <fieldMapping arFieldId="303497300" arFieldPart="" defaultAttachName=""/>            </element>
+   value          :             <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="HPD_CI" nillable="false" xmlType="false">         
+   value          :        <fieldMapping arFieldId="303497400" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="
+   value          : " maxOccurs="1"                minOccurs="1" name="Company" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000001" arFi
+   value          : eldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" n
+   value          : ame="Country" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000002" arFieldPart="" defaultAttachName=""/>            <
+   value          : /element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="City" nillable="false" xmlType="false">  
+   value          :               <fieldMapping arFieldId="1000000004" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" 
+   value          :                default="Assigned_Support_Organization" maxOccurs="1"                minOccurs="1" name="Assigned_Support_Organization"                
+   value          : nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000014" arFieldPart="" defaultAttachName=""/>            </element>    
+   value          :         <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Last_Name" nillable="false" xmlType="false">           
+   value          :      <fieldMapping arFieldId="1000000018" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""
+   value          :  maxOccurs="1"                minOccurs="1" name="First_Name" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000019" ar
+   value          : FieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1"
+   value          :  name="Middle_Initial" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000020" arFieldPart="" defaultAttachName=""/>    
+   value          :         </element>            <element dataType="string" default="" enumValues="Yes,No"                maxOccurs="1" minOccurs="0" name="VIP" nillable
+   value          : ="true" xmlType="false">                <fieldMapping arFieldId="1000000026" arFieldPart="" defaultAttachName=""/>            </element>            <
+   value          : element dataType="string" default=""                enumValues="Sensitive,Standard" maxOccurs="1"                minOccurs="1" name="Contact_Sensitivi
+   value          : ty" nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000027" arFieldPart="" defaultAttachName=""/>            </element> 
+   value          :            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Phone_Number" nillable="false" xmlType="false">     
+   value          :            <fieldMapping arFieldId="1000000056" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" defa
+   value          : ult="" maxOccurs="1"                minOccurs="1" name="Categorization_Tier_1"                nillable="false" xmlType="false">                <field
+   value          : Mapping arFieldId="1000000063" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs=
+   value          : "1"                minOccurs="1" name="Categorization_Tier_2"                nillable="false" xmlType="false">                <fieldMapping arFieldId
+   value          : ="1000000064" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"             
+   value          :    minOccurs="1" name="Categorization_Tier_3"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000065" arF
+   value          : ieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" 
+   value          : name="Contact_Company" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000082" arFieldPart="" defaultAttachName=""/>    
+   value          :         </element>            <element dataType="string" default=""                enumValues="User Service Restoration,User Service Request,Infrastru
+   value          : cture Restoration,Infrastructure Event"                maxOccurs="1" minOccurs="1" name="Service_Type"                nillable="true" xmlType="false">
+   value          :                 <fieldMapping arFieldId="1000000099" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string
+   value          : " default=""                enumValues="Infrastructure Change Created,Local Site Action Required,Purchase Order Approval,Registration Approval,Supplier
+   value          :  Delivery,Support Contact Hold,Third Party Vendor Action Reqd,Client Action Required,Infrastructure Change,Request,Future Enhancement,Pending Original I
+   value          : ncident,Client Hold,Monitoring Incident,Customer Follow-Up Required,Temporary Corrective Action,No Further Action Required,Resolved by Original Incident
+   value          : ,Automated Resolution Reported,No longer a Causal CI"                maxOccurs="1" minOccurs="1" name="Status_Reason"                nillable="true" x
+   value          : mlType="false">                <fieldMapping arFieldId="1000000150" arFieldPart="" defaultAttachName=""/>            </element>            <element d
+   value          : ataType="string" default="" maxOccurs="1"                minOccurs="1" name="Resolution" nillable="false" xmlType="false">                <fieldMappin
+   value          : g arFieldId="1000000156" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""                
+   value          : enumValues="1-Critical,2-High,3-Medium,4-Low"                maxOccurs="1" minOccurs="1" name="Urgency"                nillable="true" xmlType="false"
+   value          : >                <fieldMapping arFieldId="1000000162" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="strin
+   value          : g" default=""                enumValues="1-Extensive/Widespread,2-Significant/Large,3-Moderate/Limited,4-Minor/Localized"                maxOccurs="1"
+   value          :  minOccurs="1" name="Impact"                nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000163" arFieldPart="" defaul
+   value          : tAttachName=""/>            </element>            <element dataType="string" default=""                enumValues="Critical,High,Medium,Low" maxOccur
+   value          : s="1"                minOccurs="1" name="Priority" nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000164" arFieldPart=""
+   value          :  defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="0" name="Prior
+   value          : ity_Weight" nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000169" arFieldPart="" defaultAttachName=""/>            </el
+   value          : ement>            <element dataType="string" default=""                enumValues="Direct Input,Email,External Escalation,Fax,Self Service,Systems Man
+   value          : agement,Phone,Voice Mail,Walk In,Web,Other,BMC Impact Manager Event"                maxOccurs="1" minOccurs="0" name="Reported_Source"                
+   value          : nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000215" arFieldPart="" defaultAttachName=""/>            </element>     
+   value          :        <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Assigned_Group" nillable="false" xmlType="false">       
+   value          :          <fieldMapping arFieldId="1000000217" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" defaul
+   value          : t="" maxOccurs="1"                minOccurs="1" name="Assignee" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000218" 
+   value          : arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="
+   value          : 1" name="Assigned_Support_Company"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000251" arFieldPart=""
+   value          :  defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Assig
+   value          : ned_Group_Shift_Name"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000298" arFieldPart="" defaultAttac
+   value          : hName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Reported_Date" nil
+   value          : lable="true" xmlType="false">                <fieldMapping arFieldId="1000000560" arFieldPart="" defaultAttachName=""/>            </element>        
+   value          :     <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Resolution_Category"                nillable="false" xmlTyp
+   value          : e="false">                <fieldMapping arFieldId="1000002488" arFieldPart="" defaultAttachName=""/>            </element>            <element dataTy
+   value          : pe="string" default="" maxOccurs="1"                minOccurs="1" name="Resolution_Method" nillable="false" xmlType="false">                <fieldMapp
+   value          : ing arFieldId="1000003888" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"
+   value          :                 minOccurs="1" name="Resolution_Category_Tier_2"                nillable="false" xmlType="false">                <fieldMapping arFieldI
+   value          : d="1000003889" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"            
+   value          :     minOccurs="1" name="Resolution_Category_Tier_3"                nillable="false" xmlType="false">                <fieldMapping arFieldId="100000389
+   value          : 0" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccur
+   value          : s="1" name="Closure_Product_Category_Tier1"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003891" arFie
+   value          : ldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" na
+   value          : me="Closure_Product_Category_Tier2"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003892" arFieldPart="
+   value          : " defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Clos
+   value          : ure_Product_Category_Tier3"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003893" arFieldPart="" defaul
+   value          : tAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Closure_Prod
+   value          : uct_Name"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003894" arFieldPart="" defaultAttachName=""/> 
+   value          :            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Closure_Product_Model_Version"
+   value          :                 nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003895" arFieldPart="" defaultAttachName=""/>          
+   value          :   </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Closure_Manufacturer"                n
+   value          : illable="false" xmlType="false">                <fieldMapping arFieldId="1000003896" arFieldPart="" defaultAttachName=""/>            </element>     
+   value          :        <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Assignee_Login_ID" nillable="false" xmlType="false">    
+   value          :             <fieldMapping arFieldId="4" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" m
+   value          : axOccurs="1"                minOccurs="1" name="Incident_Number" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000161"
+   value          :  arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="Summary" maxOccurs="1"                min
+   value          : Occurs="1" name="Summary" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000000" arFieldPart="" defaultAttachName=""/> 
+   value          :            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Notes" nillable="false" xmlTyp
+   value          : e="false">                <fieldMapping arFieldId="1000000151" arFieldPart="" defaultAttachName=""/>            </element>            <element dataTy
+   value          : pe="string" default="" maxOccurs="1"                minOccurs="1" name="Direct_Contact_First_Name"                nillable="false" xmlType="false">  
+   value          :               <fieldMapping arFieldId="1000005783" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" d
+   value          : efault="" maxOccurs="1"                minOccurs="1" name="Direct_Contact_Last_Name"                nillable="false" xmlType="false">                
+   value          : <fieldMapping arFieldId="1000005782" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxO
+   value          : ccurs="1"                minOccurs="1" name="Direct_Contact_Phone_Number"                nillable="false" xmlType="false">                <fieldMappi
+   value          : ng arFieldId="1000005785" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""               
+   value          :  enumValues="No Service Target Assigned,Within the Service Target,Service Target Warning,Service Targets Breached,All Service Targets Breached"        
+   value          :         maxOccurs="1" minOccurs="1" name="SLM_Status"                nillable="true" xmlType="false">                <fieldMapping arFieldId="10000030
+   value          : 09" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" enumValues="Yes,No"                m
+   value          : axOccurs="1" minOccurs="1" name="Escalated"                nillable="true" xmlType="false">                <fieldMapping arFieldId="250000023" arField
+   value          : Part="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name
+   value          : ="Contact_Organization"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000010" arFieldPart="" defaultAtt
+   value          : achName=""/>            </element>        </element>    </formMapping></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\166\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping1" schemaS
+   value          : ource="generated"/>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\479\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping1" schemaSo
+   value          : urce="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="HPD:Help Desk" primaryKeyId="1"/>     
+   value          :    <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_HPD_HelpDesk_WS"/>    </
+   value          : formMapping></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\659\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping2" schemaSo
+   value          : urce="generated">    <formMapping>        <form distinguishingKeyId="-2147483647"            foreignKeyId="-2147483647" formName="" primaryKeyId="1"/
+   value          : >        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_HPD_HelpDesk_WS">
+   value          :             <element dataType="string" default="INC" maxOccurs="1"                minOccurs="1" name="Incident_Number" nillable="false" xmlType="false"
+   value          : />        </element>    </formMapping></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32800
+   datatype       : 1
+   value          : 4\11960\<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="urn:XM_HPD_HelpDesk_WS" xmlns:s0="urn:XM_HPD_HelpDesk_WS" xmlns:soap=
+   value          : "http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs
+   value          : d="http://www.w3.org/2001/XMLSchema"> <wsdl:types>  <xsd:schema elementFormDefault="qualified" targetNamespace="urn:XM_HPD_HelpDesk_WS">   <xsd:el
+   value          : ement name="GetIncident" type="s0:InputMapping2"/>   <xsd:complexType name="InputMapping2">    <xsd:sequence>     <xsd:element name="Incident_Numb
+   value          : er" type="xsd:string"/>    </xsd:sequence>   </xsd:complexType>   <xsd:element name="GetIncidentResponse" type="s0:OutputMapping2"/>   <xsd:comp
+   value          : lexType name="OutputMapping2">    <xsd:sequence>     <xsd:element name="Status" type="s0:StatusType"/>     <xsd:element name="Product_Categorizati
+   value          : on_Tier_1" type="xsd:string"/>     <xsd:element name="Product_Categorization_Tier_2" type="xsd:string"/>     <xsd:element name="Product_Categorizati
+   value          : on_Tier_3" type="xsd:string"/>     <xsd:element name="Department" type="xsd:string"/>     <xsd:element name="Site_Group" type="xsd:string"/>     <
+   value          : xsd:element name="Region" type="xsd:string"/>     <xsd:element name="Product_Name" type="xsd:string"/>     <xsd:element name="Manufacturer" type="xs
+   value          : d:string"/>     <xsd:element name="Product_Model_Version" type="xsd:string"/>     <xsd:element name="Site" type="xsd:string"/>     <xsd:element mi
+   value          : nOccurs="0" name="ServiceCI" type="xsd:string"/>     <xsd:element name="HPD_CI" type="xsd:string"/>     <xsd:element name="Company" type="xsd:string
+   value          : "/>     <xsd:element name="Country" type="xsd:string"/>     <xsd:element name="City" type="xsd:string"/>     <xsd:element name="Assigned_Support_O
+   value          : rganization" type="xsd:string"/>     <xsd:element name="Last_Name" type="xsd:string"/>     <xsd:element name="First_Name" type="xsd:string"/>     
+   value          : <xsd:element name="Middle_Initial" type="xsd:string"/>     <xsd:element minOccurs="0" name="VIP" nillable="true" type="s0:VIPType"/>     <xsd:elemen
+   value          : t name="Contact_Sensitivity" nillable="true" type="s0:Contact_SensitivityType"/>     <xsd:element name="Phone_Number" type="xsd:string"/>     <xsd:e
+   value          : lement name="Categorization_Tier_1" type="xsd:string"/>     <xsd:element name="Categorization_Tier_2" type="xsd:string"/>     <xsd:element name="Cat
+   value          : egorization_Tier_3" type="xsd:string"/>     <xsd:element name="Contact_Company" type="xsd:string"/>     <xsd:element name="Service_Type" nillable="t
+   value          : rue" type="s0:Service_TypeType"/>     <xsd:element name="Status_Reason" nillable="true" type="s0:Status_ReasonType"/>     <xsd:element name="Resolut
+   value          : ion" type="xsd:string"/>     <xsd:element name="Urgency" nillable="true" type="s0:UrgencyType"/>     <xsd:element name="Impact" nillable="true" type
+   value          : ="s0:ImpactType"/>     <xsd:element name="Priority" nillable="true" type="s0:PriorityType"/>     <xsd:element minOccurs="0" name="Priority_Weight" n
+   value          : illable="true" type="xsd:string"/>     <xsd:element minOccurs="0" name="Reported_Source" nillable="true" type="s0:Reported_SourceType"/>     <xsd:el
+   value          : ement name="Assigned_Group" type="xsd:string"/>     <xsd:element name="Assignee" type="xsd:string"/>     <xsd:element name="Assigned_Support_Company
+   value          : " type="xsd:string"/>     <xsd:element name="Assigned_Group_Shift_Name" type="xsd:string"/>     <xsd:element name="Reported_Date" nillable="true" ty
+   value          : pe="xsd:string"/>     <xsd:element name="Resolution_Category" type="xsd:string"/>     <xsd:element name="Resolution_Method" type="xsd:string"/>   
+   value          :   <xsd:element name="Resolution_Category_Tier_2" type="xsd:string"/>     <xsd:element name="Resolution_Category_Tier_3" type="xsd:string"/>     <xsd
+   value          : :element name="Closure_Product_Category_Tier1" type="xsd:string"/>     <xsd:element name="Closure_Product_Category_Tier2" type="xsd:string"/>     <x
+   value          : sd:element name="Closure_Product_Category_Tier3" type="xsd:string"/>     <xsd:element name="Closure_Product_Name" type="xsd:string"/>     <xsd:eleme
+   value          : nt name="Closure_Product_Model_Version" type="xsd:string"/>     <xsd:element name="Closure_Manufacturer" type="xsd:string"/>     <xsd:element name="
+   value          : Assignee_Login_ID" type="xsd:string"/>     <xsd:element name="Incident_Number" type="xsd:string"/>     <xsd:element name="Summary" type="xsd:string"
+   value          : />     <xsd:element name="Notes" type="xsd:string"/>     <xsd:element name="Direct_Contact_First_Name" type="xsd:string"/>     <xsd:element name="
+   value          : Direct_Contact_Last_Name" type="xsd:string"/>     <xsd:element name="Direct_Contact_Phone_Number" type="xsd:string"/>     <xsd:element name="SLM_Sta
+   value          : tus" nillable="true" type="s0:SLM_StatusType"/>     <xsd:element name="Escalated" nillable="true" type="s0:VIPType"/>     <xsd:element name="Contact
+   value          : _Organization" type="xsd:string"/>    </xsd:sequence>   </xsd:complexType>   <xsd:simpleType name="StatusType">    <xsd:restriction base="xsd:st
+   value          : ring">     <xsd:enumeration value="New"/>     <xsd:enumeration value="Assigned"/>     <xsd:enumeration value="In Progress"/>     <xsd:enumeratio
+   value          : n value="Pending"/>     <xsd:enumeration value="Resolved"/>     <xsd:enumeration value="Closed"/>     <xsd:enumeration value="Cancelled"/>    </
+   value          : xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="VIPType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Yes"/>
+   value          :      <xsd:enumeration value="No"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="Contact_SensitivityType">    <xsd:restric
+   value          : tion base="xsd:string">     <xsd:enumeration value="Sensitive"/>     <xsd:enumeration value="Standard"/>    </xsd:restriction>   </xsd:simpleTyp
+   value          : e>   <xsd:simpleType name="Service_TypeType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="User Service Restoration"/>    
+   value          :  <xsd:enumeration value="User Service Request"/>     <xsd:enumeration value="Infrastructure Restoration"/>     <xsd:enumeration value="Infrastructur
+   value          : e Event"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="Status_ReasonType">    <xsd:restriction base="xsd:string">     <x
+   value          : sd:enumeration value="Infrastructure Change Created"/>     <xsd:enumeration value="Local Site Action Required"/>     <xsd:enumeration value="Purchas
+   value          : e Order Approval"/>     <xsd:enumeration value="Registration Approval"/>     <xsd:enumeration value="Supplier Delivery"/>     <xsd:enumeration val
+   value          : ue="Support Contact Hold"/>     <xsd:enumeration value="Third Party Vendor Action Reqd"/>     <xsd:enumeration value="Client Action Required"/>   
+   value          :   <xsd:enumeration value="Infrastructure Change"/>     <xsd:enumeration value="Request"/>     <xsd:enumeration value="Future Enhancement"/>     <x
+   value          : sd:enumeration value="Pending Original Incident"/>     <xsd:enumeration value="Client Hold"/>     <xsd:enumeration value="Monitoring Incident"/>  
+   value          :    <xsd:enumeration value="Customer Follow-Up Required"/>     <xsd:enumeration value="Temporary Corrective Action"/>     <xsd:enumeration value="No 
+   value          : Further Action Required"/>     <xsd:enumeration value="Resolved by Original Incident"/>     <xsd:enumeration value="Automated Resolution Reported"/>
+   value          :      <xsd:enumeration value="No longer a Causal CI"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="UrgencyType">    <xsd:
+   value          : restriction base="xsd:string">     <xsd:enumeration value="1-Critical"/>     <xsd:enumeration value="2-High"/>     <xsd:enumeration value="3-Mediu
+   value          : m"/>     <xsd:enumeration value="4-Low"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="ImpactType">    <xsd:restriction b
+   value          : ase="xsd:string">     <xsd:enumeration value="1-Extensive/Widespread"/>     <xsd:enumeration value="2-Significant/Large"/>     <xsd:enumeration va
+   value          : lue="3-Moderate/Limited"/>     <xsd:enumeration value="4-Minor/Localized"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="Pr
+   value          : iorityType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Critical"/>     <xsd:enumeration value="High"/>     <xsd:enumera
+   value          : tion value="Medium"/>     <xsd:enumeration value="Low"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="Reported_SourceType">
+   value          :     <xsd:restriction base="xsd:string">     <xsd:enumeration value="Direct Input"/>     <xsd:enumeration value="Email"/>     <xsd:enumeration va
+   value          : lue="External Escalation"/>     <xsd:enumeration value="Fax"/>     <xsd:enumeration value="Self Service"/>     <xsd:enumeration value="Systems Man
+   value          : agement"/>     <xsd:enumeration value="Phone"/>     <xsd:enumeration value="Voice Mail"/>     <xsd:enumeration value="Walk In"/>     <xsd:enumer
+   value          : ation value="Web"/>     <xsd:enumeration value="Other"/>     <xsd:enumeration value="BMC Impact Manager Event"/>    </xsd:restriction>   </xsd:s
+   value          : impleType>   <xsd:simpleType name="SLM_StatusType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="No Service Target Assigned"
+   value          : />     <xsd:enumeration value="Within the Service Target"/>     <xsd:enumeration value="Service Target Warning"/>     <xsd:enumeration value="Serv
+   value          : ice Targets Breached"/>     <xsd:enumeration value="All Service Targets Breached"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:element nam
+   value          : e="AuthenticationInfo" type="s0:AuthenticationInfo"/>   <xsd:complexType name="AuthenticationInfo">    <xsd:sequence>     <xsd:element name="userN
+   value          : ame" type="xsd:string"/>     <xsd:element name="password" type="xsd:string"/>     <xsd:element minOccurs="0" name="authentication" type="xsd:string"
+   value          : />     <xsd:element minOccurs="0" name="locale" type="xsd:string"/>     <xsd:element minOccurs="0" name="timeZone" type="xsd:string"/>    </xsd:se
+   value          : quence>   </xsd:complexType>  </xsd:schema> </wsdl:types>   <wsdl:message name="GetIncidentSoapOut">      <wsdl:part element="s0:GetIncident
+   value          : Response" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="ARAuthenticate">      <wsdl:part element="s0:Authenti
+   value          : cationInfo" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="GetIncidentSoapIn">      <wsdl:part element="s0:Get
+   value          : Incident" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:portType name="XM_HPD_HelpDeskPortType">      <wsdl:operation name=
+   value          : "GetIncident">         <wsdl:input message="s0:GetIncidentSoapIn">       </wsdl:input>         <wsdl:output message="s0:GetIncidentSoapOut">
+   value          :        </wsdl:output>      </wsdl:operation>   </wsdl:portType>   <wsdl:binding name="XM_HPD_HelpDeskSoapBinding" type="s0:XM_HPD_HelpDeskPortT
+   value          : ype">      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>      <wsdl:operation name="GetIncident">         <
+   value          : soap:operation soapAction="urn:XM_HPD_HelpDesk_WS/GetIncident" style="document"/>         <wsdl:input>            <soap:header message="s0:ARAuthe
+   value          : nticate" part="parameters" use="literal">            </soap:header>            <soap:body use="literal"/>         </wsdl:input>         <wsd
+   value          : l:output>            <soap:body use="literal"/>         </wsdl:output>      </wsdl:operation>   </wsdl:binding>   <wsdl:service name="XM_
+   value          : HPD_HelpDesk_WSService">  <wsdl:documentation>xMatters web service to obtain information from HPD:Help Desk.  This web service provides more inform
+   value          : ation than HPD:IncidentInterface; however HPD:IncidentInterface should be used to update incidents as it is the method BMC supports for ensuring workflo
+   value          : w associated with HPD:Help Desk is run.  </wsdl:documentation>      <wsdl:port binding="s0:XM_HPD_HelpDeskSoapBinding" name="XM_HPD_HelpDeskSoap">
+   value          :          <soap:address location="@LOCATION@"/>      </wsdl:port>   </wsdl:service></wsdl:definitions>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32802
+   datatype       : 1
+   value          : 4\75\http://<midtier_server>/arsys/WSDL/public/vic-vm-em-rmdy/XM_HPD_HelpDesk_WS\
+   ref-groups     : 0
+}
+end
+begin container
+   name           : XM_HPD_IncidentInterface_WS
+   type           : 5
+   num-references : 22
+   timestamp      : 1440014021
+   owner          : Demo
+   owning-obj     : 1\2\21\HPD:IncidentInterface\
+   last-changed   : Demo
+   export-version : 12
+   permission     : 0\1
+   description    : xMatters web service to update incidents. Since the use of HPD:IncidentInterface is the supported method of interacting with HPD:Help Desk this web serv
+   description    : ice is the endpoint for making updates.  The out of box functions include:* add a worklog entry* update the assignee/assigned group* resolve an 
+   description    : incident
+   object-prop    : 3\90002\4\26\Remedy Incident Management\90015\2\4\90016\4\1\1\
+reference {
+   type           : 32797
+   datatype       : 1
+   value          : 4\208\<?xml version="1.0"?><portProperties name="XM_HPD_IncidentInterface"><portType name=""/><xmlSchemaSource name="embedded"/><externalSchema name=""
+   value          : /><portName name="XM_HPD_IncidentInterface"/></portProperties>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32798
+   datatype       : 1
+   value          : 4\560\<?xml version="1.0" encoding="UTF-8"?><operation name="AddWorkLog"    qualification="'1000000161' = XPATH(/ROOT/Incident_Number)" type="set">  
+   value          :   <arOptions>        <setOptions>            <type>setAll</type>            <documentType>partial</documentType>        </setOptions>    </arOption
+   value          : s>    <inputMapping name="InputMapping3"        namespace="XM_HPD_IncidentInterface_WS" topLevelElement="AddWorkLog"/>    <outputMapping name="Output
+   value          : Mapping3"        namespace="XM_HPD_IncidentInterface_WS" topLevelElement="AddWorkLogResponse"/></operation>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32798
+   datatype       : 1
+   value          : 4\551\<?xml version="1.0" encoding="UTF-8"?><operation name="Resolve"    qualification="'1000000161' = XPATH(/ROOT/Incident_Number)" type="set">    <
+   value          : arOptions>        <setOptions>            <type>setAll</type>            <documentType>partial</documentType>        </setOptions>    </arOptions>
+   value          :     <inputMapping name="InputMapping4"        namespace="XM_HPD_IncidentInterface_WS" topLevelElement="Resolve"/>    <outputMapping name="OutputMappin
+   value          : g4"        namespace="XM_HPD_IncidentInterface_WS" topLevelElement="ResolveResponse"/></operation>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32798
+   datatype       : 1
+   value          : 4\572\<?xml version="1.0" encoding="UTF-8"?><operation name="UpdateAssignee"    qualification="'1000000161' = XPATH(/ROOT/Incident_Number)" type="set"
+   value          : >    <arOptions>        <setOptions>            <type>setAll</type>            <documentType>partial</documentType>        </setOptions>    </arOp
+   value          : tions>    <inputMapping name="InputMapping5"        namespace="XM_HPD_IncidentInterface_WS" topLevelElement="UpdateAssignee"/>    <outputMapping name
+   value          : ="OutputMapping5"        namespace="XM_HPD_IncidentInterface_WS" topLevelElement="UpdateAssigneeResponse"/></operation>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32798
+   datatype       : 1
+   value          : 4\563\<?xml version="1.0" encoding="UTF-8"?><operation name="UpdateStatus"    qualification="'1000000161' = XPATH(/ROOT/Incident_Number)" type="set">
+   value          :     <arOptions>        <setOptions>            <type>setAll</type>            <documentType>full</documentType>        </setOptions>    </arOptions
+   value          : >    <inputMapping name="InputMapping7"        namespace="XM_HPD_IncidentInterface_WS" topLevelElement="UpdateStatus"/>    <outputMapping name="Outpu
+   value          : tMapping7"        namespace="XM_HPD_IncidentInterface_WS" topLevelElement="UpdateStatusResponse"/></operation>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32828
+   datatype       : 1
+   value          : 4\0\\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\5675\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping4" schemaS
+   value          : ource="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="HPD:IncidentInterface" primaryKeyId="1
+   value          : "/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_HPD_IncidentInte
+   value          : rface_WS">            <element dataType="string" default="MODIFY" maxOccurs="1"                minOccurs="1" name="Action" nillable="false" xmlType="f
+   value          : alse">                <fieldMapping arFieldId="1000000076" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="
+   value          : string" default="" maxOccurs="1"                minOccurs="1" name="Resolution" nillable="false" xmlType="false">                <fieldMapping arField
+   value          : Id="1000000156" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"           
+   value          :      minOccurs="1" name="Resolution_Category"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000002488" arF
+   value          : ieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" 
+   value          : name="Resolution_Category_Tier_2"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003889" arFieldPart="" 
+   value          : defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Resolu
+   value          : tion_Category_Tier_3"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003890" arFieldPart="" defaultAttac
+   value          : hName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Resolution_Method"
+   value          :  nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003888" arFieldPart="" defaultAttachName=""/>            </element>   
+   value          :          <element dataType="string" default=""                enumValues="New,Assigned,In Progress,Pending,Resolved,Closed,Cancelled"                m
+   value          : axOccurs="1" minOccurs="1" name="Status"                nillable="false" xmlType="false">                <fieldMapping arFieldId="7" arFieldPart="" de
+   value          : faultAttachName=""/>            </element>            <element dataType="string" default=""                enumValues="Infrastructure Change Created,
+   value          : Local Site Action Required,Purchase Order Approval,Registration Approval,Supplier Delivery,Support Contact Hold,Third Party Vendor Action Reqd,Client Ac
+   value          : tion Required,Infrastructure Change,Request,Future Enhancement,Pending Original Incident,Client Hold,Monitoring Incident,Customer Follow-Up Required,Tem
+   value          : porary Corrective Action,No Further Action Required,Resolved by Original Incident,Automated Resolution Reported,No longer a Causal CI"                m
+   value          : axOccurs="1" minOccurs="1" name="Status_Reason"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000150" a
+   value          : rFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1
+   value          : " name="Work_Info_Summary" nillable="false" xmlType="false">                <fieldMapping arFieldId="301329900" arFieldPart="" defaultAttachName=""/> 
+   value          :            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Work_Info_Notes" nillable="fal
+   value          : se" xmlType="false">                <fieldMapping arFieldId="301398800" arFieldPart="" defaultAttachName=""/>            </element>            <eleme
+   value          : nt dataType="string" default=""                enumValues="----- Customer Inbound -----,Customer Communication,Customer Follow-up,Customer Status Updat
+   value          : e,----- Customer Outbound -----,Closure Follow Up,Detail Clarification,General Information,Resolution Communications,Satisfaction Survey,Status Update,-
+   value          : ---- General -----,Incident Task / Action,Problem Script,Working Log,Email System,Paging System,BMC Impact Manager Update"                maxOccurs="1"
+   value          :  minOccurs="1" name="Work_Info_Type"                nillable="false" xmlType="false">                <fieldMapping arFieldId="301398600" arFieldPart="
+   value          : " defaultAttachName=""/>            </element>            <element dataType="string" default=""                enumValues="Email,Fax,Phone,Voice Mail
+   value          : ,Walk In,Pager,System Assignment,Web,Other,BMC Impact Manager Event"                maxOccurs="1" minOccurs="1" name="Work_Info_Source"               
+   value          :  nillable="false" xmlType="false">                <fieldMapping arFieldId="301602600" arFieldPart="" defaultAttachName=""/>            </element>    
+   value          :         <element dataType="string" default="" enumValues="Yes,No"                maxOccurs="1" minOccurs="1" name="Work_Info_Locked"                ni
+   value          : llable="false" xmlType="false">                <fieldMapping arFieldId="301398900" arFieldPart="" defaultAttachName=""/>            </element>       
+   value          :      <element dataType="string" default=""                enumValues="Internal,Public" maxOccurs="1" minOccurs="1"                name="Work_Info_View
+   value          : _Access" nillable="false" xmlType="false">                <fieldMapping arFieldId="301399000" arFieldPart="" defaultAttachName=""/>            </eleme
+   value          : nt>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Incident_Number" nillable="false" xmlType="false
+   value          : "/>        </element>    </formMapping></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\4784\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping5" schemaS
+   value          : ource="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="HPD:IncidentInterface" primaryKeyId="1
+   value          : "/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_HPD_IncidentInte
+   value          : rface_WS">            <element dataType="string" default="MODIFY" maxOccurs="1"                minOccurs="1" name="Action" nillable="false" xmlType="f
+   value          : alse">                <fieldMapping arFieldId="1000000076" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="
+   value          : string" default="" maxOccurs="1"                minOccurs="1" name="Assignee" nillable="false" xmlType="false">                <fieldMapping arFieldId
+   value          : ="1000000218" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"             
+   value          :    minOccurs="1" name="Assignee_Login_ID" nillable="false" xmlType="false">                <fieldMapping arFieldId="4" arFieldPart="" defaultAttachName
+   value          : =""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Assigned_Support_Compan
+   value          : y"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000251" arFieldPart="" defaultAttachName=""/>        
+   value          :     </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Assigned_Support_Organization"      
+   value          :           nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000014" arFieldPart="" defaultAttachName=""/>            </ele
+   value          : ment>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Assigned_Group" nillable="false" xmlType="fals
+   value          : e">                <fieldMapping arFieldId="1000000217" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="str
+   value          : ing" default="" maxOccurs="1"                minOccurs="1" name="Assigned_Group_ID" nillable="false" xmlType="false">                <fieldMapping arF
+   value          : ieldId="1000000079" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"       
+   value          :          minOccurs="1" name="Work_Info_Summary" nillable="false" xmlType="false">                <fieldMapping arFieldId="301329900" arFieldPart="" def
+   value          : aultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Work_Info
+   value          : _Notes" nillable="false" xmlType="false">                <fieldMapping arFieldId="301398800" arFieldPart="" defaultAttachName=""/>            </elemen
+   value          : t>            <element dataType="string" default=""                enumValues="----- Customer Inbound -----,Customer Communication,Customer Follow-up,
+   value          : Customer Status Update,----- Customer Outbound -----,Closure Follow Up,Detail Clarification,General Information,Resolution Communications,Satisfaction S
+   value          : urvey,Status Update,----- General -----,Incident Task / Action,Problem Script,Working Log,Email System,Paging System,BMC Impact Manager Update"        
+   value          :         maxOccurs="1" minOccurs="1" name="Work_Info_Type"                nillable="false" xmlType="false">                <fieldMapping arFieldId="301
+   value          : 398600" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""                enumValues="Email
+   value          : ,Fax,Phone,Voice Mail,Walk In,Pager,System Assignment,Web,Other,BMC Impact Manager Event"                maxOccurs="1" minOccurs="1" name="Work_Info_So
+   value          : urce"                nillable="false" xmlType="false">                <fieldMapping arFieldId="301602600" arFieldPart="" defaultAttachName=""/>      
+   value          :       </element>            <element dataType="string" default="" enumValues="Yes,No"                maxOccurs="1" minOccurs="1" name="Work_Info_Locke
+   value          : d"                nillable="false" xmlType="false">                <fieldMapping arFieldId="301398900" arFieldPart="" defaultAttachName=""/>         
+   value          :    </element>            <element dataType="string" default=""                enumValues="Internal,Public" maxOccurs="1" minOccurs="1"               
+   value          :  name="Work_Info_View_Access" nillable="false" xmlType="false">                <fieldMapping arFieldId="301399000" arFieldPart="" defaultAttachName=""/
+   value          : >            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Incident_Number" nillable="
+   value          : false" xmlType="false"/>        </element>    </formMapping></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\479\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping6" schemaSo
+   value          : urce="generated">    <element all="false" dataType="ROOT" default="" maxOccurs="1"        minOccurs="1" name="ROOT" targetNamespace="urn:XM_HPD_Incide
+   value          : ntInterface_WS">        <element dataType="string" maxOccurs="1" minOccurs="1"            name="Incident_Number" nillable="false" xmlType="false"/>  
+   value          :   </element></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\3497\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping7" schemaS
+   value          : ource="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="HPD:IncidentInterface" primaryKeyId="1
+   value          : "/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_HPD_IncidentInte
+   value          : rface_WS">            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Action" nillable="false" xmlType="false">
+   value          :                 <fieldMapping arFieldId="1000000076" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string
+   value          : " default=""                enumValues="New,Assigned,In Progress,Pending,Resolved,Closed,Cancelled"                maxOccurs="1" minOccurs="1" name="S
+   value          : tatus"                nillable="false" xmlType="false">                <fieldMapping arFieldId="7" arFieldPart="" defaultAttachName=""/>            <
+   value          : /element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Work_Info_Summary" nillable="false" xmlTyp
+   value          : e="false">                <fieldMapping arFieldId="301329900" arFieldPart="" defaultAttachName=""/>            </element>            <element dataTyp
+   value          : e="string" default="" maxOccurs="1"                minOccurs="1" name="Work_Info_Notes" nillable="false" xmlType="false">                <fieldMapping
+   value          :  arFieldId="301398800" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""                en
+   value          : umValues="----- Customer Inbound -----,Customer Communication,Customer Follow-up,Customer Status Update,----- Customer Outbound -----,Closure Follow Up,
+   value          : Detail Clarification,General Information,Resolution Communications,Satisfaction Survey,Status Update,----- General -----,Incident Task / Action,Problem 
+   value          : Script,Working Log,Email System,Paging System,BMC Impact Manager Update"                maxOccurs="1" minOccurs="1" name="Work_Info_Type"             
+   value          :    nillable="false" xmlType="false">                <fieldMapping arFieldId="301398600" arFieldPart="" defaultAttachName=""/>            </element>  
+   value          :           <element dataType="string" default=""                enumValues="Email,Fax,Phone,Voice Mail,Walk In,Pager,System Assignment,Web,Other,BMC Imp
+   value          : act Manager Event"                maxOccurs="1" minOccurs="1" name="Work_Info_Source"                nillable="false" xmlType="false">               
+   value          :  <fieldMapping arFieldId="301602600" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" enum
+   value          : Values="Yes,No"                maxOccurs="1" minOccurs="1" name="Work_Info_Locked"                nillable="false" xmlType="false">                <f
+   value          : ieldMapping arFieldId="301398900" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""       
+   value          :          enumValues="Internal,Public" maxOccurs="1" minOccurs="1"                name="Work_Info_View_Access" nillable="false" xmlType="false">       
+   value          :          <fieldMapping arFieldId="301399000" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default
+   value          : ="" maxOccurs="1"                minOccurs="1" name="Incident_Number" nillable="false" xmlType="false"/>        </element>    </formMapping></arDocM
+   value          : apping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\166\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping4" schemaS
+   value          : ource="generated"/>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\166\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping3" schemaS
+   value          : ource="generated"/>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\166\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping2" schemaS
+   value          : ource="generated"/>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\14761\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping1" schem
+   value          : aSource="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="HPD:IncidentInterface" primaryKeyId=
+   value          : "1"/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_HPD_IncidentIn
+   value          : terface_WS">            <element dataType="string" default="New"                enumValues="New,Assigned,In Progress,Pending,Resolved,Closed,Cancelled
+   value          : "                maxOccurs="1" minOccurs="1" name="Status"                nillable="false" xmlType="false">                <fieldMapping arFieldId="7
+   value          : " arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="
+   value          : Product_Categorization_Tier_1" nillable="false" xmlType="false">                <fieldMapping arFieldId="200000003" arFieldPart="" defaultAttachName=""
+   value          : />            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Product_Categorization_Tier_2" nillab
+   value          : le="false" xmlType="false">                <fieldMapping arFieldId="200000004" arFieldPart="" defaultAttachName=""/>            </element>           
+   value          :  <element dataType="string" maxOccurs="1" minOccurs="1"                name="Product_Categorization_Tier_3" nillable="false" xmlType="false">         
+   value          :        <fieldMapping arFieldId="200000005" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs
+   value          : ="1" minOccurs="1"                name="Department" nillable="false" xmlType="false">                <fieldMapping arFieldId="200000006" arFieldPart="
+   value          : " defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Site_Group" nil
+   value          : lable="false" xmlType="false">                <fieldMapping arFieldId="200000007" arFieldPart="" defaultAttachName=""/>            </element>        
+   value          :     <element dataType="string" maxOccurs="1" minOccurs="1"                name="Region" nillable="false" xmlType="false">                <fieldMapping
+   value          :  arFieldId="200000012" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1" 
+   value          :                name="Product_Name" nillable="false" xmlType="false">                <fieldMapping arFieldId="240001002" arFieldPart="" defaultAttachNam
+   value          : e=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Manufacturer" nillable="false" xm
+   value          : lType="false">                <fieldMapping arFieldId="240001003" arFieldPart="" defaultAttachName=""/>            </element>            <element dat
+   value          : aType="string" maxOccurs="1" minOccurs="1"                name="Product_Model_Version" nillable="false" xmlType="false">                <fieldMapping 
+   value          : arFieldId="240001005" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"  
+   value          :               name="Site" nillable="false" xmlType="false">                <fieldMapping arFieldId="260000001" arFieldPart="" defaultAttachName=""/>  
+   value          :           </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="ServiceCI" nillable="false" xmlType="false
+   value          : ">                <fieldMapping arFieldId="303497300" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="strin
+   value          : g" maxOccurs="1" minOccurs="1"                name="HPD_CI" nillable="false" xmlType="false">                <fieldMapping arFieldId="303497400" arFie
+   value          : ldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Company
+   value          : " nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000001" arFieldPart="" defaultAttachName=""/>            </element>  
+   value          :           <element dataType="string" maxOccurs="1" minOccurs="1"                name="Country" nillable="false" xmlType="false">                <field
+   value          : Mapping arFieldId="1000000002" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccu
+   value          : rs="1"                name="City" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000004" arFieldPart="" defaultAttachNa
+   value          : me=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Organization" nillable="false" x
+   value          : mlType="false">                <fieldMapping arFieldId="1000000010" arFieldPart="" defaultAttachName=""/>            </element>            <element d
+   value          : ataType="string" maxOccurs="1" minOccurs="1"                name="Assigned_Support_Organization" nillable="false" xmlType="false">                <fie
+   value          : ldMapping arFieldId="1000000014" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOc
+   value          : curs="1"                name="Last_Name" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000018" arFieldPart="" defaultA
+   value          : ttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="First_Name" nillable="fal
+   value          : se" xmlType="false">                <fieldMapping arFieldId="1000000019" arFieldPart="" defaultAttachName=""/>            </element>            <elem
+   value          : ent dataType="string" default="No" enumValues="Yes,No"                maxOccurs="1" minOccurs="1" name="VIP" nillable="false" xmlType="false">        
+   value          :         <fieldMapping arFieldId="1000000026" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default
+   value          : ="Standard"                enumValues="Sensitive,Standard" maxOccurs="1"                minOccurs="1" name="Contact_Sensitivity"                nilla
+   value          : ble="false" xmlType="false">                <fieldMapping arFieldId="1000000027" arFieldPart="" defaultAttachName=""/>            </element>         
+   value          :    <element dataType="string" maxOccurs="1" minOccurs="1"                name="Phone_Number" nillable="false" xmlType="false">                <fieldMa
+   value          : pping arFieldId="1000000056" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs
+   value          : ="1"                name="Categorization_Tier_1" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000063" arFieldPart="" 
+   value          : defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Categorization_Ti
+   value          : er_2" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000064" arFieldPart="" defaultAttachName=""/>            </element
+   value          : >            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Categorization_Tier_3" nillable="false" xmlType="false">    
+   value          :             <fieldMapping arFieldId="1000000065" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" max
+   value          : Occurs="1" minOccurs="1"                name="Contact_Company" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000082" a
+   value          : rFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string"                default="User Service Restoration"  
+   value          :               enumValues="User Service Restoration,User Service Request,Infrastructure Restoration,Infrastructure Event"                maxOccurs="1" m
+   value          : inOccurs="1" name="Service_Type"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000099" arFieldPart="" d
+   value          : efaultAttachName=""/>            </element>            <element dataType="string"                default="Infrastructure Change Created"            
+   value          :     enumValues="Infrastructure Change Created,Local Site Action Required,Purchase Order Approval,Registration Approval,Supplier Delivery,Support Contact
+   value          :  Hold,Third Party Vendor Action Reqd,Client Action Required,Infrastructure Change,Request,Future Enhancement,Pending Original Incident,Client Hold,Monit
+   value          : oring Incident,Customer Follow-Up Required,Temporary Corrective Action,No Further Action Required,Resolved by Original Incident,Automated Resolution Rep
+   value          : orted,No longer a Causal CI"                maxOccurs="1" minOccurs="1" name="Status_Reason"                nillable="false" xmlType="false">        
+   value          :         <fieldMapping arFieldId="1000000150" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccu
+   value          : rs="1" minOccurs="1"                name="Resolution" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000156" arFieldPar
+   value          : t="" defaultAttachName=""/>            </element>            <element dataType="string" default="1-Critical"                enumValues="1-Critical,2-
+   value          : High,3-Medium,4-Low"                maxOccurs="1" minOccurs="1" name="Urgency"                nillable="false" xmlType="false">                <field
+   value          : Mapping arFieldId="1000000162" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="1-Extensive/
+   value          : Widespread"                enumValues="1-Extensive/Widespread,2-Significant/Large,3-Moderate/Limited,4-Minor/Localized"                maxOccurs="1" m
+   value          : inOccurs="1" name="Impact"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000163" arFieldPart="" default
+   value          : AttachName=""/>            </element>            <element dataType="string" default="Critical"                enumValues="Critical,High,Medium,Low" m
+   value          : axOccurs="1"                minOccurs="1" name="Priority" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000164" arFiel
+   value          : dPart="" defaultAttachName=""/>            </element>            <element dataType="int" maxOccurs="1" minOccurs="1"                name="Priority_We
+   value          : ight" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000169" arFieldPart="" defaultAttachName=""/>            </element
+   value          : >            <element dataType="string" default="Direct Input"                enumValues="Direct Input,Email,External Escalation,Fax,Self Service,Syst
+   value          : ems Management,Phone,Voice Mail,Walk In,Web,Other,BMC Impact Manager Event"                maxOccurs="1" minOccurs="1" name="Reported_Source"         
+   value          :        nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000215" arFieldPart="" defaultAttachName=""/>            </elemen
+   value          : t>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Assigned_Group" nillable="false" xmlType="false">          
+   value          :       <fieldMapping arFieldId="1000000217" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs
+   value          : ="1" minOccurs="1"                name="Assignee" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000218" arFieldPart=""
+   value          :  defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Assigned_Support
+   value          : _Company" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000251" arFieldPart="" defaultAttachName=""/>            </ele
+   value          : ment>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Assigned_Group_Shift_Name" nillable="false" xmlType="fals
+   value          : e">                <fieldMapping arFieldId="1000000298" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="dat
+   value          : eTime" maxOccurs="1" minOccurs="1"                name="Reported_Date" nillable="false" xmlType="false">                <fieldMapping arFieldId="10000
+   value          : 00560" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                n
+   value          : ame="Resolution_Category" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000002488" arFieldPart="" defaultAttachName=""/> 
+   value          :            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Resolution_Category_Tier_2" nillable="fal
+   value          : se" xmlType="false">                <fieldMapping arFieldId="1000003889" arFieldPart="" defaultAttachName=""/>            </element>            <elem
+   value          : ent dataType="string" maxOccurs="1" minOccurs="1"                name="Resolution_Category_Tier_3" nillable="false" xmlType="false">                <f
+   value          : ieldMapping arFieldId="1000003890" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" min
+   value          : Occurs="1"                name="Closure_Product_Category_Tier1" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003891" 
+   value          : arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Cl
+   value          : osure_Product_Category_Tier2" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003892" arFieldPart="" defaultAttachName=""
+   value          : />            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Closure_Product_Category_Tier3" nilla
+   value          : ble="false" xmlType="false">                <fieldMapping arFieldId="1000003893" arFieldPart="" defaultAttachName=""/>            </element>         
+   value          :    <element dataType="string" maxOccurs="1" minOccurs="1"                name="Closure_Product_Name" nillable="false" xmlType="false">                
+   value          : <fieldMapping arFieldId="1000003894" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" m
+   value          : inOccurs="1"                name="Closure_Product_Model_Version" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003895"
+   value          :  arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="C
+   value          : losure_Manufacturer" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003896" arFieldPart="" defaultAttachName=""/>      
+   value          :       </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Assignee_Login_ID" nillable="false"
+   value          :  xmlType="false">                <fieldMapping arFieldId="4" arFieldPart="" defaultAttachName=""/>            </element>        </element>    </form
+   value          : Mapping></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\479\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping1" schemaSo
+   value          : urce="generated">    <element all="false" dataType="ROOT" default="" maxOccurs="1"        minOccurs="1" name="ROOT" targetNamespace="urn:XM_HPD_Incide
+   value          : ntInterface_WS">        <element dataType="string" maxOccurs="1" minOccurs="1"            name="Incident_Number" nillable="false" xmlType="false"/>  
+   value          :   </element></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\166\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping7" schemaS
+   value          : ource="generated"/>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\16001\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping6" schem
+   value          : aSource="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="HPD:IncidentInterface" primaryKeyId=
+   value          : "1"/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_HPD_IncidentIn
+   value          : terface_WS">            <element dataType="string" default="New"                enumValues="New,Assigned,In Progress,Pending,Resolved,Closed,Cancelled
+   value          : "                maxOccurs="1" minOccurs="1" name="Status"                nillable="false" xmlType="false">                <fieldMapping arFieldId="7
+   value          : " arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="
+   value          : Product_Categorization_Tier_1" nillable="false" xmlType="false">                <fieldMapping arFieldId="200000003" arFieldPart="" defaultAttachName=""
+   value          : />            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Product_Categorization_Tier_2" nillab
+   value          : le="false" xmlType="false">                <fieldMapping arFieldId="200000004" arFieldPart="" defaultAttachName=""/>            </element>           
+   value          :  <element dataType="string" maxOccurs="1" minOccurs="1"                name="Product_Categorization_Tier_3" nillable="false" xmlType="false">         
+   value          :        <fieldMapping arFieldId="200000005" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs
+   value          : ="1" minOccurs="1"                name="Department" nillable="false" xmlType="false">                <fieldMapping arFieldId="200000006" arFieldPart="
+   value          : " defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Site_Group" nil
+   value          : lable="false" xmlType="false">                <fieldMapping arFieldId="200000007" arFieldPart="" defaultAttachName=""/>            </element>        
+   value          :     <element dataType="string" maxOccurs="1" minOccurs="1"                name="Region" nillable="false" xmlType="false">                <fieldMapping
+   value          :  arFieldId="200000012" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1" 
+   value          :                name="Product_Name" nillable="false" xmlType="false">                <fieldMapping arFieldId="240001002" arFieldPart="" defaultAttachNam
+   value          : e=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Manufacturer" nillable="false" xm
+   value          : lType="false">                <fieldMapping arFieldId="240001003" arFieldPart="" defaultAttachName=""/>            </element>            <element dat
+   value          : aType="string" maxOccurs="1" minOccurs="1"                name="Product_Model_Version" nillable="false" xmlType="false">                <fieldMapping 
+   value          : arFieldId="240001005" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"  
+   value          :               name="Site" nillable="false" xmlType="false">                <fieldMapping arFieldId="260000001" arFieldPart="" defaultAttachName=""/>  
+   value          :           </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="ServiceCI" nillable="false" xmlType="false
+   value          : ">                <fieldMapping arFieldId="303497300" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="strin
+   value          : g" default="" maxOccurs="1"                minOccurs="1" name="HPD_CI" nillable="false" xmlType="false">                <fieldMapping arFieldId="30349
+   value          : 7400" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                na
+   value          : me="Company" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000001" arFieldPart="" defaultAttachName=""/>            </
+   value          : element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Country" nillable="false" xmlType="false">           
+   value          :      <fieldMapping arFieldId="1000000002" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs=
+   value          : "1" minOccurs="1"                name="City" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000004" arFieldPart="" defa
+   value          : ultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Organization" nillabl
+   value          : e="false" xmlType="false">                <fieldMapping arFieldId="1000000010" arFieldPart="" defaultAttachName=""/>            </element>           
+   value          :  <element dataType="string" maxOccurs="1" minOccurs="1"                name="Assigned_Support_Organization" nillable="false" xmlType="false">         
+   value          :        <fieldMapping arFieldId="1000000014" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccur
+   value          : s="1" minOccurs="1"                name="Last_Name" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000018" arFieldPart=
+   value          : "" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="First_Name" ni
+   value          : llable="false" xmlType="false">                <fieldMapping arFieldId="1000000019" arFieldPart="" defaultAttachName=""/>            </element>      
+   value          :       <element dataType="string" maxOccurs="1" minOccurs="1"                name="Middle_Initial" nillable="false" xmlType="false">                <fi
+   value          : eldMapping arFieldId="1000000020" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="No" enumV
+   value          : alues="Yes,No"                maxOccurs="1" minOccurs="1" name="VIP" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000
+   value          : 026" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="Standard"                enumValues="
+   value          : Sensitive,Standard" maxOccurs="1"                minOccurs="1" name="Contact_Sensitivity"                nillable="false" xmlType="false">           
+   value          :      <fieldMapping arFieldId="1000000027" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs=
+   value          : "1" minOccurs="1"                name="Phone_Number" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000056" arFieldPart
+   value          : ="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Categorizatio
+   value          : n_Tier_1" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000063" arFieldPart="" defaultAttachName=""/>            </ele
+   value          : ment>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Categorization_Tier_2" nillable="false" xmlType="false">
+   value          :                 <fieldMapping arFieldId="1000000064" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string"
+   value          :  maxOccurs="1" minOccurs="1"                name="Categorization_Tier_3" nillable="false" xmlType="false">                <fieldMapping arFieldId="100
+   value          : 0000065" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"               
+   value          :  name="Contact_Company" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000082" arFieldPart="" defaultAttachName=""/>   
+   value          :          </element>            <element dataType="string"                default="User Service Restoration"                enumValues="User Service R
+   value          : estoration,User Service Request,Infrastructure Restoration,Infrastructure Event"                maxOccurs="1" minOccurs="1" name="Service_Type"       
+   value          :          nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000099" arFieldPart="" defaultAttachName=""/>            </elem
+   value          : ent>            <element dataType="string" default=""                enumValues="Infrastructure Change Created,Local Site Action Required,Purchase Ord
+   value          : er Approval,Registration Approval,Supplier Delivery,Support Contact Hold,Third Party Vendor Action Reqd,Client Action Required,Infrastructure Change,Req
+   value          : uest,Future Enhancement,Pending Original Incident,Client Hold,Monitoring Incident,Customer Follow-Up Required,Temporary Corrective Action,No Further Act
+   value          : ion Required,Resolved by Original Incident,Automated Resolution Reported,No longer a Causal CI"                maxOccurs="1" minOccurs="1" name="Status
+   value          : _Reason"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000150" arFieldPart="" defaultAttachName=""/>  
+   value          :           </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Resolution" nillable="false" xmlType="fals
+   value          : e">                <fieldMapping arFieldId="1000000156" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="str
+   value          : ing" default="1-Critical"                enumValues="1-Critical,2-High,3-Medium,4-Low"                maxOccurs="1" minOccurs="1" name="Urgency"     
+   value          :            nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000162" arFieldPart="" defaultAttachName=""/>            </el
+   value          : ement>            <element dataType="string" default="1-Extensive/Widespread"                enumValues="1-Extensive/Widespread,2-Significant/Large,3-
+   value          : Moderate/Limited,4-Minor/Localized"                maxOccurs="1" minOccurs="1" name="Impact"                nillable="false" xmlType="false">        
+   value          :         <fieldMapping arFieldId="1000000163" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default
+   value          : ="Critical"                enumValues="Critical,High,Medium,Low" maxOccurs="1"                minOccurs="1" name="Priority" nillable="false" xmlType="
+   value          : false">                <fieldMapping arFieldId="1000000164" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType=
+   value          : "int" maxOccurs="1" minOccurs="1"                name="Priority_Weight" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000
+   value          : 000169" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""                enumValues="Direc
+   value          : t Input,Email,External Escalation,Fax,Self Service,Systems Management,Phone,Voice Mail,Walk In,Web,Other,BMC Impact Manager Event"                maxOc
+   value          : curs="1" minOccurs="1" name="Reported_Source"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000215" arF
+   value          : ieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Assig
+   value          : ned_Group" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000217" arFieldPart="" defaultAttachName=""/>            </el
+   value          : ement>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Assignee" nillable="false" xmlType="false">            
+   value          :     <fieldMapping arFieldId="1000000218" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="
+   value          : 1" minOccurs="1"                name="Assigned_Support_Company" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000251" 
+   value          : arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="As
+   value          : signed_Group_Shift_Name" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000298" arFieldPart="" defaultAttachName=""/>  
+   value          :           </element>            <element dataType="dateTime" maxOccurs="1" minOccurs="1"                name="Reported_Date" nillable="false" xmlType=
+   value          : "false">                <fieldMapping arFieldId="1000000560" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType
+   value          : ="string" maxOccurs="1" minOccurs="1"                name="Resolution_Category" nillable="false" xmlType="false">                <fieldMapping arField
+   value          : Id="1000002488" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"        
+   value          :         name="Resolution_Method" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003888" arFieldPart="" defaultAttachName
+   value          : =""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Resolution_Category_Tier_2" nillab
+   value          : le="false" xmlType="false">                <fieldMapping arFieldId="1000003889" arFieldPart="" defaultAttachName=""/>            </element>          
+   value          :   <element dataType="string" maxOccurs="1" minOccurs="1"                name="Resolution_Category_Tier_3" nillable="false" xmlType="false">           
+   value          :      <fieldMapping arFieldId="1000003890" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs=
+   value          : "1" minOccurs="1"                name="Closure_Product_Category_Tier1" nillable="false" xmlType="false">                <fieldMapping arFieldId="10000
+   value          : 03891" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                n
+   value          : ame="Closure_Product_Category_Tier2" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003892" arFieldPart="" defaultAttach
+   value          : Name=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Closure_Product_Category_Tier3
+   value          : " nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003893" arFieldPart="" defaultAttachName=""/>            </element>  
+   value          :           <element dataType="string" maxOccurs="1" minOccurs="1"                name="Closure_Product_Name" nillable="false" xmlType="false">         
+   value          :        <fieldMapping arFieldId="1000003894" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccur
+   value          : s="1" minOccurs="1"                name="Closure_Product_Model_Version" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000
+   value          : 003895" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                
+   value          : name="Closure_Manufacturer" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003896" arFieldPart="" defaultAttachName=""/>
+   value          :             </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Assignee_Login_ID" nillable=
+   value          : "false" xmlType="false">                <fieldMapping arFieldId="4" arFieldPart="" defaultAttachName=""/>            </element>            <element d
+   value          : ataType="string" default="" maxOccurs="1"                minOccurs="1" name="Incident_Number" nillable="false" xmlType="false">                <fieldM
+   value          : apping arFieldId="1000000161" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="
+   value          : 1"                minOccurs="1" name="Summary" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000000" arFieldPart="" de
+   value          : faultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Notes" n
+   value          : illable="false" xmlType="false">                <fieldMapping arFieldId="1000000151" arFieldPart="" defaultAttachName=""/>            </element>     
+   value          :    </element>    </formMapping></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\3152\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping3" schemaS
+   value          : ource="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="HPD:IncidentInterface" primaryKeyId="1
+   value          : "/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_HPD_IncidentInte
+   value          : rface_WS">            <element dataType="string" default="MODIFY" maxOccurs="1"                minOccurs="1" name="Action" nillable="false" xmlType="f
+   value          : alse">                <fieldMapping arFieldId="1000000076" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="
+   value          : string" default="" maxOccurs="1"                minOccurs="1" name="Work_Info_Summary" nillable="false" xmlType="false">                <fieldMapping 
+   value          : arFieldId="301329900" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"     
+   value          :            minOccurs="1" name="Work_Info_Notes" nillable="false" xmlType="false">                <fieldMapping arFieldId="301398800" arFieldPart="" def
+   value          : aultAttachName=""/>            </element>            <element dataType="string" default=""                enumValues="----- Customer Inbound -----,Cu
+   value          : stomer Communication,Customer Follow-up,Customer Status Update,----- Customer Outbound -----,Closure Follow Up,Detail Clarification,General Information,
+   value          : Resolution Communications,Satisfaction Survey,Status Update,----- General -----,Incident Task / Action,Problem Script,Working Log,Email System,Paging Sy
+   value          : stem,BMC Impact Manager Update"                maxOccurs="1" minOccurs="1" name="Work_Info_Type"                nillable="false" xmlType="false">    
+   value          :             <fieldMapping arFieldId="301398600" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" defa
+   value          : ult=""                enumValues="Email,Fax,Phone,Voice Mail,Walk In,Pager,System Assignment,Web,Other,BMC Impact Manager Event"                maxOcc
+   value          : urs="1" minOccurs="1" name="Work_Info_Source"                nillable="false" xmlType="false">                <fieldMapping arFieldId="301602600" arFi
+   value          : eldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" enumValues="Yes,No"                maxOccurs
+   value          : ="1" minOccurs="1" name="Work_Info_Locked"                nillable="false" xmlType="false">                <fieldMapping arFieldId="301398900" arField
+   value          : Part="" defaultAttachName=""/>            </element>            <element dataType="string" default=""                enumValues="Internal,Public" max
+   value          : Occurs="1" minOccurs="1"                name="Work_Info_View_Access" nillable="false" xmlType="false">                <fieldMapping arFieldId="3013990
+   value          : 00" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccu
+   value          : rs="1" name="Incident_Number" nillable="false" xmlType="false"/>        </element>    </formMapping></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\4895\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping2" schemaS
+   value          : ource="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="HPD:IncidentInterface" primaryKeyId="1
+   value          : "/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_HPD_IncidentInte
+   value          : rface_WS">            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Action" nillable="false" xmlType="false">
+   value          :                 <fieldMapping arFieldId="1000000076" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string
+   value          : " default="Work Info Summary"                maxOccurs="1" minOccurs="1" name="Work_Info_Summary"                nillable="false" xmlType="false">   
+   value          :              <fieldMapping arFieldId="301329900" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" def
+   value          : ault="" maxOccurs="1"                minOccurs="1" name="Work_Info_Notes" nillable="false" xmlType="false">                <fieldMapping arFieldId="30
+   value          : 1398800" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""                enumValues="----
+   value          : - Customer Inbound -----,Customer Communication,Customer Follow-up,Customer Status Update,----- Customer Outbound -----,Closure Follow Up,Detail Clarifi
+   value          : cation,General Information,Resolution Communications,Satisfaction Survey,Status Update,----- General -----,Incident Task / Action,Problem Script,Working
+   value          :  Log,Email System,Paging System,BMC Impact Manager Update"                maxOccurs="1" minOccurs="1" name="Work_Info_Type"                nillable="f
+   value          : alse" xmlType="false">                <fieldMapping arFieldId="301398600" arFieldPart="" defaultAttachName=""/>            </element>            <ele
+   value          : ment dataType="string" default=""                enumValues="Email,Fax,Phone,Voice Mail,Walk In,Pager,System Assignment,Web,Other,BMC Impact Manager Ev
+   value          : ent"                maxOccurs="1" minOccurs="1" name="Work_Info_Source"                nillable="false" xmlType="false">                <fieldMapping
+   value          :  arFieldId="301602600" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" enumValues="Yes,No
+   value          : "                maxOccurs="1" minOccurs="1" name="Work_Info_Locked"                nillable="false" xmlType="false">                <fieldMapping ar
+   value          : FieldId="301398900" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""                enumV
+   value          : alues="Internal,Public" maxOccurs="1" minOccurs="1"                name="Work_Info_View_Access" nillable="false" xmlType="false">                <fiel
+   value          : dMapping arFieldId="301399000" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs=
+   value          : "1"                minOccurs="1" name="Incident_Number" nillable="false" xmlType="false"/>            <element dataType="string" default=""          
+   value          :       enumValues="New,Assigned,In Progress,Pending,Resolved,Closed,Cancelled"                maxOccurs="1" minOccurs="1" name="Status"                
+   value          : nillable="false" xmlType="false">                <fieldMapping arFieldId="7" arFieldPart="" defaultAttachName=""/>            </element>            <
+   value          : element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Assignee_Login_ID" nillable="false" xmlType="false">            
+   value          :     <fieldMapping arFieldId="4" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs
+   value          : ="1"                minOccurs="1" name="Assignee" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000218" arFieldPart=""
+   value          :  defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Assig
+   value          : ned_Group" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000217" arFieldPart="" defaultAttachName=""/>            </el
+   value          : ement>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Assigned_Support_Organization"              
+   value          :   nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000014" arFieldPart="" defaultAttachName=""/>            </element>  
+   value          :           <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Assigned_Support_Company"                nillable="fa
+   value          : lse" xmlType="false">                <fieldMapping arFieldId="1000000251" arFieldPart="" defaultAttachName=""/>            </element>        </elemen
+   value          : t>    </formMapping></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\166\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping5" schemaS
+   value          : ource="generated"/>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32800
+   datatype       : 1
+   value          : 4\14311\<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="urn:XM_HPD_IncidentInterface_WS" xmlns:s0="urn:XM_HPD_IncidentInterfa
+   value          : ce_WS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.o
+   value          : rg/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> <wsdl:types>  <xsd:schema elementFormDefault="qualified" targetNamespace="urn:XM_HPD_Inciden
+   value          : tInterface_WS">   <xsd:element name="AddWorkLog" type="s0:InputMapping3"/>   <xsd:complexType name="InputMapping3">    <xsd:sequence>     <xsd:e
+   value          : lement name="Action" type="xsd:string"/>     <xsd:element name="Work_Info_Summary" type="xsd:string"/>     <xsd:element name="Work_Info_Notes" type=
+   value          : "xsd:string"/>     <xsd:element name="Work_Info_Type" type="s0:Work_Info_TypeType"/>     <xsd:element name="Work_Info_Source" type="s0:Work_Info_Sou
+   value          : rceType"/>     <xsd:element name="Work_Info_Locked" type="s0:Work_Info_LockedType"/>     <xsd:element name="Work_Info_View_Access" type="s0:Work_Inf
+   value          : o_View_AccessType"/>     <xsd:element name="Incident_Number" type="xsd:string"/>    </xsd:sequence>   </xsd:complexType>   <xsd:simpleType name=
+   value          : "Work_Info_TypeType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="----- Customer Inbound -----"/>     <xsd:enumeration valu
+   value          : e="Customer Communication"/>     <xsd:enumeration value="Customer Follow-up"/>     <xsd:enumeration value="Customer Status Update"/>     <xsd:enum
+   value          : eration value="----- Customer Outbound -----"/>     <xsd:enumeration value="Closure Follow Up"/>     <xsd:enumeration value="Detail Clarification"/>
+   value          :      <xsd:enumeration value="General Information"/>     <xsd:enumeration value="Resolution Communications"/>     <xsd:enumeration value="Satisfact
+   value          : ion Survey"/>     <xsd:enumeration value="Status Update"/>     <xsd:enumeration value="----- General -----"/>     <xsd:enumeration value="Incident
+   value          :  Task / Action"/>     <xsd:enumeration value="Problem Script"/>     <xsd:enumeration value="Working Log"/>     <xsd:enumeration value="Email Syste
+   value          : m"/>     <xsd:enumeration value="Paging System"/>     <xsd:enumeration value="BMC Impact Manager Update"/>    </xsd:restriction>   </xsd:simpleT
+   value          : ype>   <xsd:simpleType name="Work_Info_SourceType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Email"/>     <xsd:enumera
+   value          : tion value="Fax"/>     <xsd:enumeration value="Phone"/>     <xsd:enumeration value="Voice Mail"/>     <xsd:enumeration value="Walk In"/>     <xs
+   value          : d:enumeration value="Pager"/>     <xsd:enumeration value="System Assignment"/>     <xsd:enumeration value="Web"/>     <xsd:enumeration value="Othe
+   value          : r"/>     <xsd:enumeration value="BMC Impact Manager Event"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="Work_Info_LockedT
+   value          : ype">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Yes"/>     <xsd:enumeration value="No"/>    </xsd:restriction>   </xs
+   value          : d:simpleType>   <xsd:simpleType name="Work_Info_View_AccessType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Internal"/>
+   value          :      <xsd:enumeration value="Public"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:element name="AddWorkLogResponse" type="s0:OutputMapping3"
+   value          : />   <xsd:complexType name="OutputMapping3">    <xsd:sequence/>   </xsd:complexType>   <xsd:element name="Resolve" type="s0:InputMapping4"/>  
+   value          :  <xsd:complexType name="InputMapping4">    <xsd:sequence>     <xsd:element name="Action" type="xsd:string"/>     <xsd:element name="Resolution" ty
+   value          : pe="xsd:string"/>     <xsd:element name="Resolution_Category" type="xsd:string"/>     <xsd:element name="Resolution_Category_Tier_2" type="xsd:strin
+   value          : g"/>     <xsd:element name="Resolution_Category_Tier_3" type="xsd:string"/>     <xsd:element name="Resolution_Method" type="xsd:string"/>     <xsd
+   value          : :element name="Status" type="s0:StatusType"/>     <xsd:element name="Status_Reason" type="s0:Status_ReasonType"/>     <xsd:element name="Work_Info_S
+   value          : ummary" type="xsd:string"/>     <xsd:element name="Work_Info_Notes" type="xsd:string"/>     <xsd:element name="Work_Info_Type" type="s0:Work_Info_Ty
+   value          : peType"/>     <xsd:element name="Work_Info_Source" type="s0:Work_Info_SourceType"/>     <xsd:element name="Work_Info_Locked" type="s0:Work_Info_Lock
+   value          : edType"/>     <xsd:element name="Work_Info_View_Access" type="s0:Work_Info_View_AccessType"/>     <xsd:element name="Incident_Number" type="xsd:stri
+   value          : ng"/>    </xsd:sequence>   </xsd:complexType>   <xsd:simpleType name="StatusType">    <xsd:restriction base="xsd:string">     <xsd:enumeration
+   value          :  value="New"/>     <xsd:enumeration value="Assigned"/>     <xsd:enumeration value="In Progress"/>     <xsd:enumeration value="Pending"/>     <xs
+   value          : d:enumeration value="Resolved"/>     <xsd:enumeration value="Closed"/>     <xsd:enumeration value="Cancelled"/>    </xsd:restriction>   </xsd:si
+   value          : mpleType>   <xsd:simpleType name="Status_ReasonType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Infrastructure Change Cre
+   value          : ated"/>     <xsd:enumeration value="Local Site Action Required"/>     <xsd:enumeration value="Purchase Order Approval"/>     <xsd:enumeration valu
+   value          : e="Registration Approval"/>     <xsd:enumeration value="Supplier Delivery"/>     <xsd:enumeration value="Support Contact Hold"/>     <xsd:enumerat
+   value          : ion value="Third Party Vendor Action Reqd"/>     <xsd:enumeration value="Client Action Required"/>     <xsd:enumeration value="Infrastructure Change
+   value          : "/>     <xsd:enumeration value="Request"/>     <xsd:enumeration value="Future Enhancement"/>     <xsd:enumeration value="Pending Original Incident
+   value          : "/>     <xsd:enumeration value="Client Hold"/>     <xsd:enumeration value="Monitoring Incident"/>     <xsd:enumeration value="Customer Follow-Up R
+   value          : equired"/>     <xsd:enumeration value="Temporary Corrective Action"/>     <xsd:enumeration value="No Further Action Required"/>     <xsd:enumerati
+   value          : on value="Resolved by Original Incident"/>     <xsd:enumeration value="Automated Resolution Reported"/>     <xsd:enumeration value="No longer a Caus
+   value          : al CI"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:element name="ResolveResponse" type="s0:OutputMapping4"/>   <xsd:complexType name="Out
+   value          : putMapping4">    <xsd:sequence/>   </xsd:complexType>   <xsd:element name="UpdateAssignee" type="s0:InputMapping5"/>   <xsd:complexType name="In
+   value          : putMapping5">    <xsd:sequence>     <xsd:element name="Action" type="xsd:string"/>     <xsd:element name="Assignee" type="xsd:string"/>     <xsd
+   value          : :element name="Assignee_Login_ID" type="xsd:string"/>     <xsd:element name="Assigned_Support_Company" type="xsd:string"/>     <xsd:element name="As
+   value          : signed_Support_Organization" type="xsd:string"/>     <xsd:element name="Assigned_Group" type="xsd:string"/>     <xsd:element name="Assigned_Group_ID
+   value          : " type="xsd:string"/>     <xsd:element name="Work_Info_Summary" type="xsd:string"/>     <xsd:element name="Work_Info_Notes" type="xsd:string"/>   
+   value          :   <xsd:element name="Work_Info_Type" type="s0:Work_Info_TypeType"/>     <xsd:element name="Work_Info_Source" type="s0:Work_Info_SourceType"/>     <x
+   value          : sd:element name="Work_Info_Locked" type="s0:Work_Info_LockedType"/>     <xsd:element name="Work_Info_View_Access" type="s0:Work_Info_View_AccessType"/
+   value          : >     <xsd:element name="Incident_Number" type="xsd:string"/>    </xsd:sequence>   </xsd:complexType>   <xsd:element name="UpdateAssigneeRespons
+   value          : e" type="s0:OutputMapping5"/>   <xsd:complexType name="OutputMapping5">    <xsd:sequence/>   </xsd:complexType>   <xsd:element name="UpdateStatu
+   value          : s" type="s0:InputMapping7"/>   <xsd:complexType name="InputMapping7">    <xsd:sequence>     <xsd:element name="Action" type="xsd:string"/>     <
+   value          : xsd:element name="Status" type="s0:StatusType"/>     <xsd:element name="Work_Info_Summary" type="xsd:string"/>     <xsd:element name="Work_Info_Note
+   value          : s" type="xsd:string"/>     <xsd:element name="Work_Info_Type" type="s0:Work_Info_TypeType"/>     <xsd:element name="Work_Info_Source" type="s0:Work_
+   value          : Info_SourceType"/>     <xsd:element name="Work_Info_Locked" type="s0:Work_Info_LockedType"/>     <xsd:element name="Work_Info_View_Access" type="s0:
+   value          : Work_Info_View_AccessType"/>     <xsd:element name="Incident_Number" type="xsd:string"/>    </xsd:sequence>   </xsd:complexType>   <xsd:element 
+   value          : name="UpdateStatusResponse" type="s0:OutputMapping7"/>   <xsd:complexType name="OutputMapping7">    <xsd:sequence/>   </xsd:complexType>   <xsd:
+   value          : element name="AuthenticationInfo" type="s0:AuthenticationInfo"/>   <xsd:complexType name="AuthenticationInfo">    <xsd:sequence>     <xsd:element 
+   value          : name="userName" type="xsd:string"/>     <xsd:element name="password" type="xsd:string"/>     <xsd:element minOccurs="0" name="authentication" type="
+   value          : xsd:string"/>     <xsd:element minOccurs="0" name="locale" type="xsd:string"/>     <xsd:element minOccurs="0" name="timeZone" type="xsd:string"/> 
+   value          :    </xsd:sequence>   </xsd:complexType>  </xsd:schema> </wsdl:types>   <wsdl:message name="UpdateAssigneeSoapIn">      <wsdl:part element="s
+   value          : 0:UpdateAssignee" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="UpdateStatusSoapIn">      <wsdl:part element=
+   value          : "s0:UpdateStatus" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="AddWorkLogSoapIn">      <wsdl:part element="s
+   value          : 0:AddWorkLog" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="UpdateAssigneeSoapOut">      <wsdl:part element="
+   value          : s0:UpdateAssigneeResponse" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="AddWorkLogSoapOut">      <wsdl:part 
+   value          : element="s0:AddWorkLogResponse" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="ResolveSoapIn">      <wsdl:part
+   value          :  element="s0:Resolve" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="UpdateStatusSoapOut">      <wsdl:part ele
+   value          : ment="s0:UpdateStatusResponse" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="ARAuthenticate">      <wsdl:part
+   value          :  element="s0:AuthenticationInfo" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="ResolveSoapOut">      <wsdl:pa
+   value          : rt element="s0:ResolveResponse" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:portType name="XM_HPD_IncidentInterfacePortType"
+   value          : >      <wsdl:operation name="AddWorkLog">         <wsdl:input message="s0:AddWorkLogSoapIn">       </wsdl:input>         <wsdl:output messag
+   value          : e="s0:AddWorkLogSoapOut">       </wsdl:output>      </wsdl:operation>      <wsdl:operation name="Resolve">         <wsdl:input message="s0:R
+   value          : esolveSoapIn">       </wsdl:input>         <wsdl:output message="s0:ResolveSoapOut">       </wsdl:output>      </wsdl:operation>      <ws
+   value          : dl:operation name="UpdateAssignee">         <wsdl:input message="s0:UpdateAssigneeSoapIn">       </wsdl:input>         <wsdl:output message="s0
+   value          : :UpdateAssigneeSoapOut">       </wsdl:output>      </wsdl:operation>      <wsdl:operation name="UpdateStatus">         <wsdl:input message="
+   value          : s0:UpdateStatusSoapIn">       </wsdl:input>         <wsdl:output message="s0:UpdateStatusSoapOut">       </wsdl:output>      </wsdl:operatio
+   value          : n>   </wsdl:portType>   <wsdl:binding name="XM_HPD_IncidentInterfaceSoapBinding" type="s0:XM_HPD_IncidentInterfacePortType">      <soap:binding
+   value          :  style="document" transport="http://schemas.xmlsoap.org/soap/http"/>      <wsdl:operation name="AddWorkLog">         <soap:operation soapAction="u
+   value          : rn:XM_HPD_IncidentInterface_WS/AddWorkLog" style="document"/>         <wsdl:input>            <soap:header message="s0:ARAuthenticate" part="param
+   value          : eters" use="literal">            </soap:header>            <soap:body use="literal"/>         </wsdl:input>         <wsdl:output>        
+   value          :     <soap:body use="literal"/>         </wsdl:output>      </wsdl:operation>      <wsdl:operation name="Resolve">         <soap:operation so
+   value          : apAction="urn:XM_HPD_IncidentInterface_WS/Resolve" style="document"/>         <wsdl:input>            <soap:header message="s0:ARAuthenticate" par
+   value          : t="parameters" use="literal">            </soap:header>            <soap:body use="literal"/>         </wsdl:input>         <wsdl:output>
+   value          :             <soap:body use="literal"/>         </wsdl:output>      </wsdl:operation>      <wsdl:operation name="UpdateAssignee">         <so
+   value          : ap:operation soapAction="urn:XM_HPD_IncidentInterface_WS/UpdateAssignee" style="document"/>         <wsdl:input>            <soap:header message="
+   value          : s0:ARAuthenticate" part="parameters" use="literal">            </soap:header>            <soap:body use="literal"/>         </wsdl:input>   
+   value          :       <wsdl:output>            <soap:body use="literal"/>         </wsdl:output>      </wsdl:operation>      <wsdl:operation name="UpdateSta
+   value          : tus">         <soap:operation soapAction="urn:XM_HPD_IncidentInterface_WS/UpdateStatus" style="document"/>         <wsdl:input>            <soa
+   value          : p:header message="s0:ARAuthenticate" part="parameters" use="literal">            </soap:header>            <soap:body use="literal"/>         <
+   value          : /wsdl:input>         <wsdl:output>            <soap:body use="literal"/>         </wsdl:output>      </wsdl:operation>   </wsdl:binding>
+   value          :    <wsdl:service name="XM_HPD_IncidentInterface_WSService">  <wsdl:documentation>xMatters web service to update incidents. Since the use of HPD:
+   value          : IncidentInterface is the supported method of interacting with HPD:Help Desk this web service is the endpoint for making updates.  The out of box functio
+   value          : ns include:* add a worklog entry* update the assignee/assigned group* resolve an incident  </wsdl:documentation>      <wsdl:port binding="s0:XM_H
+   value          : PD_IncidentInterfaceSoapBinding" name="XM_HPD_IncidentInterfaceSoap">         <soap:address location="@LOCATION@"/>      </wsdl:port>   </wsdl:
+   value          : service></wsdl:definitions>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32802
+   datatype       : 1
+   value          : 4\83\http://<midtier_server>/arsys/WSDL/public/<serverename>/XM_HPD_IncidentInterface_WS\
+   ref-groups     : 0
+}
+end
+begin container
+   name           : XM_SupportGrp_SupportGrpAssoci_WS
+   type           : 5
+   num-references : 17
+   timestamp      : 1440014021
+   owner          : Demo
+   owning-obj     : 1\2\40\XM:SupportGrp_SupportGrpAssoci_join_form\
+   last-changed   : Demo
+   export-version : 12
+   permission     : 0\1
+   description    : xMatters web service to expose the custom XM:SupportGrp_SupportGrpAssoci_join_form. The purpose of that form is to address the out of box behaviour of t
+   description    : he CTM:Support Group Association form where Company, Support Organization and Support Group fields are not populated.This join form is modelled after 
+   description    : CTM:SupportGrp_SupportGrpAssoci_join_form which provides most of the same information.  The xMatters version includes the fields Login ID and Fullname.
+   object-prop    : 2\90015\2\4\90016\4\1\1\
+reference {
+   type           : 32797
+   datatype       : 1
+   value          : 4\190\<?xml version="1.0"?><portProperties name="GroupMemberInfo"><portType name=""/><xmlSchemaSource name="embedded"/><externalSchema name=""/><portNa
+   value          : me name="GroupMemberInfo"/></portProperties>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32798
+   datatype       : 1
+   value          : 4\657\<?xml version="1.0" encoding="UTF-8"?><operation maxLimit="XPATH(/ROOT/maxLimit)" name="GroupMemberInfoList"    qualification="XPATH(/ROOT/Quali
+   value          : fication)"    startRecord="XPATH(/ROOT/startRecord)" type="get">    <arOptions>        <setOptions>            <type>setFirst</type>            <do
+   value          : cumentType>full</documentType>        </setOptions>    </arOptions>    <inputMapping name="InputMapping6"        namespace="XM_SupportGrp_SupportGrp
+   value          : Associ_WS" topLevelElement="GroupMemberInfoList"/>    <outputMapping name="OutputMapping6"        namespace="XM_SupportGrp_SupportGrpAssoci_WS" topLev
+   value          : elElement="GroupMemberInfoListResponse"/></operation>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32828
+   datatype       : 1
+   value          : 4\0\\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\3135\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping4" schema
+   value          : Source="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="XM:SupportGrp_SupportGrpAssoci_join_f
+   value          : orm" primaryKeyId="1"/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn
+   value          : :XM_SupportGrp_SupportGrpAssoci_WS">            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Request_ID" nillable="fals
+   value          : e" xmlType="false">                <fieldMapping arFieldId="1" arFieldPart="" defaultAttachName=""/>            </element>            <element dataTy
+   value          : pe="string" maxOccurs="1" minOccurs="1"                name="Support_Group_Name" nillable="false" xmlType="false">                <fieldMapping arFiel
+   value          : dId="1000000015" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"       
+   value          :          name="Support_Organization" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000014" arFieldPart="" defaultAttach
+   value          : Name=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Company" nillable="false" xmlT
+   value          : ype="false">                <fieldMapping arFieldId="1000000001" arFieldPart="" defaultAttachName=""/>            </element>            <element data
+   value          : Type="string" default="SGP" maxOccurs="1"                minOccurs="1" name="Support_Group_ID" nillable="false" xmlType="false">                <field
+   value          : Mapping arFieldId="536870913" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccur
+   value          : s="1"                name="Person_ID" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000080" arFieldPart="" defaultAtta
+   value          : chName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Full_Name" nillable="false" 
+   value          : xmlType="false">                <fieldMapping arFieldId="1000000017" arFieldPart="" defaultAttachName=""/>            </element>            <element 
+   value          : dataType="string" maxOccurs="1" minOccurs="1"                name="Login_ID" nillable="false" xmlType="false">                <fieldMapping arFieldId=
+   value          : "4" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="SGA" maxOccurs="1"                minO
+   value          : ccurs="1" name="Support_Group_Association_ID"                nillable="false" xmlType="false">                <fieldMapping arFieldId="536870914" arFi
+   value          : eldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="No" enumValues="Yes,No"                maxOccu
+   value          : rs="1" minOccurs="1" name="Default"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000075" arFieldPart="
+   value          : " defaultAttachName=""/>            </element>        </element>    </formMapping></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\2894\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping4" schemaS
+   value          : ource="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="XM:SupportGrp_SupportGrpAssoci_join_fo
+   value          : rm" primaryKeyId="1"/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:
+   value          : XM_SupportGrp_SupportGrpAssoci_WS">            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Support_Group_Name" nillabl
+   value          : e="false" xmlType="false">                <fieldMapping arFieldId="1000000015" arFieldPart="" defaultAttachName=""/>            </element>           
+   value          :  <element dataType="string" maxOccurs="1" minOccurs="1"                name="Support_Organization" nillable="false" xmlType="false">                <f
+   value          : ieldMapping arFieldId="1000000014" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" min
+   value          : Occurs="1"                name="Company" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000001" arFieldPart="" defaultA
+   value          : ttachName=""/>            </element>            <element dataType="string" default="SGP" maxOccurs="1"                minOccurs="1" name="Support_Gro
+   value          : up_ID" nillable="false" xmlType="false">                <fieldMapping arFieldId="536870913" arFieldPart="" defaultAttachName=""/>            </element
+   value          : >            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Person_ID" nillable="false" xmlType="false">                
+   value          : <fieldMapping arFieldId="1000000080" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" m
+   value          : inOccurs="1"                name="Full_Name" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000017" arFieldPart="" defa
+   value          : ultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Login_ID" nillable="f
+   value          : alse" xmlType="false">                <fieldMapping arFieldId="4" arFieldPart="" defaultAttachName=""/>            </element>            <element dat
+   value          : aType="string" default="SGA" maxOccurs="1"                minOccurs="1" name="Support_Group_Association_ID"                nillable="false" xmlType="f
+   value          : alse">                <fieldMapping arFieldId="536870914" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="s
+   value          : tring" default="No" enumValues="Yes,No"                maxOccurs="1" minOccurs="1" name="Default"                nillable="false" xmlType="false">   
+   value          :              <fieldMapping arFieldId="1000000075" arFieldPart="" defaultAttachName=""/>            </element>        </element>    </formMapping></a
+   value          : rDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\771\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping5" schemaSo
+   value          : urce="generated">    <element all="false" dataType="ROOT" default="" maxOccurs="1"        minOccurs="1" name="ROOT" targetNamespace="urn:XM_SupportGrp
+   value          : _SupportGrpAssoci_WS">        <element dataType="string" default="" maxOccurs="1"            minOccurs="1" name="Qualification" nillable="false" xmlTy
+   value          : pe="false"/>        <element dataType="string" default="" maxOccurs="1"            minOccurs="1" name="startRecord" nillable="false" xmlType="false"/>
+   value          :         <element dataType="string" default="" maxOccurs="1"            minOccurs="1" name="maxLimit" nillable="false" xmlType="false"/>    </element>
+   value          : </arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\481\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping3" schemaS
+   value          : ource="generated">    <element all="false" dataType="ROOT" default="" maxOccurs="1"        minOccurs="1" name="ROOT" targetNamespace="urn:XM_SupportGr
+   value          : p_SupportGrpAssoci_WS">        <element dataType="string" maxOccurs="1" minOccurs="1"            name="Request_ID" nillable="false" xmlType="false"/>
+   value          :     </element></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\771\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping6" schemaSo
+   value          : urce="generated">    <element all="false" dataType="ROOT" default="" maxOccurs="1"        minOccurs="1" name="ROOT" targetNamespace="urn:XM_SupportGrp
+   value          : _SupportGrpAssoci_WS">        <element dataType="string" default="" maxOccurs="1"            minOccurs="1" name="Qualification" nillable="false" xmlTy
+   value          : pe="false"/>        <element dataType="string" default="" maxOccurs="1"            minOccurs="1" name="startRecord" nillable="false" xmlType="false"/>
+   value          :         <element dataType="string" default="" maxOccurs="1"            minOccurs="1" name="maxLimit" nillable="false" xmlType="false"/>    </element>
+   value          : </arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\3135\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping2" schema
+   value          : Source="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="XM:SupportGrp_SupportGrpAssoci_join_f
+   value          : orm" primaryKeyId="1"/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn
+   value          : :XM_SupportGrp_SupportGrpAssoci_WS">            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Request_ID" nillable="fals
+   value          : e" xmlType="false">                <fieldMapping arFieldId="1" arFieldPart="" defaultAttachName=""/>            </element>            <element dataTy
+   value          : pe="string" maxOccurs="1" minOccurs="1"                name="Support_Group_Name" nillable="false" xmlType="false">                <fieldMapping arFiel
+   value          : dId="1000000015" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"       
+   value          :          name="Support_Organization" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000014" arFieldPart="" defaultAttach
+   value          : Name=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Company" nillable="false" xmlT
+   value          : ype="false">                <fieldMapping arFieldId="1000000001" arFieldPart="" defaultAttachName=""/>            </element>            <element data
+   value          : Type="string" default="SGP" maxOccurs="1"                minOccurs="1" name="Support_Group_ID" nillable="false" xmlType="false">                <field
+   value          : Mapping arFieldId="536870913" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccur
+   value          : s="1"                name="Person_ID" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000080" arFieldPart="" defaultAtta
+   value          : chName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Full_Name" nillable="false" 
+   value          : xmlType="false">                <fieldMapping arFieldId="1000000017" arFieldPart="" defaultAttachName=""/>            </element>            <element 
+   value          : dataType="string" maxOccurs="1" minOccurs="1"                name="Login_ID" nillable="false" xmlType="false">                <fieldMapping arFieldId=
+   value          : "4" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="SGA" maxOccurs="1"                minO
+   value          : ccurs="1" name="Support_Group_Association_ID"                nillable="false" xmlType="false">                <fieldMapping arFieldId="536870914" arFi
+   value          : eldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="No" enumValues="Yes,No"                maxOccu
+   value          : rs="1" minOccurs="1" name="Default"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000075" arFieldPart="
+   value          : " defaultAttachName=""/>            </element>        </element>    </formMapping></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\780\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping1" schemaS
+   value          : ource="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="XM:SupportGrp_SupportGrpAssoci_join_fo
+   value          : rm" primaryKeyId="1"/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:
+   value          : XM_SupportGrp_SupportGrpAssoci_WS">            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Request_ID" nillable="false
+   value          : " xmlType="false">                <fieldMapping arFieldId="1" arFieldPart="" defaultAttachName=""/>            </element>        </element>    </for
+   value          : mMapping></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\2894\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping1" schemaS
+   value          : ource="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="XM:SupportGrp_SupportGrpAssoci_join_fo
+   value          : rm" primaryKeyId="1"/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:
+   value          : XM_SupportGrp_SupportGrpAssoci_WS">            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Support_Group_Name" nillabl
+   value          : e="false" xmlType="false">                <fieldMapping arFieldId="1000000015" arFieldPart="" defaultAttachName=""/>            </element>           
+   value          :  <element dataType="string" maxOccurs="1" minOccurs="1"                name="Support_Organization" nillable="false" xmlType="false">                <f
+   value          : ieldMapping arFieldId="1000000014" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" min
+   value          : Occurs="1"                name="Company" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000001" arFieldPart="" defaultA
+   value          : ttachName=""/>            </element>            <element dataType="string" default="SGP" maxOccurs="1"                minOccurs="1" name="Support_Gro
+   value          : up_ID" nillable="false" xmlType="false">                <fieldMapping arFieldId="536870913" arFieldPart="" defaultAttachName=""/>            </element
+   value          : >            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Person_ID" nillable="false" xmlType="false">                
+   value          : <fieldMapping arFieldId="1000000080" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" m
+   value          : inOccurs="1"                name="Full_Name" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000017" arFieldPart="" defa
+   value          : ultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Login_ID" nillable="f
+   value          : alse" xmlType="false">                <fieldMapping arFieldId="4" arFieldPart="" defaultAttachName=""/>            </element>            <element dat
+   value          : aType="string" default="SGA" maxOccurs="1"                minOccurs="1" name="Support_Group_Association_ID"                nillable="false" xmlType="f
+   value          : alse">                <fieldMapping arFieldId="536870914" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="s
+   value          : tring" default="No" enumValues="Yes,No"                maxOccurs="1" minOccurs="1" name="Default"                nillable="false" xmlType="false">   
+   value          :              <fieldMapping arFieldId="1000000075" arFieldPart="" defaultAttachName=""/>            </element>        </element>    </formMapping></a
+   value          : rDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\3030\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping3" schemaS
+   value          : ource="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="XM:SupportGrp_SupportGrpAssoci_join_fo
+   value          : rm" primaryKeyId="1"/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:
+   value          : XM_SupportGrp_SupportGrpAssoci_WS">            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Support_Group_Name" nillabl
+   value          : e="false" xmlType="false">                <fieldMapping arFieldId="1000000015" arFieldPart="" defaultAttachName=""/>            </element>           
+   value          :  <element dataType="string" maxOccurs="1" minOccurs="1"                name="Support_Organization" nillable="false" xmlType="false">                <f
+   value          : ieldMapping arFieldId="1000000014" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" min
+   value          : Occurs="1"                name="Company" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000001" arFieldPart="" defaultA
+   value          : ttachName=""/>            </element>            <element dataType="string" default="SGP" maxOccurs="1"                minOccurs="1" name="Support_Gro
+   value          : up_ID" nillable="false" xmlType="false">                <fieldMapping arFieldId="536870913" arFieldPart="" defaultAttachName=""/>            </element
+   value          : >            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Person_ID" nillable="false" xmlType="false">                
+   value          : <fieldMapping arFieldId="1000000080" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" m
+   value          : inOccurs="1"                name="Full_Name" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000017" arFieldPart="" defa
+   value          : ultAttachName=""/>            </element>            <element dataType="string" maxOccurs="1" minOccurs="1"                name="Login_ID" nillable="f
+   value          : alse" xmlType="false">                <fieldMapping arFieldId="4" arFieldPart="" defaultAttachName=""/>            </element>            <element dat
+   value          : aType="string" default="SGA" maxOccurs="1"                minOccurs="1" name="Support_Group_Association_ID"                nillable="false" xmlType="f
+   value          : alse">                <fieldMapping arFieldId="536870914" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="s
+   value          : tring" default="No" enumValues="Yes,No"                maxOccurs="1" minOccurs="1" name="Default"                nillable="false" xmlType="false">   
+   value          :              <fieldMapping arFieldId="1000000075" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" ma
+   value          : xOccurs="1" minOccurs="1"                name="Request_ID" nillable="false" xmlType="false"/>        </element>    </formMapping></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\2904\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping6" schema
+   value          : Source="generated">    <element all="false" dataType="ROOT" default="" maxOccurs="1"        minOccurs="1" name="ROOT" targetNamespace="urn:XM_SupportG
+   value          : rp_SupportGrpAssoci_WS">        <formMapping>            <form distinguishingKeyId="1" foreignKeyId="1"                formName="XM:SupportGrp_Suppor
+   value          : tGrpAssoci_join_form" primaryKeyId="1"/>            <element all="" dataType="" default="" maxOccurs="unbounded"                minOccurs="1" name="ge
+   value          : tListValues">                <element dataType="string" maxOccurs="1" minOccurs="1"                    name="Support_Group_Name" nillable="false" xmlT
+   value          : ype="false">                    <fieldMapping arFieldId="1000000015" arFieldPart="" defaultAttachName=""/>                </element>                <
+   value          : element dataType="string" maxOccurs="1" minOccurs="1"                    name="Support_Organization" nillable="false" xmlType="false">                
+   value          :     <fieldMapping arFieldId="1000000014" arFieldPart="" defaultAttachName=""/>                </element>                <element dataType="string" max
+   value          : Occurs="1" minOccurs="1"                    name="Company" nillable="false" xmlType="false">                    <fieldMapping arFieldId="1000000001" a
+   value          : rFieldPart="" defaultAttachName=""/>                </element>                <element dataType="string" default="SGP" maxOccurs="1"                 
+   value          :    minOccurs="1" name="Support_Group_ID"                    nillable="false" xmlType="false">                    <fieldMapping arFieldId="1000000079" 
+   value          : arFieldPart="" defaultAttachName=""/>                </element>                <element dataType="string" maxOccurs="1" minOccurs="1"                
+   value          :     name="Person_ID" nillable="false" xmlType="false">                    <fieldMapping arFieldId="1000000080" arFieldPart="" defaultAttachName=""/>  
+   value          :               </element>                <element dataType="string" maxOccurs="1" minOccurs="1"                    name="Full_Name" nillable="false" xm
+   value          : lType="false">                    <fieldMapping arFieldId="1000000017" arFieldPart="" defaultAttachName=""/>                </element>               
+   value          :  <element dataType="string" maxOccurs="1" minOccurs="1"                    name="Login_ID" nillable="false" xmlType="false">                    <field
+   value          : Mapping arFieldId="4" arFieldPart="" defaultAttachName=""/>                </element>                <element dataType="string" default="No"         
+   value          :            enumValues="Yes,No" maxOccurs="1" minOccurs="1"                    name="Default" nillable="false" xmlType="false">                    <fie
+   value          : ldMapping arFieldId="1000000075" arFieldPart="" defaultAttachName=""/>                </element>            </element>        </formMapping>    </el
+   value          : ement></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\3475\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping5" schema
+   value          : Source="generated">    <element all="false" dataType="ROOT" default="" maxOccurs="1"        minOccurs="1" name="ROOT" targetNamespace="urn:XM_SupportG
+   value          : rp_SupportGrpAssoci_WS">        <formMapping>            <form distinguishingKeyId="1" foreignKeyId="1"                formName="XM:SupportGrp_Suppor
+   value          : tGrpAssoci_join_form" primaryKeyId="1"/>            <element all="" dataType="" default="" maxOccurs="unbounded"                minOccurs="1" name="ge
+   value          : tListValues">                <element dataType="string" maxOccurs="1" minOccurs="1"                    name="Request_ID" nillable="false" xmlType="fal
+   value          : se">                    <fieldMapping arFieldId="1" arFieldPart="" defaultAttachName=""/>                </element>                <element dataType=
+   value          : "string" maxOccurs="1" minOccurs="1"                    name="Support_Group_Name" nillable="false" xmlType="false">                    <fieldMapping a
+   value          : rFieldId="1000000015" arFieldPart="" defaultAttachName=""/>                </element>                <element dataType="string" maxOccurs="1" minOccur
+   value          : s="1"                    name="Support_Organization" nillable="false" xmlType="false">                    <fieldMapping arFieldId="1000000014" arField
+   value          : Part="" defaultAttachName=""/>                </element>                <element dataType="string" maxOccurs="1" minOccurs="1"                    nam
+   value          : e="Company" nillable="false" xmlType="false">                    <fieldMapping arFieldId="1000000001" arFieldPart="" defaultAttachName=""/>           
+   value          :      </element>                <element dataType="string" default="SGP" maxOccurs="1"                    minOccurs="1" name="Support_Group_ID"       
+   value          :              nillable="false" xmlType="false">                    <fieldMapping arFieldId="536870913" arFieldPart="" defaultAttachName=""/>           
+   value          :      </element>                <element dataType="string" maxOccurs="1" minOccurs="1"                    name="Person_ID" nillable="false" xmlType="fa
+   value          : lse">                    <fieldMapping arFieldId="1000000080" arFieldPart="" defaultAttachName=""/>                </element>                <element
+   value          :  dataType="string" maxOccurs="1" minOccurs="1"                    name="Full_Name" nillable="false" xmlType="false">                    <fieldMapping 
+   value          : arFieldId="1000000017" arFieldPart="" defaultAttachName=""/>                </element>                <element dataType="string" maxOccurs="1" minOccu
+   value          : rs="1"                    name="Login_ID" nillable="false" xmlType="false">                    <fieldMapping arFieldId="4" arFieldPart="" defaultAttac
+   value          : hName=""/>                </element>                <element dataType="string" default="SGA" maxOccurs="1"                    minOccurs="1" name="Sup
+   value          : port_Group_Association_ID"                    nillable="false" xmlType="false">                    <fieldMapping arFieldId="536870914" arFieldPart="" 
+   value          : defaultAttachName=""/>                </element>                <element dataType="string" default="No"                    enumValues="Yes,No" maxOcc
+   value          : urs="1" minOccurs="1"                    name="Default" nillable="false" xmlType="false">                    <fieldMapping arFieldId="1000000075" arFi
+   value          : eldPart="" defaultAttachName=""/>                </element>            </element>        </formMapping>    </element></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32799
+   datatype       : 1
+   value          : 4\480\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping2" schemaSo
+   value          : urce="generated">    <element all="false" dataType="ROOT" default="" maxOccurs="1"        minOccurs="1" name="ROOT" targetNamespace="urn:XM_SupportGrp
+   value          : _SupportGrpAssoci_WS">        <element dataType="string" maxOccurs="1" minOccurs="1"            name="Request_ID" nillable="false" xmlType="false"/> 
+   value          :    </element></arDocMapping>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32800
+   datatype       : 1
+   value          : 4\4727\<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="urn:XM_SupportGrp_SupportGrpAssoci_WS" xmlns:s0="urn:XM_SupportGrp_Sup
+   value          : portGrpAssoci_WS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schema
+   value          : s.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> <wsdl:types>  <xsd:schema elementFormDefault="qualified" targetNamespace="urn:XM_
+   value          : SupportGrp_SupportGrpAssoci_WS">   <xsd:element name="GroupMemberInfoList" type="s0:InputMapping6"/>   <xsd:complexType name="InputMapping6">    <
+   value          : xsd:sequence>     <xsd:element name="Qualification" type="xsd:string"/>     <xsd:element name="startRecord" type="xsd:string"/>     <xsd:element n
+   value          : ame="maxLimit" type="xsd:string"/>    </xsd:sequence>   </xsd:complexType>   <xsd:element name="GroupMemberInfoListResponse" type="s0:OutputMappin
+   value          : g6"/>   <xsd:complexType name="OutputMapping6">    <xsd:sequence>     <xsd:element maxOccurs="unbounded" name="getListValues">      <xsd:complex
+   value          : Type>       <xsd:sequence>        <xsd:element name="Support_Group_Name" type="xsd:string"/>        <xsd:element name="Support_Organization" type=
+   value          : "xsd:string"/>        <xsd:element name="Company" type="xsd:string"/>        <xsd:element name="Support_Group_ID" type="xsd:string"/>        <xsd:
+   value          : element name="Person_ID" type="xsd:string"/>        <xsd:element name="Full_Name" type="xsd:string"/>        <xsd:element name="Login_ID" type="xsd:
+   value          : string"/>        <xsd:element name="Default" type="s0:DefaultType"/>       </xsd:sequence>      </xsd:complexType>     </xsd:element>    </xsd
+   value          : :sequence>   </xsd:complexType>   <xsd:simpleType name="DefaultType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Yes"/>
+   value          :      <xsd:enumeration value="No"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:element name="AuthenticationInfo" type="s0:AuthenticationInf
+   value          : o"/>   <xsd:complexType name="AuthenticationInfo">    <xsd:sequence>     <xsd:element name="userName" type="xsd:string"/>     <xsd:element name=
+   value          : "password" type="xsd:string"/>     <xsd:element minOccurs="0" name="authentication" type="xsd:string"/>     <xsd:element minOccurs="0" name="locale"
+   value          :  type="xsd:string"/>     <xsd:element minOccurs="0" name="timeZone" type="xsd:string"/>    </xsd:sequence>   </xsd:complexType>  </xsd:schema>
+   value          :  </wsdl:types>   <wsdl:message name="ARAuthenticate">      <wsdl:part element="s0:AuthenticationInfo" name="parameters">      </wsdl:part>  
+   value          :  </wsdl:message>   <wsdl:message name="GroupMemberInfoListSoapOut">      <wsdl:part element="s0:GroupMemberInfoListResponse" name="parameters">
+   value          :       </wsdl:part>   </wsdl:message>   <wsdl:message name="GroupMemberInfoListSoapIn">      <wsdl:part element="s0:GroupMemberInfoList" name="p
+   value          : arameters">      </wsdl:part>   </wsdl:message>   <wsdl:portType name="GroupMemberInfoPortType">      <wsdl:operation name="GroupMemberInfoL
+   value          : ist">         <wsdl:input message="s0:GroupMemberInfoListSoapIn">       </wsdl:input>         <wsdl:output message="s0:GroupMemberInfoListSoapO
+   value          : ut">       </wsdl:output>      </wsdl:operation>   </wsdl:portType>   <wsdl:binding name="GroupMemberInfoSoapBinding" type="s0:GroupMemberIn
+   value          : foPortType">      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>      <wsdl:operation name="GroupMemberInfoList
+   value          : ">         <soap:operation soapAction="urn:XM_SupportGrp_SupportGrpAssoci_WS/GroupMemberInfoList" style="document"/>         <wsdl:input>      
+   value          :       <soap:header message="s0:ARAuthenticate" part="parameters" use="literal">            </soap:header>            <soap:body use="literal"/>
+   value          :          </wsdl:input>         <wsdl:output>            <soap:body use="literal"/>         </wsdl:output>      </wsdl:operation>   </wsdl
+   value          : :binding>   <wsdl:service name="XM_SupportGrp_SupportGrpAssoci_WSService">  <wsdl:documentation>xMatters web service to expose the custom XM:Sup
+   value          : portGrp_SupportGrpAssoci_join_form. The purpose of that form is to address the out of box behaviour of the CTM:Support Group Association form where Comp
+   value          : any, Support Organization and Support Group fields are not populated.This join form is modelled after CTM:SupportGrp_SupportGrpAssoci_join_form which p
+   value          : rovides most of the same information.  The xMatters version includes the fields Login ID and Fullname.  </wsdl:documentation>      <wsdl:port binding
+   value          : ="s0:GroupMemberInfoSoapBinding" name="GroupMemberInfoSoap">         <soap:address location="@LOCATION@"/>      </wsdl:port>   </wsdl:service>
+   value          : </wsdl:definitions>\
+   ref-groups     : 0
+}
+reference {
+   type           : 32802
+   datatype       : 1
+   value          : 4\90\http://<midtier_server>/arsys/WSDL/public/vic-vm-em-rmdy/XM_SupportGrp_SupportGrpAssoci_WS\
+   ref-groups     : 0
+}
+end
