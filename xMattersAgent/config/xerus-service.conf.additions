@@ -1,0 +1,2 @@
+# Include the xMatters Encryption utility claseses
+wrapper.java.classpath.30=${wrapper.working.dir}\\applib\\EncryptionUtils.jar
