@@ -322,7 +322,7 @@ If you want to add or modify the existing elements, the field definitions are as
 * Element 0: Represents the default form, so has a special `"defaultForm"` field, whereas all other Elements use the field named `"form"` to determine which element of the `REMEDY_FORM_INFO` array to reference.
 * Other than that, all elements are able to use the following fields:
  
-	| Field               | Description                                                                |
+| Field               | Description                                                                |
 |:---------------------- |:-------------------------------------------------------------------------- |
 | `"properties"` | (Required: object) A JavaScript Object that contains one or more field names and values.  The field name(s) (left of the colon in quotes) represent the name of fields that are being sent to xMatters from the Remedy Incident, and the values (right of the colon) are what to match agains.  If all of the values coming from Remedy match the values defined here, then choose the form identified in the "form" field. |
 | `"form"` | (Required: number) Represents the subscript into the `REMEDY_FORM_INFO` array to decide which Form to trigger.  A value of zero (0) refers to the first element in the array. |
