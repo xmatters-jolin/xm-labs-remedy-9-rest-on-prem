@@ -14,7 +14,12 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
 2. [Files](#Files)
 3. [How it works](#how)
 4. [Installation](#inst)
-	1. [xMatters Setup](#xset)
+	1. [Verify Agents are Running](#agrun)
+	2. [xMatters Agent Additional Setup](#xaset)
+		1. [Create a REST User](#crest)
+	3. [Integration Agent Setup](#xaset)
+		1. [Create a REST User](#crest)
+	4. [xMatters On-Demand Setup](#xset)
 		1. [Create a REST User](#crest)
 		2. [Import the Communication Plan](#icp)
 		3. [Assign permissions to the Communication Plan and Form](#acpf)
@@ -22,7 +27,7 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
 		5. [Configure Integration Builder Endpoints](#cibe)
 		6. [Configure Integration Builder Constants](#cibc)
 		7. [Configure REMEDY\_FORM\_INFO and REMEDY\_FORM\_CRITERIA](#crfirfc)
-	2. [Remedy set up](#rsu)
+	5. [Remedy set up](#rsu)
 		1. [Importing workflow definition files](#riwdf)
 		2. [Configuring filters](#rcf)
 		3. [Configuring ITSM user](#rciu)
@@ -47,15 +52,29 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
      * You will also need to
          * Request an `Integration Agent ID` from Support as part of the installation of the xMatters Integration Agent.
          * Add a Web Service User (see the section called "Create a web service user" on [this](https://help.xmatters.com/ondemand/iaguide/integration-agent.htm) page)
+         * Update the default Integration Service listening port:<br>
+             * Open up the installed Integration Agent's `<IAHome>\conf\IAConfig.xml` file and change the `service-gateway` listening port from it's default `8081` to something else (e.g. `8181`), as this will conflict with the default listening he listening port that the xMatters Agent is configured on as part of it's out-of-the-box configuration.
+             * Alternatively, you can change the default listener port for the xMatters Agent by setting a Windows Environment variable called `SERVER_PORT` to something other than `8081`.
+             * Be sure to restart either the Integeation Agent or the xMatters Agent depending on where you decide to make that change.
 
 # Files
-* [BMCRemedyITSMIncidentREST.zip](BMCRemedyITSMIncidentREST.zip) - Remedy Incident Communication Plan (ready to be configured).
+The following are the files that makeup the Remedy 9 Incident integration.  Each of these are installed and configured into a combination of Remedy, the Agents, and your xMatters On-Demand instance.  The [Installation](#Inst) section covers this in detail.
+
+* [xMattersAgent.zip](xMattersAgent.zip) - Supplemental files for completing the xMatters Agent configuration.
+* [IntegrationAgent.zip](IntegrationAgent.zip) - The Remedy Incident Integration Service and configuration files to be installed on the configured Integration Agent.
+* [xMattersOnDemand/BMCRemedyITSMIncidentREST.zip](xMattersOnDemand/BMCRemedyITSMIncidentREST.zip) - Remedy Incident Communication Plan (ready to be configured).
 * [Remedy.zip](Remedy.zip) - This zip file containing the BMC Remedy 8.1 and above workflow definition files.
 
 # <a name="how"></a>How it works
+### Information Workflow
+The following diagram illustrates a standard workflow in an incident management system, and how information from the management system is passed into xMatters:
+<kbd>
+  <img src="media/InformationWorkflow.png">
+</kbd>
+### Integration Workflow
 Remedy triggers one of the xMatters filters as part of the integration. The filter POSTs the Remedy Incident ID to xMatters via SOAP (a Remedy limitation), and in turn xMatters uses a Remedy REST web service call to obtain the incident properties and subsequently creates the xMatters Event targeted to the assigned resolver Group.
 
-The notified resolver responds with ACCEPT - to take ownership of the incident, IGNORE - to escalate to the next resource in the on call schedule, Comment to add a Work Info note, or RESOLVE - to resolve the incident.
+The notified resolver responds with ACCEPT - to take ownership of the incident, IGNORE - to escalate to the next resource in the on call schedule, COMMENT to add an independent Work Info note, or RESOLVE - to resolve the incident.
 
 The closed loop integration annotates the incident's Work Info log with xMatters event status, notification delivery status, annotations/comments, and user responses. Additionally, an ACCEPT response assigns the user to the incident and updates the incident status to In Progress. A RESOLVE response updates the incident status to Resolved.
 
@@ -64,10 +83,75 @@ This diagram shows the relationship and data flow between the components for a t
 
   <img src="media/RemedyIncidentRESTSequenceDiagram.png">
 </kbd>
+Additional details may be found in the previous SOAP-based on premise Integration Guide for BMC Remedy Incident [here](media/xM-BMC-Remedy_Incident_Management_5_1_2.pdf).
 
 # <a name="inst"></a>Installation 
 
-## <a name="xset"></a>xMatters set up
+## <a name="agrun"></a>1. Verify Agents are Running
+Before doing any installation steps for this Remedy Incident integration, it is critical to make sure that your xMatters Agent and Integration Agent are running and visible in your environment.<br>
+To view the state of the running agents, you need to login to your xMatters instance, and go to the `DEVELOPER` section.<br>
+On the left hand context menu, click on `Agents` (directly underneath `XMATTERS AGENTS`).<br>
+The default view on the right is called `AVAILABLE`, you need to click on the next linke `INSTALLED`
+<kbd>
+  <img src="media/xMViewAgents1.png">
+</kbd>
+<br>
+After clicking `INSTALLED`, you should see a list of agents.<br>
+Click on the "Connected" filter in the upper right side of the display, and you should at least see one connected (green and white checkmark under STATUS) `xMatters Agent` in the upper list, and one connected `Integration Agent` in the lower list.<br>
+Here's an example:
+<kbd>
+  <img src="media/xMViewAgents2.png">
+</kbd>
+
+
+## <a name="xaset"></a>2. xMatters Agent Additional Setup
+The integration expects to work with encrypted passwords (see the description of `REMEDY_WS_PASSWORD` in [Configure Integration Builder Constants](#cibc) below).<br>
+In order for the system to decrypt that value, a special library (.jar file) needs to be added to the xMatters Agent installation.<br>
+The following steps will guide you in adding this library:
+
+1. Download the file [xMattersAgent.zip](xMattersAgent.zip) to the server where your xMatters Agent is installed and running.
+2. Unzip the file into a temporary directory (e.g. C:\temp).  Check out [this article](https://support.microsoft.com/en-gb/help/4028088/windows-zip-and-unzip-files) if you need help with unzipping compressed files in Windows.
+The following images show an example of what you should find if you performed those operations in your C:\temp folder.
+<kbd>
+  <img src="media/xa-UnzippedxMattersAgent1.png">
+</kbd>
+<kbd>
+  <img src="media/xa-UnzippedxMattersAgent2.png">
+</kbd>
+<kbd>
+  <img src="media/xa-UnzippedxMattersAgent3.png">
+</kbd>
+3. Move (or copy) the `EncryptionUtils.jar` file to the `applib` folder of your xMatters Agent installation.  Typically this will be `C:\Program Files\xa\applib`.
+<kbd>
+  <img src="media/xA-1-AddEncryptionUtils.jarHere.png">
+</kbd>
+4. Update the existing xerus-service.conf (`C:\Program Files\xa\config\xerus-service.conf`) file to refer to the new EncryptionUtils.jar file.<br>We have included a filed called `xerus-servcie.conf.additions` that is an example of the change you need to make to `xerus-service.conf`.
+<kbd>
+  <img src="media/xA-2-LocationOfxerus-service.conf.png">
+</kbd>
+When you open the `xerus-service.conf` file, you will want to find the last occurance of a line beginning with `wrapper.java.classpath.nn` where `.nn` is going to be a number like 29 as the example shows here.
+
+	```
+wrapper.java.classpath.29=${wrapper.working.dir}\\service-installer\\lib\\xercesImpl-2.9.1.jar
+```
+Paste the two lines from `xerus-service.conf.additions` directly after the last occurance of the line starting with `wrapper.java.classpath.nn`, and make sure that the new line has a number that is one more than the previous line.  So, if the last occurance you find is `.29`, than make the new line that refers to `EncryptionUtils.jar` have `.30`.
+
+	```
+# Include the xMatters Encryption utility claseses
+wrapper.java.classpath.30=${wrapper.working.dir}\\applib\\EncryptionUtils.jar
+```
+Here's an example of `xerus-service.conf` after the change has been made. `DON'T FORGET TO SAVE THIS FILE AFTER MAKING YOUR CHANGES!`
+<kbd>
+  <img src="media/xA-3-Updatexerus-service.conf.png">
+</kbd>
+5. Once you have saved the changes, the last step is to restart the xMatters Agent.  This is done from the Services applet.
+<kbd>
+  <img src="media/xA-4-RestartAgent.png">
+</kbd>
+
+
+
+## <a name="xset"></a>xMatters Setup
 ### <a name="crest"></a>Create a REST user account
 
 <kbd>
