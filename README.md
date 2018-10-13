@@ -16,9 +16,7 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
 4. [Installation](#inst)
 	1. [Verify Agents are Running](#agrun)
 	2. [xMatters Agent Additional Setup](#xaset)
-		1. [Create a REST User](#crest)
-	3. [Integration Agent Setup](#xaset)
-		1. [Create a REST User](#crest)
+	3. [Integration Agent Setup](#iaset)
 	4. [xMatters On-Demand Setup](#xset)
 		1. [Create a REST User](#crest)
 		2. [Import the Communication Plan](#icp)
@@ -150,8 +148,10 @@ Here's an example of `xerus-service.conf` after the change has been made. `DON'T
 </kbd>
 
 
+## <a name="iaset"></a>3. Remedy Integration Service Setup
+This section explains how to to install the Remedy Incident Integration Service into the Integration Agent installed previosly.
 
-## <a name="xset"></a>xMatters Setup
+## <a name="xset"></a>4. xMatters Setup
 ### <a name="crest"></a>Create a REST user account
 
 <kbd>
