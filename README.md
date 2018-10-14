@@ -16,16 +16,19 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
 4. [Installation](#inst)
 	1. [Verify Agents are Running](#agrun)
 	2. [xMatters Agent Additional Setup](#xaset)
-	3. [Integration Agent Setup](#iaset)
-	4. [xMatters On-Demand Setup](#xset)
-		1. [Create a REST User](#crest)
+	3. [Create the xMatters Integration and Remedy Users](#ciru)
+	4. [xMatters On-Demand Setup (Part 1)](#xset1)
 		2. [Import the Communication Plan](#icp)
 		3. [Assign permissions to the Communication Plan and Form](#acpf)
+		3. [Get the Inbound Integration webhook URL](#giiw)
+	3. [Install the Remedy Integration Service (on Integration Agent)](#iris)
+	4. [xMatters On-Demand Setup (Part 2)](#xset2)
 		4. [Configure List Property Values](#clpv)
 		5. [Configure Integration Builder Endpoints](#cibe)
-		6. [Configure Integration Builder Constants](#cibc)
+		6. [Configure Integration Builder Constants](#cibc1)
+		7. [Review the Default Integration Builder Constants](#cibc2)
 		7. [Configure REMEDY\_FORM\_INFO and REMEDY\_FORM\_CRITERIA](#crfirfc)
-	5. [Remedy set up](#rsu)
+	5. [Remedy setup](#rsu)
 		1. [Importing workflow definition files](#riwdf)
 		2. [Configuring filters](#rcf)
 		3. [Configuring ITSM user](#rciu)
@@ -35,7 +38,7 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
 
 ***
 
-# Pre-Requisites
+# 1. Pre-Requisites
 * Version 9.1 and above of Remedy (on-prem, or on-demand via VPN)
 * Account in Remedy capable of making REST calls
 * xMatters account - If you don't have one, [get one](https://www.xmatters.com)!
@@ -48,6 +51,7 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
      * Overall information about the xMatters Integration Agent is [here](https://help.xmatters.com/ondemand/iaguide/integration-agent-overview.htm)
      * Installation instructions for the xMatters Integration Agent is [here](https://help.xmatters.com/ondemand/iaguide/integration-agent.htm)
      * You will also need to
+         * Install the Integration Agent Utilities (instructions are also on the above reference page.
          * Request an `Integration Agent ID` from Support as part of the installation of the xMatters Integration Agent.
          * Add a Web Service User (see the section called "Create a web service user" on [this](https://help.xmatters.com/ondemand/iaguide/integration-agent.htm) page)
          * Update the default Integration Service listening port:<br>
@@ -55,7 +59,7 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
              * Alternatively, you can change the default listener port for the xMatters Agent by setting a Windows Environment variable called `SERVER_PORT` to something other than `8081`.
              * Be sure to restart either the Integeation Agent or the xMatters Agent depending on where you decide to make that change.
 
-# Files
+# 2. Files
 The following are the files that makeup the Remedy 9 Incident integration.  Each of these are installed and configured into a combination of Remedy, the Agents, and your xMatters On-Demand instance.  The [Installation](#Inst) section covers this in detail.
 
 * [xMattersAgent.zip](xMattersAgent.zip) - Supplemental files for completing the xMatters Agent configuration.
@@ -63,7 +67,7 @@ The following are the files that makeup the Remedy 9 Incident integration.  Each
 * [xMattersOnDemand/BMCRemedyITSMIncidentREST.zip](xMattersOnDemand/BMCRemedyITSMIncidentREST.zip) - Remedy Incident Communication Plan (ready to be configured).
 * [Remedy.zip](Remedy.zip) - This zip file containing the BMC Remedy 8.1 and above workflow definition files.
 
-# <a name="how"></a>How it works
+# <a name="how"></a>3. How it works
 ### Information Workflow
 The following diagram illustrates a standard workflow in an incident management system, and how information from the management system is passed into xMatters:
 <kbd>
@@ -83,9 +87,9 @@ This diagram shows the relationship and data flow between the components for a t
 </kbd>
 Additional details may be found in the previous SOAP-based on premise Integration Guide for BMC Remedy Incident [here](media/xM-BMC-Remedy_Incident_Management_5_1_2.pdf).
 
-# <a name="inst"></a>Installation 
+# <a name="inst"></a>4. Installation 
 
-## <a name="agrun"></a>1. Verify Agents are Running
+## <a name="agrun"></a>Verify Agents are Running
 Before doing any installation steps for this Remedy Incident integration, it is critical to make sure that your xMatters Agent and Integration Agent are running and visible in your environment.<br>
 To view the state of the running agents, you need to login to your xMatters instance, and go to the `DEVELOPER` section.<br>
 On the left hand context menu, click on `Agents` (directly underneath `XMATTERS AGENTS`).<br>
@@ -102,7 +106,7 @@ Here's an example:
 </kbd>
 
 
-## <a name="xaset"></a>2. xMatters Agent Additional Setup
+## <a name="xaset"></a>xMatters Agent Additional Setup
 The integration expects to work with encrypted passwords (see the description of `REMEDY_WS_PASSWORD` in [Configure Integration Builder Constants](#cibc) below).<br>
 In order for the system to decrypt that value, a special library (.jar file) needs to be added to the xMatters Agent installation.<br>
 The following steps will guide you in adding this library:
@@ -148,16 +152,30 @@ Here's an example of `xerus-service.conf` after the change has been made. `DON'T
 </kbd>
 
 
-## <a name="iaset"></a>3. Remedy Integration Service Setup
-This section explains how to to install the Remedy Incident Integration Service into the Integration Agent installed previosly.
+## <a name="ciru"></a>Create the xMatters Integration and Remedy Users
+Prior to installing and configuring the Integration Service and Remedy Integration files, it is best to create the xMatters Integration User that the Remedy Integration Service will use to authenticate back to xMatters.  And, the Remedy `Person` that the xMatters Integration will use to make REST calls into Remedy.
 
-## <a name="xset"></a>4. xMatters Setup
-### <a name="crest"></a>Create a REST user account
+### <a name="crest"></a>Create an xMatters REST user account
+Note, that this account needs to have two roles:
+
+* REST Web Service User, and
+* Developer
+
+These are required as the integration makes call back into xMatters to initiate and control Events (requiring the "REST Web Service User" Role), and that interrogate the Communiation Plan directly (requiring the "Developer" role).
 
 <kbd>
   <img src="media/xMRESTUser.png">
 </kbd>  
 
+### <a name="ciu"></a>Configuring ITSM user
+The integration requires a dedicated ITSM user to interact with incidents.<br>
+First, create a new ITSM user with the Incident Master role in BMC Remedy; the user does not need to be Support Staff.
+
+<kbd>
+  <img src="media/RemITSMUser.png">
+</kbd>
+
+## <a name="xset1"></a>xMatters Setup (Part 1)
 ### <a name="icp"></a>Import the Communication Plan
 * Import the "BMC Remedy ITSM - Incident - REST" Communication Plan [BMCRemedyITSMIncidentREST.zip](BMCRemedyITSMIncidentREST.zip).
 Instructions on Importing Communication Plans are [here](http://help.xmatters.com/OnDemand/xmodwelcome/communicationplanbuilder/exportcommplan.htm).
@@ -169,6 +187,424 @@ Instructions on Importing Communication Plans are [here](http://help.xmatters.co
 * Click the Mobile and Web Service drop-down menu for the Incident Alerts form
 * Select Sender Permissions then add the REST User
 
+### <a name="giiw"></a>Get the Inbound Integration webhook URL
+Before we can install and configure the Remedy Integration Service into the xMatters Integration Agent, we also need to collect the URL (Webhook address) for the Inbound Integration that is called on behalf of Remedy when an Incident requires xMatters to notify folks.
+
+* On the Communication Plans page, click the Edit drop-down menu for the "BMC Remedy ITSM - Incident - REST" communication plan then select Integration Builder
+![Integration Builder](media/xMOpenIntegrationBuilder.png)
+* Click the *3 Configured* link (blue text) to the right of Inbound Integrations
+![3 Configured](media/xM3Configured.png)
+* Click the *Trigger Remedy Alert - Inbound WebHook* link (blue text)
+![Initiate Incident Alerts Form](media/xMTriggerRemedyAlert.png)
+* Scroll to the **How to trigger the integration** section, and click on "Select Method", and then "Basic Authentication".
+![How to trigger the integration](media/xMHowToTrigger2.png)
+* Click the *Copy Url* link to the right of the Trigger, and save that value in a text file to use later on when setting up `configuration.js` [below](#iris4).
+![URL Authentication](media/xMBasicAuthCopyURL.png)
+
+## <a name="iris"></a>Install the Remedy Integration Service (on Integration Agent)
+This section explains how to to install the Remedy 9 Incident Integration Service into the Integration Agent installed previosly.<br>There are essentially eight (8) steps:
+
+1. [Add the Remedy 9 Incident Integration Service files to your Integration Agent](#iris1)
+2. [Create the encrypted password files](#iris2)
+3. [Add the Deduplicator Filter for Remedy 9 Incident](#iris3)
+4. [Update the integration's *configuration.js*](#iris4)
+5. [Update the Integration Agent configuration to load the Remedy 9 Incident Integration Service](#iris5)
+6. [Restart the Integration Agent](#iris6)
+7. [Verify that the Integration Service is loaded and running](#iris7)
+8. [Determine the Remedy 9 Integration Service entry point](#iris8)
+
+### <a name="iris1"></a>Add the Remedy 9 Incident Integration Service files to your Integration Agent
+Similar to the previous steps to install the files for the xMatters Agent, an Integration Service goes into a specific location for an Integration Agent.  In this case, the files that are contains in the distribution called [IntegrationAgent.zip](IntegrationAgent.zip).
+
+
+1. Download the file [IntegrationAgent.zip](IntegrationAgent.zip) to the server where your Integration Agent is installed and running.
+2. Unzip the file into a temporary directory (e.g. C:\temp).  Check out [this article](https://support.microsoft.com/en-gb/help/4028088/windows-zip-and-unzip-files) if you need help with unzipping compressed files in Windows.
+The following images show an example of what you should find if you performed those operations in your C:\temp folder.
+<kbd>
+  <img src="media/ia-UnzippedIntegrationAgent1.png">
+</kbd><br>
+<kbd>
+  <img src="media/ia-UnzippedIntegrationAgent2.png">
+</kbd><br>
+<kbd>
+  <img src="media/ia-UnzippedIntegrationAgent3.png">
+</kbd><br>
+<kbd>
+  <img src="media/ia-UnzippedIntegrationAgent4.png">
+</kbd><br>
+3. Move (or copy) the `bmc-remedy-9` folder (and all sub-folders) as shown above to the `<IAHome>integrationservices\applications\` folder of your xMatters Integration Agent installation.  For example, if you have installed your xMatters Integration Agent into `C:\xmatters\integrationagent-5.2.0`, then you will move or copy) the `bmc-remedy-9` folder (and all sub-folders) to `C:\xmatters\integrationagent-5.2.0\integrationservices\applications\`.
+<kbd>
+  <img src="media/ia-UnzippedIntegrationAgent5.png">
+</kbd>
+
+
+### <a name="iris2"></a>Create the encrypted password files
+The xMatters Integration Agent creates several utilities, one in particular ("iapassword.bat") is useful for encrypting sensitive information, like passwords.  The documentation for the "iapassword.bat" utility is located [here](https://help.xmatters.com/ondemand/iaguide/iapasswordutility.htm).  But we'll cover examples of how to create them for this integration via a few screen shots.
+
+1. Open up a Windows Command Prompt (Click the "Start Button", select "All Programs", select "Accessories", then click "Command Prompt".), and change directory to your xMatters Integration Agent's `bin\` folder.
+2. If you do a `dir` command, you will see the contents, including the `iapassword.bat` utility.
+3. Typing in the command name and pressing Enter will show you the command usage.
+<kbd>
+	<img src="media/cp1.png">
+</kbd>
+4. We want our two passwords to go into the `conf` directory, so we will specify that on the command line.
+5. The format for the "iapassword" command we can use to create the encrypted password for the xMatters User that is the Integration User we created previoustly (svc-rest-remedy-incident), is as follows:<br>`iapassword --new <password> --file <relative-path-and-name>`.<br>The actual command would look something like this:<br>`iapassword --new xM@tt3rs --file conf\xm_initiator.pwd`<br>In this example, the unencrypted password is `xM@tt3rs` with the encrypted version in `conf\xm_initiator.pwd` is `niuVvodM3AaaM/8Sn+jqiw==`.<br>The screenshot below shows us creating this file in the `conf` directory.  There is a before and after view of the `conf` directory, as well as the command we ran to create the encrypted file, as well as a display of the encrypted value.
+<kbd>
+  <img src="media/cp2.png">
+</kbd>
+6. Let's follow up with creating the encrypted password for the Remedy 9 Incident user (typically with a Login ID of `xmatters`), created previously.<br>As before, we'll user the same format of command line, but replace the password and file names, as follows:<br>`iapassword --new Remedy9! --file conf\rem_rest_user.pwd`<br>In this example, the unencrypted password is `xM@tt3rs` with the encrypted version in `conf\rem_rest_user.pwd` is `R5UMpF4Zeb2aM/8Sn+jqiw==`.<br>The screenshot below shows us creating this file in the `conf` directory.  There is a before and after view of the `conf` directory, as well as the command we ran to create the encrypted file, as well as a display of the encrypted value.
+<kbd>
+  <img src="media/cp3.png">
+</kbd>
+7. Keep track of the encrypted password for the Remedy User, as we will need to use that value when configuring the `REMEDY_WS_PASSWORD` constant in [Configure Integration Builder Constants](#cibc1) below.
+
+### <a name="iris3"></a>Add the Deduplicator Filter for Remedy 9 Incident
+The xMatters Integration Agent includes the capability to deduplicate Events as they are attempting to be injected into your xMatters environment.  This is a pre-cursor to the Flood Control features that are startig to be introduced in future releases of xMatters.  Eventually, this will not be required, but for now we will configure it.<br>The file that includes this information is in the `<IAHome>\conf\` directory and is called `deduplicator-filter.xml]`.  We have included a filter to add into this file that was expanded when we added the new files [above](#iris1).<br>If you followed the naming conventions we used previously, you will want to open the file `C:\temp\IntegrationAgent\conf\deduplicator-filter.xml` and copy the lines starting with `<filter>` and and continuing through `</filter>` to the clipboard.<br>The part to copy will look something lide this:
+
+```
+  <!-- Filter to prevent duplicate BMC Remedy Incident events injecting more often than once every 3 mins -->
+  <filter name="bmc-remedy-9-incident-6-0-1">
+    <predicates>
+      <predicate>incident_number</predicate>
+      <predicate>status</predicate>
+      <predicate>slm_status</predicate>
+      <predicate>urgency</predicate>
+      <predicate>priority</predicate>
+      <predicate>impact</predicate>
+      <predicate>recipients</predicate>
+    </predicates>
+    <suppression_period>180</suppression_period>
+    <window_size>100</window_size>
+  </filter>
+```
+Now, we need to paste that into the main deduplication filter in `<IAHome>\conf\deduplicator-filter.xml` (in our case the actual file path and name are `C:\xmatters\integrationagent-5.2.0\conf\deduplicator-filter.xml`).<br>Edit this file in something like `notepad++` or `wordpad`, and paste the above section inbetween the last occurance of occurance of `</filter>` and the `</deduplicator>` at the end of the file.<br>Here's a before and after view starting with the out-of-the-box version of of `deduplicator-filter.xml` from the 5.2.0 version of the Integration Agent, and ending with our additional elements.
+
+```
+<?xml version="1.0"?>
+<!--
+ | EventDeduplicator Configuration file.
+ | 
+ | Filter attributes
+ |   attribute: predicates
+ |   comments : This is the list of predicates that are considered in event correlation. An event request will
+ |              be considered for deduplication only if all of these predicates are present in the request, AND
+ |              if all of the predicates' values match those of a previous request.
+ |
+ |   attribute: suppression_period
+ |   comments : An event request will be deduplicated only if a matching request was processed less than this
+ |              number of seconds ago.
+ |
+ |   attribute: window_size
+ |   comments : This is the number of non-matching events before the suppression period timer is reset.
+ |              An event request will not be deduplicated if this many non-matching requests have been received
+ |              within the suppression period.
+ +-->
+<deduplicator xmlns="http://www.alarmpoint.com/schema">
+  <!-- sample filter to prevent pinging more often than once every 5 minutes to any device -->
+  <filter name="ping-plan">
+    <predicates>
+      <predicate>device</predicate>
+    </predicates>
+    <suppression_period>300</suppression_period>
+    <window_size>2000</window_size>
+  </filter>
+
+  <filter name="sample-terminate">
+    <predicates>
+      <predicate>propertyName</predicate>
+      <predicate>propertyValue</predicate>
+    </predicates>
+    <suppression_period>300</suppression_period>
+    <window_size>2000</window_size>
+  </filter>
+  
+  <filter name="sample-plan">
+    <predicates>
+      <predicate>building</predicate>
+      <predicate>city</predicate>
+    </predicates>
+    <suppression_period>20</suppression_period>
+    <window_size>100</window_size>
+  </filter>
+  
+</deduplicator>
+```
+And, here's the updated version (don't forget to save your changes!):
+
+```
+<?xml version="1.0"?>
+<!--
+ | EventDeduplicator Configuration file.
+ | 
+ | Filter attributes
+ |   attribute: predicates
+ |   comments : This is the list of predicates that are considered in event correlation. An event request will
+ |              be considered for deduplication only if all of these predicates are present in the request, AND
+ |              if all of the predicates' values match those of a previous request.
+ |
+ |   attribute: suppression_period
+ |   comments : An event request will be deduplicated only if a matching request was processed less than this
+ |              number of seconds ago.
+ |
+ |   attribute: window_size
+ |   comments : This is the number of non-matching events before the suppression period timer is reset.
+ |              An event request will not be deduplicated if this many non-matching requests have been received
+ |              within the suppression period.
+ +-->
+<deduplicator xmlns="http://www.alarmpoint.com/schema">
+  <!-- sample filter to prevent pinging more often than once every 5 minutes to any device -->
+  <filter name="ping-plan">
+    <predicates>
+      <predicate>device</predicate>
+    </predicates>
+    <suppression_period>300</suppression_period>
+    <window_size>2000</window_size>
+  </filter>
+
+  <filter name="sample-terminate">
+    <predicates>
+      <predicate>propertyName</predicate>
+      <predicate>propertyValue</predicate>
+    </predicates>
+    <suppression_period>300</suppression_period>
+    <window_size>2000</window_size>
+  </filter>
+  
+  <filter name="sample-plan">
+    <predicates>
+      <predicate>building</predicate>
+      <predicate>city</predicate>
+    </predicates>
+    <suppression_period>20</suppression_period>
+    <window_size>100</window_size>
+  </filter>
+  
+  <!-- Filter to prevent duplicate BMC Remedy Incident events injecting more often than once every 3 mins -->
+  <filter name="bmc-remedy-9-incident-6-0-1">
+    <predicates>
+      <predicate>incident_number</predicate>
+      <predicate>status</predicate>
+      <predicate>slm_status</predicate>
+      <predicate>urgency</predicate>
+      <predicate>priority</predicate>
+      <predicate>impact</predicate>
+      <predicate>recipients</predicate>
+    </predicates>
+    <suppression_period>180</suppression_period>
+    <window_size>100</window_size>
+  </filter>
+
+</deduplicator>
+```
+
+### <a name="iris4"></a>Update the integration's `configuration.js`
+The file `configuration.js` contains the installation / implementation specific values that this Integration Service needs in order to communicate with both your xMatters On Demand and Remedy 9 instances.<br>The file is located under `<IAHome>\integrationservices\applications\bmc-remedy-9\incident-6-0-1`, so in our example, the actual location is:<br>`C:\xmatters\integrationagent-5.2.0\integrationservices\applications\bmc-remedy-9\incident-6-0-1\configuration.js`<br>Open the file up in a local editor (e.g. `notepad++` or `wordpad`) and edit the file.<br>There are several important values to specify and update here:
+
+| Variable               | Value Description                                                          |
+|:---------------------- |:-------------------------------------------------------------------------- |
+| `* WEB_SERVICE_URL` |  This value determines the form that will be used to inject events into xMatters. The "DELETE" (terminate event) request is also based on this URL. |
+| `* INITIATOR` | The Web Login ID used to authenticate the request to xMatters.  This is the user created in the [Create an xMatters REST user account](#crest) step above. (e.g. `"svc-rest-remedy-incident"`)|
+| `* INITIATOR_PASSWORD_FILE` | The relative location of the initiating user's encrypted password file, as created in the [Create the encrypted password files](#iris2) step above. (e.g. `"conf/xm_initiator.pwd"`)|
+| `* REMEDY_SERVER_NAME` | AR Server's mid-tier host name (the physical server's FQDN). (e.g. `"remedyars.mycompany.com"`). |
+| `* REMEDY_REST_PORT` | The AR Server's port that is used by Atrium Core Web Services to recieve REST requests (possibly 8443).  Note that this is not the same port that you use to access the Web UI (typically 8080).|
+| `* REMEDY_REST_USERNAME` | Login ID of the Remedy User that will be making REST API calls back into Remedy.  This is the user created in the [Configuring ITSM user](#ciu) step above. (e.g. `"xmatters"`) |
+| `* REMEDY_REST_PASSWORD_FILE` | The relative location of the initiating user's encrypted password file, as created in the [Create the encrypted password files](#iris2) step above. (e.g. `"conf/rem_rest_user.pwd"`) |
+
+Here is an example of the contents of `configuration.js` before being updated:
+
+```javascript
+// ----------------------------------------------------------------------------------------------------
+// Configuration settings for the BMC Remedy 9 Incident Integration Service
+// ----------------------------------------------------------------------------------------------------
+
+// ----------------------------------------------------------------------------------------------------
+// This value determines the form that will be used to inject events into xMatters.
+// The "DELETE" (terminate event) request is also based on this URL.
+// ----------------------------------------------------------------------------------------------------
+var WEB_SERVICE_URL = "https://<company>.xmatters.com/api/integration/1/functions/<inbound integration uuid>/triggers";
+
+//----------------------------------------------------------------------------------------------------
+// The Web Login ID used to authenticate the request to xMatters. The user's password should be encrypted
+// using the iapassword.sh utility. Please see the integration agent documentation for instructions.
+//----------------------------------------------------------------------------------------------------
+var INITIATOR = "<xmatters-user-with-rest-web-service-user-role>";
+var INITIATOR_PASSWORD_FILE = "conf/xm_initiator.pwd";
+var INITIATOR_PASSWORD = getPassword(INITIATOR_PASSWORD_FILE);
+
+//----------------------------------------------------------------------------------------------------
+// Name of the filter from conf/deduplicator-filter.xml to be used to detect duplicate events
+//----------------------------------------------------------------------------------------------------
+var DEDUPLICATION_FILTER_NAME = "bmc-remedy-9-incident-6-0-1";
+
+//----------------------------------------------------------------------------------------------------
+// Callbacks are now handled by the xMatters Agent, so do not include them int the APXML
+//----------------------------------------------------------------------------------------------------
+CALLBACKS = false;
+
+//----------------------------------------------------------------------------------------------------
+// URL used to retrieve information from Remedy AR/Change Management System via REST
+//----------------------------------------------------------------------------------------------------
+var REMEDY_SERVER_NAME = "<arserver-mid-tier-host-name>";  
+var REMEDY_REST_PORT = "<arserver-mid-tier-port>";
+var REMEDY_REST_GET_TOKEN_PATH = "https://" + REMEDY_SERVER_NAME + ":" + REMEDY_REST_PORT + "/api/jwt/login";
+var REMEDY_REST_RELEASE_TOKEN_PATH = "https://" + REMEDY_SERVER_NAME + ":" + REMEDY_REST_PORT + "/api/jwt/logout";
+var REMEDY_REST_BASE_PATH  = "https://" + REMEDY_SERVER_NAME + ":" + REMEDY_REST_PORT + "/api/arsys/v1/entry/";
+
+//----------------------------------------------------------------------------------------------------
+// The location and authentication credentials for the Remedy REST API. The user's
+// password should be encrypted using the iapassword.sh utility.
+//----------------------------------------------------------------------------------------------------
+var REMEDY_REST_USERNAME = "<remedy-user-id-with-incident-master-role>";
+var REMEDY_REST_PASSWORD_FILE = "conf/rem_rest_user.pwd";
+var REMEDY_REST_PASSWORD = REMEDYIO.decryptFile(REMEDY_REST_PASSWORD_FILE);
+
+// =====================================================================================================================
+// Global variables
+// =====================================================================================================================
+var OPT_ANNOTATE_NUM_DELETED = true; // Will add a work note showing number of related xMatters Events terminated when an Incident is Downgraded or Manually Resolved.
+var OPT_ANNOTATE_NOTIFICATION_REQUEST_ID = true; // Will add a work note showing the Inbound Integration Request ID related to the submitted notification request.
+var OPT_ANNOTATE_SUPRESSED_REQUEST = true; // Will add a work note denoting the fact that this request was suppressed based on the deduplication filter.
+var REQUEST_ACTION_DELETE = "Delete";
+var notePrefix = "[xMatters] - "; //For Work Info notes
+var INT_PROPERTY_TICKET_ID = 'Incident Number'; // Integrated properties callbacks
+var log = new Logger("BMC Remedy 9 Incident 6-1-2: "); // Log4J Logger
+```
+
+And an example of the contents of `configuration.js` after being updated:
+
+```javascript
+// ----------------------------------------------------------------------------------------------------
+// Configuration settings for the BMC Remedy 9 Incident Integration Service
+// ----------------------------------------------------------------------------------------------------
+
+// ----------------------------------------------------------------------------------------------------
+// This value determines the form that will be used to inject events into xMatters.
+// The "DELETE" (terminate event) request is also based on this URL.
+// ----------------------------------------------------------------------------------------------------
+var WEB_SERVICE_URL = "https://xxx.xmatters.com/api/integration/1/functions/147a29bf-47b6-b591-e67e-b2b646699748/triggers";
+
+//----------------------------------------------------------------------------------------------------
+// The Web Login ID used to authenticate the request to xMatters. The user's password should be encrypted
+// using the iapassword.sh utility. Please see the integration agent documentation for instructions.
+//----------------------------------------------------------------------------------------------------
+var INITIATOR = "svc-rest-remedy-incident";
+var INITIATOR_PASSWORD_FILE = "conf/xm_initiator.pwd";
+var INITIATOR_PASSWORD = getPassword(INITIATOR_PASSWORD_FILE);
+
+//----------------------------------------------------------------------------------------------------
+// Name of the filter from conf/deduplicator-filter.xml to be used to detect duplicate events
+//----------------------------------------------------------------------------------------------------
+var DEDUPLICATION_FILTER_NAME = "bmc-remedy-9-incident-6-0-1";
+
+//----------------------------------------------------------------------------------------------------
+// Callbacks are now handled by the xMatters Agent, so do not include them int the APXML
+//----------------------------------------------------------------------------------------------------
+CALLBACKS = false;
+
+//----------------------------------------------------------------------------------------------------
+// URL used to retrieve information from Remedy AR/Change Management System via REST
+//----------------------------------------------------------------------------------------------------
+var REMEDY_SERVER_NAME = "vic-vw-remedy91";  
+var REMEDY_REST_PORT = "8443";
+var REMEDY_REST_GET_TOKEN_PATH = "https://" + REMEDY_SERVER_NAME + ":" + REMEDY_REST_PORT + "/api/jwt/login";
+var REMEDY_REST_RELEASE_TOKEN_PATH = "https://" + REMEDY_SERVER_NAME + ":" + REMEDY_REST_PORT + "/api/jwt/logout";
+var REMEDY_REST_BASE_PATH  = "https://" + REMEDY_SERVER_NAME + ":" + REMEDY_REST_PORT + "/api/arsys/v1/entry/";
+
+//----------------------------------------------------------------------------------------------------
+// The location and authentication credentials for the Remedy REST API. The user's
+// password should be encrypted using the iapassword.sh utility.
+//----------------------------------------------------------------------------------------------------
+var REMEDY_REST_USERNAME = "xmatters";
+var REMEDY_REST_PASSWORD_FILE = "conf/rem_rest_user.pwd";
+var REMEDY_REST_PASSWORD = REMEDYIO.decryptFile(REMEDY_REST_PASSWORD_FILE);
+
+// =====================================================================================================================
+// Global variables
+// =====================================================================================================================
+var OPT_ANNOTATE_NUM_DELETED = true; // Will add a work note showing number of related xMatters Events terminated when an Incident is Downgraded or Manually Resolved.
+var OPT_ANNOTATE_NOTIFICATION_REQUEST_ID = true; // Will add a work note showing the Inbound Integration Request ID related to the submitted notification request.
+var OPT_ANNOTATE_SUPRESSED_REQUEST = true; // Will add a work note denoting the fact that this request was suppressed based on the deduplication filter.
+var REQUEST_ACTION_DELETE = "Delete";
+var notePrefix = "[xMatters] - "; //For Work Info notes
+var INT_PROPERTY_TICKET_ID = 'Incident Number'; // Integrated properties callbacks
+var log = new Logger("BMC Remedy 9 Incident 6-1-2: "); // Log4J Logger
+```
+
+### <a name="iris5"></a>Update the Integration Agent configuration to load the Remedy 9 Incident Integration Service
+Once the Remedy 9 Integration Service has been configured, we need to add a reference to it in the xMatters Integration Agent's main configuration file, `IAConfig.xml`.<br>That file is locataed under `<IAHome>\conf`.<br>So, in our example, the full path to the file would be `C:\xmatters\integrationagent-5.2.0\conf\IAconfig.xml`.<br>The section that needs to be modified is near the end of the file, and is called `service-configs`.<br>The out-of-the-box version of this section will look something like this:
+
+```
+  <!--
+  | The Service Config files are organized in a file structure rooted
+  | in a common directory within this IA's installation directory.
+  |
+  | attribute: dir
+  | comments : must be "../integrationservices"
+  |
+  +-->
+  <service-configs dir="../integrationservices">
+    <!--
+     | 0 or more paths (relative to <services-configs>/@dir), that refer to
+     | the Service Config files that this IA will load whenever it is started or
+     | the "iadmin reload all" command is issued.
+     |
+     | NOTE: Paths may be Unix or Windows-formatted, although it is
+     | recommended that Unix-formatting be used since it works under both environments.
+     |
+     | NOTE: Depending on the OS, paths may be case-sensitive.
+     +-->
+    <path>applications/sample-integrated-properties/sample-integrated-properties.xml</path>
+    <path>applications/sample-plan/sample-plan.xml</path>
+
+    <path>applications/sample-terminate/sample-terminate.xml</path>
+    <path>applications/ping-plan/ping-plan.xml</path>
+  </service-configs>
+```
+We can use a text editor (e.g. "notepad++" or "wordpad") to modify this file.<br>We need to add a new `<path>` statement to refer to the newly installed and configured BMC Remedy 9 Incident Integration Service.<br>That line will look something like this:<br>
+	`<path>applications/bmc-remedy-9/incident-6-0-1/bmcremedyincident.xml</path>`<br>
+You can either add this to the end of the existing <service-configs> section, or replace the existing `<path>` statements with just this one (recommended if this is the only Integration Service you will be running).<br>If you've removed all but the new integration service, then you're updated section may look something like this.
+
+```
+  <!--
+  | The Service Config files are organized in a file structure rooted
+  | in a common directory within this IA's installation directory.
+  |
+  | attribute: dir
+  | comments : must be "../integrationservices"
+  |
+  +-->
+  <service-configs dir="../integrationservices">
+    <!--
+     | 0 or more paths (relative to <services-configs>/@dir), that refer to
+     | the Service Config files that this IA will load whenever it is started or
+     | the "iadmin reload all" command is issued.
+     |
+     | NOTE: Paths may be Unix or Windows-formatted, although it is
+     | recommended that Unix-formatting be used since it works under both environments.
+     |
+     | NOTE: Depending on the OS, paths may be case-sensitive.
+     +-->
+    <path>applications/bmc-remedy-9/incident-6-0-1/bmcremedyincident.xml</path>
+  </service-configs>
+```
+Be sure to Save your updates!
+
+### <a name="iris6"></a>Restart the Integration Agent
+The last step is to stop and restart the xMatters Integration Agent.  If you followed the recommendations in the out-of-the-box installation guide for the Integration Agent under Windows, then you can control it with the Services applet (as we did before with the xMatters Agent).<br>Here is a screenshot of clicking "Restart" in the Services applet for the xMatters Integration Agent.
+<kbd>
+  <img src="media/ia-restart.png">
+</kbd>
+
+### <a name="iris7"></a>Verify that the Integration Service is loaded and running
+To verify that the new Integration Service was loaded and listening for requests, we use the `"iadmin.bat"` utility, that is located under `<IAHome>\bin` (or in our case `C:\xmatters\integrationagent-5.2.0\bin\iadmin.bat`).  The `iadmin` utility can take several command, and you can read all about them [here](https://help.xmatters.com/ondemand/iaguide/managetroubleshoot.htm).  In this case, the command that we use is called `get-status`, and the command line for this is `iadmin get-status`.<br>From a Status perspective, we want to see two things in the output of this command:<br>1.) we want to look for a line that says `Connectivity status: PRIMARY_ACCEPTED`, as that tells us we are connected successfully to your xMatters instance, and <br>2.) we want to see a line under our Integration Service that shows `Status: ACTIVE`.<br>If either of those are missing, then you need to verify the edits and updates that were made to both `<IAHome>\conf\IAConfig.xml` and `<IAHome>\integrationservices\applications\bmc-remedy-9\incident-6-0-1\configuration.js`.<br> Here is a screenshot of a successfully installed and configured Remedy 9 Integration Service:
+<kbd>
+  <img src="media/ia-configured.png">
+</kbd>
+
+### <a name="iris8"></a>Determine the Remedy 9 Integration Service entry point
+The last part of this section is to get the Web Service entry point (web hook URL) that we will need to apply to the [Configuring filters](#rcf) step when configuring the Filters in Remedy later.  The value that you see from the `iadmin get-status` command above is almost correct, but we need to make a slight modification so that it includes a reference to the type of service being (vs protocol) that is being accessed (this is an `http` service in our case).<br>The URL from the screen shot above looks like this:<br>`http://10.128.0.52:8081/applications_bmc-remedy-9-incident-6-0-1`<br>but, when we use it to configure the Filter in Remedy, it should look like this:<br>**`http://10.128.0.52:8081/http/applications_bmc-remedy-9-incident-6-0-1`**<br>(notice the "/http" added between the `8081` and the start of `applications...`.<br>The first part of the address will be different and specific to your installed and configured Integration Agent.<br>If you get stuck, again, review the changes and edits made above, as well as review the section called [Manage and Troubleshooting your Integration Agent](https://help.xmatters.com/ondemand/iaguide/managetroubleshoot.htm) section of the online documentation.
+
+## <a name="xset2"></a>xMatters Setup (Part 2)
 ### <a name="clpv"></a>Configure List Property Values  
 * On the Communication Plans page, click the Edit drop-down menu for the "BMC Remedy ITSM - Incident - REST" Communication Plan then select Properties
 * Verify/Edit the following list property values:  
@@ -192,7 +628,7 @@ Instructions on Importing Communication Plans are [here](http://help.xmatters.co
 * For the `RemedyRESTAPI` endpoint, type the Base URL for the Remedy environment's REST Web Service address (e.g. https://remedyServer:8443) then Save Changes
 * Close Edit Endpoints  
 
-### <a name="cibc"></a>Configure Integration Builder Constants  
+### <a name="cibc1"></a>Configure Integration Builder Constants
 Note: There are many Constants defined in the Communication Plan (and described below), but only the ones that are environment specific need to be configured.  Those will have an asterisk (*) in front of their name.
 
 * On the Communication Plans page, click the Edit drop-down menu for the "BMC Remedy ITSM - Incident - REST" Communication Plan then select Integration Builder
@@ -208,6 +644,11 @@ Note: There are many Constants defined in the Communication Plan (and described 
 | `* REMEDY_WS_PASSWORD` | The Remedy API user's encrypted password.<br>Note: This is created using the xMatters Integration Agent's iapassword.bat utility.  See the instruction [here](https://help.xmatters.com/ondemand/iaguide/iapasswordutility.htm).  Once the file is created, open it up in any text editor and paste the contents into this value. |
 | `* REMEDY_WS_USERNAME` | Login ID of the Remedy User that will be making API calls. |
 
+### <a name="cibc2"></a>Review the Default Integration Builder Constants
+Note: There are many Constants defined in the Communication Plan (and described below), but only the ones that are environment specific need to be configured.  Those will have an asterisk (*) in front of their name.
+
+* On the Communication Plans page, click the Edit drop-down menu for the "BMC Remedy ITSM - Incident - REST" Communication Plan then select Integration Builder
+* Click the "Edit Constants" button
 * Review these constants used by the scripts in the Communication Plan, and the "Remedy Rest Util" Shared Library.  They all have default values that are suitable for getting started.
    
 | Constant               | Description                                                                |
@@ -449,7 +890,7 @@ Here's another way of thinking about how and when to specify the Conference Brid
 ```
 
 	
-## <a name="rsu"></a>Remedy set up
+## <a name="rsu2"></a>Remedy setup (Part 2)
 Configuring BMC Remedy to integrate with xMatters requires the following steps:
 
 * Import the workflow definition files
@@ -474,21 +915,14 @@ Configuring BMC Remedy to integrate with xMatters requires the following steps:
 Click **Finish**
 
 ### <a name="rcf"></a>Configuring filters
-The integration includes a filter and an escalation that use the Set Fields action to consume a web service; these objects need their endpoints changed to the address of the integration agent.  E.g. http://<integration-agent-server-ip>:<service_port>/http/applications_bmc_remedy_9_incident_6_0_1
+The integration includes a filter and an escalation that use the Set Fields action to consume a web service; these objects need their endpoints changed to the inbound Web Hook URL the Remedy 9 Incident Integration Service that is running in the Integration Agent that we previously configured in [Determine the Remedy 9 Integration Service entry point](#iris8).  The value will look something like this `http://<integration-agent-server-ip>:<service_port>/http/applications_bmc_remedy_9_incident_6_0_1`.
 Filter: XM:EI:EventInjection_100  
 Escalation: XM:Event Injection Retry
 
 ### <a name="rciu"></a>Configuring ITSM user
-The integration requires a dedicated ITSM user to interact with incidents.
+This the continuation of configuring the Remedy ITSM User that you created previously.
 
-#### Create an ITSM user
-First, create a new ITSM user with the Incident Master role in BMC Remedy; the user does not need to be Support Staff.
-
-<kbd>
-  <img src="media/RemITSMUser.png">
-</kbd>
-
-**Note: If you specify a Login ID of "xmatters" for this ITSM user, you can skip the following two update steps.**
+**Note: If you specify a Login ID of "xmatters" for this ITSM user, you can skip the following two update steps and proceed with [Disabling automatic assignment](#rdaa).**
 
 #### Update the filter qualification
 The XM:Incident_Re-Assigned_899 filter contains the following qualification criteria: `($USER$ != "xmatters")`  
@@ -522,7 +956,7 @@ To allow xMatters to control assignments, you must turn off the automatic assign
       Click **Save**.  
 
 
-# <a name="test"></a>Testing
+# <a name="test"></a>5. Testing
 
 ## Triggering a notification
 To trigger a notification, create a new incident with a priority of High or Critical in BMC Remedy, and assign it to
@@ -560,7 +994,7 @@ In the following example, the notification is received on an Apple iPhone, but t
 </kbd>  
 
 
-# <a name="tshoot"></a>Troubleshooting
+# <a name="tshoot"></a>6/ Troubleshooting
 If an xMatters notification was not received you can work backwards to determine where the issue may be:  
 * Review the xMatters Reports tab and the specific [Event Log](http://help.xmatters.com/OnDemand/installadmin/reporting/eventlogreport.htm)  
 * If no Event was created, review the [xMatters Inbound Integration Activity Stream](http://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)  

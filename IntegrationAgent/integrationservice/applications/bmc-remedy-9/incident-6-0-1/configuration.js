@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------------------------------
-// Configuration settings for an xMatters Relevance Engine Integration
+// Configuration settings for the BMC Remedy 9 Incident Integration Service
 // ----------------------------------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------------------------------
-// This value determines the form that will be used to inject events into xMatters if no form parameter 
-// is present in the request. The retrieve or terminate event requests are also based on this URL
+// This value determines the form that will be used to inject events into xMatters.
+// The "DELETE" (terminate event) request is also based on this URL.
 // ----------------------------------------------------------------------------------------------------
 var WEB_SERVICE_URL = "https://<company>.xmatters.com/api/integration/1/functions/<inbound integration uuid>/triggers";
 
