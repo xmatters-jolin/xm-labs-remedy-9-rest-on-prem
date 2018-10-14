@@ -10,7 +10,7 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
 ---------
 
 # Table of Contents
-1. [Pre-Requisites](#Pre-Requisites)
+1. [Pre-Requisites](#pre)
 2. [Files](#Files)
 3. [How it works](#how)
 4. [Installation](#inst)
@@ -19,16 +19,24 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
    3. [Create the xMatters Integration and Remedy Users](#ciru)
    4. [xMatters On-Demand Setup (Part 1)](#xset1)
       1. [Import the Communication Plan](#icp)
-      2. [Assign permissions to the Communication Plan and Form](#acpf)
+      2. [Assign permissions to the Communication Plan and Form](#apcpf)
 	   3. [Get the Inbound Integration webhook URL](#giiw)
    5. [Install the Remedy Integration Service (on Integration Agent)](#iris)
+      1. [Add the Remedy 9 Incident Integration Service files to your Integration Agent](#iris1)
+      2. [Create the encrypted password files](#iris2)
+      3. [Add the Deduplicator Filter for Remedy 9 Incident](#iris3)
+      4. [Update the integration's *configuration.js*](#iris4)
+      5. [Update the Integration Agent configuration to load the Remedy 9 Incident Integration Service](#iris5)
+      6. [Restart the Integration Agent](#iris6)
+      7. [Verify that the Integration Service is loaded and running](#iris7)
+      8. [Determine the Remedy 9 Integration Service entry point](#iris8)
    6. [xMatters On-Demand Setup (Part 2)](#xset2)
       1. [Configure List Property Values](#clpv)
       2. [Configure Integration Builder Endpoints](#cibe)
       3. [Configure Integration Builder Constants](#cibc1)
       4. [Review the Default Integration Builder Constants](#cibc2)
       5. [Configure REMEDY\_FORM\_INFO and REMEDY\_FORM\_CRITERIA](#crfirfc)
-   7. [Remedy setup](#rsu)
+   7. [Remedy Setup](#rsu)
       1. [Importing workflow definition files](#riwdf)
       2. [Configuring filters](#rcf)
       3. [Configuring ITSM user](#rciu)
@@ -38,7 +46,7 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
 
 ***
 
-# 1. Pre-Requisites
+# <a name="pre"></a>1. Pre-Requisites
 * Version 9.1 and above of Remedy (on-prem, or on-demand via VPN)
 * Account in Remedy capable of making REST calls
 * xMatters account - If you don't have one, [get one](https://www.xmatters.com)!
@@ -59,7 +67,7 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
              * Alternatively, you can change the default listener port for the xMatters Agent by setting a Windows Environment variable called `SERVER_PORT` to something other than `8081`.
              * Be sure to restart either the Integeation Agent or the xMatters Agent depending on where you decide to make that change.
 
-# 2. Files
+# <a name="Files"></a>2. Files
 The following are the files that makeup the Remedy 9 Incident integration.  Each of these are installed and configured into a combination of Remedy, the Agents, and your xMatters On-Demand instance.  The [Installation](#Inst) section covers this in detail.
 
 * [xMattersAgent.zip](xMattersAgent.zip) - Supplemental files for completing the xMatters Agent configuration.
@@ -606,20 +614,20 @@ The last part of this section is to get the Web Service entry point (web hook UR
 
 ## <a name="xset2"></a>xMatters Setup (Part 2)
 ### <a name="clpv"></a>Configure List Property Values  
-* On the Communication Plans page, click the Edit drop-down menu for the "BMC Remedy ITSM - Incident - REST" Communication Plan then select Properties
+* On the Communication Plans page, click the Edit drop-down menu for the "BMC Remedy ITSM - Incident - REST" Communication Plan then select `Properties` from the sub-menu going across underneath the Communication Plan name. 
 * Verify/Edit the following list property values:  
-   Company  
-   Contact\_Sensitivity  
-   Escalated  
-   Impact  
-   Priority  
-   Reported\_Source  
-   SLM_Status  
-   Service\_Type  
-   Status  
-   Status\_Reason  
-   Urgency  
-   VIP
+   * Company  
+   * Contact\_Sensitivity  
+   * Escalated  
+   * Impact  
+   * Priority  
+   * Reported\_Source  
+   * SLM_Status  
+   * Service\_Type  
+   * Status  
+   * Status\_Reason  
+   * Urgency  
+   * VIP
 
 ### <a name="cibe"></a>Configure Integration Builder Endpoints  
 * On the Communication Plans page, click the Edit drop-down menu for the "BMC Remedy ITSM - Incident - REST" Communication Plan then select Integration Builder
@@ -751,7 +759,8 @@ Here is how we lookup the values to put into the "triggerURL":
   }
 ]
 ```
-#### Configure REMEDY\_FORM\_CRITERIA
+#### Configure REMEDY\_FORM\_CRITERIA (Advanced, Optional Configuration)
+**NOTE: THIS IS AN ADVANCED TOPIC, AND THE DEFAULT/OUT-OF-THE-BOX `REMEDY_FORM_CRITERIA` MAY BE SUITABLE TO START WITH**<br>
 `REMEDY_FORM_CRITERIA` is used to decide at runtime what Form to initiate based on the value(s) of any named properties that are coming in from Remedy.  It relies on the information from `REMEDY_FORM_INFO` to know how to initiate a given Form by referencing the position of the specific form in the Array.
 
 By default, an occurance of `"form":0` refers to the "Incident Alerts" Form, and an occurance of `"form":1` refers to the "Incident Alerts with Bridge" Form.
@@ -890,7 +899,7 @@ Here's another way of thinking about how and when to specify the Conference Brid
 ```
 
 	
-## <a name="rsu2"></a>Remedy setup (Part 2)
+## <a name="rsu"></a>Remedy Setup
 Configuring BMC Remedy to integrate with xMatters requires the following steps:
 
 * Import the workflow definition files
@@ -994,7 +1003,7 @@ In the following example, the notification is received on an Apple iPhone, but t
 </kbd>  
 
 
-# <a name="tshoot"></a>6/ Troubleshooting
+# <a name="tshoot"></a>6. Troubleshooting
 If an xMatters notification was not received you can work backwards to determine where the issue may be:  
 * Review the xMatters Reports tab and the specific [Event Log](http://help.xmatters.com/OnDemand/installadmin/reporting/eventlogreport.htm)  
 * If no Event was created, review the [xMatters Inbound Integration Activity Stream](http://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)  
