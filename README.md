@@ -68,7 +68,7 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
              * Be sure to restart either the Integeation Agent or the xMatters Agent depending on where you decide to make that change.
 
 # <a name="Files"></a>2. Files
-The following are the files that makeup the Remedy 9 Incident integration.  Each of these are installed and configured into a combination of Remedy, the Agents, and your xMatters On-Demand instance.  The [Installation](#Inst) section covers this in detail.
+The following are the files that makeup the Remedy 9 Incident integration.  Each of these are installed and configured into a combination of Remedy, the Agents, and your xMatters On-Demand instance.  The [Installation](#inst) section covers this in detail.
 
 * [xMattersAgent.zip](xMattersAgent.zip) - Supplemental files for completing the xMatters Agent configuration.
 * [IntegrationAgent.zip](IntegrationAgent.zip) - The Remedy Incident Integration Service and configuration files to be installed on the configured Integration Agent.
