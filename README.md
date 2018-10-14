@@ -924,9 +924,12 @@ Configuring BMC Remedy to integrate with xMatters requires the following steps:
 Click **Finish**
 
 ### <a name="rcf"></a>Configuring filters
-The integration includes a filter and an escalation that use the Set Fields action to consume a web service; these objects need their endpoints changed to the inbound Web Hook URL the Remedy 9 Incident Integration Service that is running in the Integration Agent that we previously configured in [Determine the Remedy 9 Integration Service entry point](#iris8).  The value will look something like this `http://<integration-agent-server-ip>:<service_port>/http/applications_bmc_remedy_9_incident_6_0_1`.
-Filter: XM:EI:EventInjection_100  
-Escalation: XM:Event Injection Retry
+The integration includes a filter that uses the Set Fields action to consume a web service; this object it's endpoint changed to the inbound Web Hook URL the Remedy 9 Incident Integration Service that is running in the Integration Agent that we previously configured in [Determine the Remedy 9 Integration Service entry point](#iris8).  The value will look something like this `http://<integration-agent-server-ip>:<service_port>/http/applications_bmc_remedy_9_incident_6_0_1`.
+
+**Filter: XM:EI:EventInjection_100**
+<kbd>
+  <img src="media/remfilter1.png">
+</kbd>
 
 ### <a name="rciu"></a>Configuring ITSM user
 This the continuation of configuring the Remedy ITSM User that you created previously.
