@@ -625,19 +625,19 @@ You can either add this to the end of the existing <service-configs> section, or
 Be sure to Save your updates!
 
 ### <a name="iris6"></a>Restart the Integration Agent
-The last step is to stop and restart the xMatters Integration Agent.  If you followed the recommendations in the out-of-the-box installation guide for the Integration Agent under Windows, then you can control it with the Services applet (as we did before with the xMatters Agent).<br>Here is a screenshot of clicking "Restart" in the Services applet for the xMatters Integration Agent.
-<kbd>
-  <img src="media/ia-restart.png">
-</kbd>
+The last step is to stop and restart the xMatters Integration Agent.  If you followed the recommendations in the out-of-the-box installation guide for the Integration Agent under Windows, then you can control it with the Services applet (as we did before with the xMatters Agent).
+   <details><summary>Click here to display a screenshot of clicking "Restart" in the Services applet for the xMatters Integration Agent.</summary>
+   <img src="media/ia-restart.png">
+   </details>
 
 ### <a name="iris7"></a>Verify that the Integration Service is loaded and running
-To verify that the new Integration Service was loaded and listening for requests, we use the `"iadmin.bat"` utility, that is located under `<IAHome>\bin` (or in our case `C:\xmatters\integrationagent-5.2.0\bin\iadmin.bat`).  The `iadmin` utility can take several command, and you can read all about them [here](https://help.xmatters.com/ondemand/iaguide/managetroubleshoot.htm).  In this case, the command that we use is called `get-status`, and the command line for this is `iadmin get-status`.<br>From a Status perspective, we want to see two things in the output of this command:<br>1.) we want to look for a line that says `Connectivity status: PRIMARY_ACCEPTED`, as that tells us we are connected successfully to your xMatters instance, and <br>2.) we want to see a line under our Integration Service that shows `Status: ACTIVE`.<br>If either of those are missing, then you need to verify the edits and updates that were made to both `<IAHome>\conf\IAConfig.xml` and `<IAHome>\integrationservices\applications\bmc-remedy-9\incident-6-0-1\configuration.js`.<br> Here is a screenshot of a successfully installed and configured Remedy 9 Integration Service:
+To verify that the new Integration Service was loaded and listening for requests, we use the `"iadmin.bat"` utility, that is located under `<IAHome>\bin` (or in our case `C:\xmatters\integrationagent-5.2.0\bin\iadmin.bat`).  The `iadmin` utility can take several command, and you can read all about them [here](https://help.xmatters.com/ondemand/iaguide/managetroubleshoot.htm).  In this case, the command that we use is called `get-status`, and the command line for this is `iadmin get-status`.<br><br>From a Status perspective, we want to see two things in the output of this command:<br><br>1.) we want to look for a line that says `Connectivity status: PRIMARY_ACCEPTED`, as that tells us we are connected successfully to your xMatters instance, and <br><br>2.) we want to see a line under our Integration Service that shows `Status: ACTIVE`.<br>If either of those are missing, then you need to verify the edits and updates that were made to both `<IAHome>\conf\IAConfig.xml` and `<IAHome>\integrationservices\applications\bmc-remedy-9\incident-6-0-1\configuration.js`.<br><br>Here is a screenshot of a successfully installed and configured Remedy 9 Integration Service:
 <kbd>
   <img src="media/ia-configured.png">
 </kbd>
 
 ### <a name="iris8"></a>Determine the Remedy 9 Integration Service entry point
-The last part of this section is to get the Web Service entry point (web hook URL) that we will need to apply to the [Configuring filters](#rcf) step when configuring the Filters in Remedy later.  The value that you see from the `iadmin get-status` command above is almost correct, but we need to make a slight modification so that it includes a reference to the type of service being (vs protocol) that is being accessed (this is an `http` service in our case).<br>The URL from the screen shot above looks like this:<br>`http://10.128.0.52:8081/applications_bmc-remedy-9-incident-6-0-1`<br>but, when we use it to configure the Filter in Remedy, it should look like this:<br>**`http://10.128.0.52:8081/http/applications_bmc-remedy-9-incident-6-0-1`**<br>(notice the "/http" added between the `8081` and the start of `applications...`.<br>The first part of the address will be different and specific to your installed and configured Integration Agent.<br>If you get stuck, again, review the changes and edits made above, as well as review the section called [Manage and Troubleshooting your Integration Agent](https://help.xmatters.com/ondemand/iaguide/managetroubleshoot.htm) section of the online documentation.
+The last part of this section is to get the Web Service entry point (web hook URL) that we will need to apply to the [Configuring filters](#rcf) step when configuring the Filters in Remedy later.  The value that you see from the `iadmin get-status` command above is almost correct, but we need to make a slight modification so that it includes a reference to the type of service being (vs protocol) that is being accessed (this is an `http` service in our case).<br><br>The URL from the screen shot above looks like this:<br>`http://10.128.0.52:8081/applications_bmc-remedy-9-incident-6-0-1`<br><br>but, when we use it to configure the Filter in Remedy, it should look like this:<br>**`http://10.128.0.52:8081/http/applications_bmc-remedy-9-incident-6-0-1`**<br>(notice the "/http" added between the `8081` and the start of `applications...`.<br><br>The first part of the address will be different and specific to your installed and configured Integration Agent.<br><br>If you get stuck, again, review the changes and edits made above, as well as review the section called [Manage and Troubleshooting your Integration Agent](https://help.xmatters.com/ondemand/iaguide/managetroubleshoot.htm) section of the online documentation.
 
 ## <a name="xset2"></a>xMatters Setup (Part 2)
 ### <a name="eoi"></a>Enable Outbound Integrations
@@ -645,24 +645,46 @@ When you first load a Communication Plan that has Outbound Integrations configur
 
 Here is how to Enable an Outbound Integration, and point it to a specific xMatters Agent.<br>**Note: You will need to perform the following steps for each of the 8 Outbound Integrations.**
 
-* On the Communication Plans page, click the Edit drop-down menu for the "BMC Remedy ITSM - Incident - REST" communication plan then select Integration Builder
-![Integration Builder](media/xMOpenIntegrationBuilder.png)
-* Click the *3 Configured* link (blue text) to the right of Inbound Integrations
-![8 Configured](media/xM8Configured.png)
+* On the Communication Plans page, click the Edit drop-down menu for the "**BMC Remedy ITSM - Incident - REST**" communication plan then select Integration Builder
+   <details><summary>Click here for an example</summary>
+   <img alt="Integration Builder" src="media/xMOpenIntegrationBuilder.png">
+   </details>
+
+* Click the *8 Configured* link (blue text) to the right of Inbound Integrations
+   <details><summary>Click here for an example</summary>
+   <img alt="8 Configured" src="media/xM8Configured.png">
+   </details>
+
 * Click on any of the eigth Outbound Integrations links (blue text), for example "**Incident Alerts - Device Delivery Updates**"<br>Notice that the toggle switch to the left of each name is white, instead of green, signifying that it is disabled.
 ![Select Outbound Integration](media/xMSelectOutboundIntegration.png)
+
 * Select (click on the checkbox) the xMatters Agent that you want the Oubtound Integrations to run on.
-![Select Agent Before](media/xMSelectAgentBefore.png)
+   <details><summary>Click here for an example</summary>
+   <img alt="Select Agent Before" src="media/xMSelectAgentBefore.png">
+   </details>
+
 * After Selecting you'll be able to Update the integration by clicking on the "Update Outbound Integration" button
-![Select Agent After](media/xMSelectAgentAfter.png)
+   <details><summary>Click here for an example</summary>
+   <img alt="Select Agent After" src="media/xMSelectAgentAfter.png">
+   </details>
+
 * You may be presented with a warning telling you to restart the xMatters Agent.  That is normal, and you should defer until you have enabled all eight Outbound Integrations.  This is a requirement as it ensures that the user who enabled the integrations was authorized to do so by the agent.  This is a one time activity.
-![Restart Agent After Update](media/xMRestartAgent.png)
-* Click on the breadcrumb to go back
-![Click breadcrumb](media/xMBreadcrumbBack.png)
+   <details><summary>Click here for an example</summary>
+   <img alt="Restart Agent After Update" src="media/xMRestartAgent.png">
+   </details>
+
+* Click on the "*BMC Remedy ITSM - Incident - REST*" breadcrumb at the top of the page to go back
+   <details><summary>Click here for an example</summary>
+   <img alt="Click breadcrumb" src="media/xMBreadcrumbBack.png">
+   </details>
+
 * After all eight are enabled, your list of Outbound Integrations should look like this.
 ![All Enabled](media/xMAllOutboundEnabled.png)
+
 * Finally, Restart the xMatters Agent that we just pointed all of those Outbound Integrations at.<br>This is done from the Services applet back on the Server/VM hosting the xMatters Agent.
-![Restart Agent](media/xA-4-RestartAgent.png)
+   <details><summary>Click here for an example</summary>
+   <img alt="Restart Agent" src="media/xA-4-RestartAgent.png">
+   </details>
 
 ### <a name="clpv"></a>Configure List Property Values  
 * On the Communication Plans page, click the Edit drop-down menu for the "BMC Remedy ITSM - Incident - REST" Communication Plan then select `Properties` from the sub-menu going across underneath the Communication Plan name. 
@@ -768,18 +790,36 @@ The value to put into `"URLUser"` is simply the xMatters User ID for the REST Us
 
 Here is how we lookup the values to put into the "triggerURL":
 
-* On the Communication Plans page, click the Edit drop-down menu for the "BMC Remedy ITSM - Incident - REST" communication plan then select Integration Builder
-![Integration Builder](media/xMOpenIntegrationBuilder.png)
-* Click the *3 Configured* link (blue text) to the right of Inbound Integrations
-![3 Configured](media/xM3Configured.png)
-* Click the *Initiate Incident Alerts Form* link (blue text)
-![Initiate Incident Alerts Form](media/xMInitiateIncidentAlertsForm.png)
-* Scroll to the **How to trigger the integration** section
-![How to trigger the integration](media/xMHowToTrigger.png)
-* Select "URL Authentication" for the method
-![URL Authentication](media/xMURLAuthentication.png)
-* Find the REST User you created above and select in Authenticating User, then click the *Copy Url* link
-![URL Authentication](media/xMUserCopyURL.png)
+* On the Communication Plans page, click the Edit drop-down menu for the "**BMC Remedy ITSM - Incident - REST**" communication plan then select Integration Builder
+   <details><summary>Click here for an example</summary>
+   <img alt="Integration Builder" src="media/xMOpenIntegrationBuilder.png">
+   </details>
+
+* Click the "**3 Configured**" link (blue text) to the right of Inbound Integrations
+   <details><summary>Click here for an example</summary>
+   <img alt="3 Configured" src="media/xM3Configured.png">
+   </details>
+
+* Click the "**Initiate Incident Alerts Form**" link (blue text)
+   <details><summary>Click here for an example</summary>
+   <img alt="Initiate Incident Alerts Form" src="media/xMInitiateIncidentAlertsForm.png">
+   </details>
+
+* Scroll down to the "**How to trigger the integration**" section
+   <details><summary>Click here for an example</summary>
+   <img alt="How to trigger the integration" src="media/xMHowToTrigger.png">
+   </details>
+
+* Select "**URL Authentication**" for the method
+   <details><summary>Click here for an example</summary>
+   <img alt="URL Authentication" src="media/xMURLAuthentication.png">
+   </details>
+
+* Find the REST User you created above and select it in Authenticating User field, then click the "**Copy**" link in the lower right side of the displayed Trigger URL
+   <details><summary>Click here for an example</summary>
+   <img alt="Copy URL" src="media/xMUserCopyURL.png">
+   </details>
+
 * Once we have the URL, we want to past everything starting with `/api...` into the `"triggerURL"` field for the `"pos":0` element.
    * We do this by editing the Constant like so: 
     ![URL Authentication](media/xMUpdateFormInfo.png)
