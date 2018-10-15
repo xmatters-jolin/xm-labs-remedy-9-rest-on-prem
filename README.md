@@ -89,30 +89,28 @@ The notified resolver responds with ACCEPT - to take ownership of the incident, 
 
 The closed loop integration annotates the incident's Work Info log with xMatters event status, notification delivery status, annotations/comments, and user responses. Additionally, an ACCEPT response assigns the user to the incident and updates the incident status to In Progress. A RESOLVE response updates the incident status to Resolved.
 
-<kbd>
-This diagram shows the relationship and data flow between the components for a typical Incident process:
+<details>
+<summary>Click here to display a diagram that shows the relationship and data flow between the components for a typical Incident process.</summary>
 
   <img src="media/RemedyIncidentRESTSequenceDiagram.png">
-</kbd>
-Additional details may be found in the previous SOAP-based on premise Integration Guide for BMC Remedy Incident [here](media/xM-BMC-Remedy_Incident_Management_5_1_2.pdf).
+</details>
+
+Additional details about this Integration may be found in the previous SOAP-based on-prem Integration Guide for BMC Remedy Incident [here](media/xM-BMC-Remedy_Incident_Management_5_1_2.pdf).
 
 # <a name="inst"></a>4. Installation 
 
 ## <a name="agrun"></a>Verify Agents are Running
 Before doing any installation steps for this Remedy Incident integration, it is critical to make sure that your xMatters Agent and Integration Agent are running and visible in your environment.<br>
-To view the state of the running agents, you need to login to your xMatters instance, and go to the `DEVELOPER` section.<br>
-On the left hand context menu, click on `Agents` (directly underneath `XMATTERS AGENTS`).<br>
-The default view on the right is called `AVAILABLE`, you need to click on the next linke `INSTALLED`
-<kbd>
-  <img src="media/xMViewAgents1.png">
-</kbd>
-<br>
-After clicking `INSTALLED`, you should see a list of agents.<br>
-Click on the "Connected" filter in the upper right side of the display, and you should at least see one connected (green and white checkmark under STATUS) `xMatters Agent` in the upper list, and one connected `Integration Agent` in the lower list.<br>
-Here's an example:
-<kbd>
-  <img src="media/xMViewAgents2.png">
-</kbd>
+To view the state of the running agents:
+
+   * Login to your xMatters instance
+   * Go to the `DEVELOPER` section
+   * On the left hand context menu, click on `Agents` (directly underneath `XMATTERS AGENTS`)
+   * The default view on the right is called `AVAILABLE`, you need to click on the next link `INSTALLED`
+   <details><summary>Click here to see an example</summary><img src="media/xMViewAgents1.png"></details>
+   * After clicking `INSTALLED`, you should see a list of agents.
+   * Click on the "Connected" filter in the upper right side of the display, and you should at least see one connected (green and white checkmark under STATUS) `xMatters Agent` in the upper list, and one connected `Integration Agent` in the lower list
+   <details><summary>Click here to see an example</summary><img src="media/xMViewAgents2.png"></details>
 
 
 ## <a name="xaset"></a>xMatters Agent Additional Setup
