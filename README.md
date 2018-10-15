@@ -31,11 +31,12 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
       7. [Verify that the Integration Service is loaded and running](#iris7)
       8. [Determine the Remedy 9 Integration Service entry point](#iris8)
    6. [xMatters On-Demand Setup (Part 2)](#xset2)
-      1. [Configure List Property Values](#clpv)
-      2. [Configure Integration Builder Endpoints](#cibe)
-      3. [Configure Integration Builder Constants](#cibc1)
-      4. [Review the Default Integration Builder Constants](#cibc2)
-      5. [Configure REMEDY\_FORM\_INFO and REMEDY\_FORM\_CRITERIA](#crfirfc)
+      1. [Enable Outbound Integrations](#eoi)
+      2. [Configure List Property Values](#clpv)
+      3. [Configure Integration Builder Endpoints](#cibe)
+      4. [Configure Integration Builder Constants](#cibc1)
+      5. [Review the Default Integration Builder Constants](#cibc2)
+      6. [Configure REMEDY\_FORM\_INFO and REMEDY\_FORM\_CRITERIA](#crfirfc)
    7. [Remedy Setup](#rsu)
       1. [Importing workflow definition files](#riwdf)
       2. [Configuring filters](#rcf)
@@ -613,6 +614,30 @@ To verify that the new Integration Service was loaded and listening for requests
 The last part of this section is to get the Web Service entry point (web hook URL) that we will need to apply to the [Configuring filters](#rcf) step when configuring the Filters in Remedy later.  The value that you see from the `iadmin get-status` command above is almost correct, but we need to make a slight modification so that it includes a reference to the type of service being (vs protocol) that is being accessed (this is an `http` service in our case).<br>The URL from the screen shot above looks like this:<br>`http://10.128.0.52:8081/applications_bmc-remedy-9-incident-6-0-1`<br>but, when we use it to configure the Filter in Remedy, it should look like this:<br>**`http://10.128.0.52:8081/http/applications_bmc-remedy-9-incident-6-0-1`**<br>(notice the "/http" added between the `8081` and the start of `applications...`.<br>The first part of the address will be different and specific to your installed and configured Integration Agent.<br>If you get stuck, again, review the changes and edits made above, as well as review the section called [Manage and Troubleshooting your Integration Agent](https://help.xmatters.com/ondemand/iaguide/managetroubleshoot.htm) section of the online documentation.
 
 ## <a name="xset2"></a>xMatters Setup (Part 2)
+### <a name="eoi"></a>Enable Outbound Integrations
+When you first load a Communication Plan that has Outbound Integrations configured to use the xMatters Agent, those Outbound Integrations come up as disabled.  This is because you have to tell xMatters On Demand, which xMatters Agent (or Agents) you would like those Outbound Integrations to run on.
+
+Here is how to Enable an Outbound Integration, and point it to a specific xMatters Agent.<br>**Note: You will need to perform the following steps for each of the 8 Outbound Integrations.**
+
+* On the Communication Plans page, click the Edit drop-down menu for the "BMC Remedy ITSM - Incident - REST" communication plan then select Integration Builder
+![Integration Builder](media/xMOpenIntegrationBuilder.png)
+* Click the *3 Configured* link (blue text) to the right of Inbound Integrations
+![8 Configured](media/xM8Configured.png)
+* Click on any of the eigth Outbound Integrations links (blue text), for example "**Incident Alerts - Device Delivery Updates**"<br>Notice that the toggle switch to the left of each name is white, instead of green, signifying that it is disabled.
+![Select Outbound Integration](media/xMSelectOutboundIntegration.png)
+* Select (click on the checkbox) the xMatters Agent that you want the Oubtound Integrations to run on.
+![Select Agent Before](media/xMSelectAgentBefore.png)
+* After Selecting you'll be able to Update the integration by clicking on the "Update Outbound Integration" button
+![Select Agent After](media/xMSelectAgentAfter.png)
+* You may be presented with a warning telling you to restart the xMatters Agent.  That is normal, and you should defer until you have enabled all eight Outbound Integrations.  This is a requirement as it ensures that the user who enabled the integrations was authorized to do so by the agent.  This is a one time activity.
+![Restart Agent After Update](media/xMRestartAgent.png)
+* Click on the breadcrumb to go back
+![Click breadcrumb](media/xMBreadcrumbBack.png)
+* After all eight are enabled, your list of Outbound Integrations should look like this.
+![All Enabled](media/xMAllOutboundEnabled.png)
+* Finally, Restart the xMatters Agent that we just pointed all of those Outbound Integrations at.<br>This is done from the Services applet back on the Server/VM hosting the xMatters Agent.
+![Restart Agent](media/xA-4-RestartAgent.png)
+
 ### <a name="clpv"></a>Configure List Property Values  
 * On the Communication Plans page, click the Edit drop-down menu for the "BMC Remedy ITSM - Incident - REST" Communication Plan then select `Properties` from the sub-menu going across underneath the Communication Plan name. 
 * Verify/Edit the following list property values:  
