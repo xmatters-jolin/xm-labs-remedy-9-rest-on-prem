@@ -199,16 +199,30 @@ Instructions on Importing Communication Plans are [here](http://help.xmatters.co
 ### <a name="giiw"></a>Get the Inbound Integration webhook URL
 Before we can install and configure the Remedy Integration Service into the xMatters Integration Agent, we also need to collect the URL (Webhook address) for the Inbound Integration that is called on behalf of Remedy when an Incident requires xMatters to notify folks.
 
-* On the Communication Plans page, click the Edit drop-down menu for the "BMC Remedy ITSM - Incident - REST" communication plan then select Integration Builder
-![Integration Builder](media/xMOpenIntegrationBuilder.png)
-* Click the *3 Configured* link (blue text) to the right of Inbound Integrations
-![3 Configured](media/xM3Configured.png)
-* Click the *Trigger Remedy Alert - Inbound WebHook* link (blue text)
-![Initiate Incident Alerts Form](media/xMTriggerRemedyAlert.png)
-* Scroll to the **How to trigger the integration** section, and click on "Select Method", and then "Basic Authentication".
-![How to trigger the integration](media/xMHowToTrigger2.png)
+* On the Communication Plans page, click the Edit drop-down menu for the "**BMC Remedy ITSM - Incident - REST**" communication plan then select Integration Builder
+   <details><summary>Click here for an example</summary>
+   ![Integration Builder](media/xMOpenIntegrationBuilder.png)
+   </details>
+   
+* Click the "**3 Configured**" link (blue text) to the right of Inbound Integrations
+   <details><summary>Click here for an example</summary>
+   ![3 Configured](media/xM3Configured.png)
+   </details>
+
+* Click the "**Trigger Remedy Alert - Inbound WebHook**" link (blue text)
+   <details><summary>Click here for an example</summary>
+   ![Initiate Incident Alerts Form](media/xMTriggerRemedyAlert.png)
+   </details>
+
+* Scroll to the **How to trigger the integration** section, and click on "**Select Method**", and then "**Basic Authentication**".
+   <details><summary>Click here for an example</summary>
+   ![How to trigger the integration](media/xMHowToTrigger2.png)
+   </details>
+
 * Click the *Copy Url* link to the right of the Trigger, and save that value in a text file to use later on when setting up `configuration.js` [below](#iris4).
-![URL Authentication](media/xMBasicAuthCopyURL.png)
+   <details><summary>Click here for an example</summary>
+   ![URL Authentication](media/xMBasicAuthCopyURL.png)
+   </details>
 
 ## <a name="iris"></a>Install the Remedy Integration Service (on Integration Agent)
 This section explains how to to install the Remedy 9 Incident Integration Service into the Integration Agent installed previosly.<br>There are essentially eight (8) steps:
@@ -228,24 +242,27 @@ Similar to the previous steps to install the files for the xMatters Agent, an In
 
 1. Download the file [IntegrationAgent.zip](IntegrationAgent.zip) to the server where your Integration Agent is installed and running.
 2. Unzip the file into a temporary directory (e.g. C:\temp).  Check out [this article](https://support.microsoft.com/en-gb/help/4028088/windows-zip-and-unzip-files) if you need help with unzipping compressed files in Windows.
-The following images show an example of what you should find if you performed those operations in your C:\temp folder.
-<kbd>
-  <img src="media/ia-UnzippedIntegrationAgent1.png">
-</kbd><br>
-<kbd>
-  <img src="media/ia-UnzippedIntegrationAgent2.png">
-</kbd><br>
-<kbd>
-  <img src="media/ia-UnzippedIntegrationAgent3.png">
-</kbd><br>
-<kbd>
-  <img src="media/ia-UnzippedIntegrationAgent4.png">
-</kbd><br>
-3. Move (or copy) the `bmc-remedy-9` folder (and all sub-folders) as shown above to the `<IAHome>integrationservices\applications\` folder of your xMatters Integration Agent installation.  For example, if you have installed your xMatters Integration Agent into `C:\xmatters\integrationagent-5.2.0`, then you will move or copy) the `bmc-remedy-9` folder (and all sub-folders) to `C:\xmatters\integrationagent-5.2.0\integrationservices\applications\`.
-<kbd>
-  <img src="media/ia-UnzippedIntegrationAgent5.png">
-</kbd>
+   <details><summary>Click here for an example of what you should find if you performed those operations in your C:\temp folder.</summary>
+   <kbd>
+   <img src="media/ia-UnzippedIntegrationAgent1.png">
+   </kbd><br>
+   <kbd>
+   <img src="media/ia-UnzippedIntegrationAgent2.png">
+   </kbd><br>
+   <kbd>
+   <img src="media/ia-UnzippedIntegrationAgent3.png">
+   </kbd><br>
+   <kbd>
+   <img src="media/ia-UnzippedIntegrationAgent4.png">
+   </kbd><br>
+   </details>
 
+3. Move (or copy) the `bmc-remedy-9` folder (and all sub-folders) as shown above to the `<IAHome>integrationservices\applications\` folder of your xMatters Integration Agent installation.  
+   <details><summary>Click here to see what this would look like if you installed your xMatters Integration Agent into `C:\xmatters\integrationagent-5.2.0`, and have moved (or copied) the `bmc-remedy-9` folder (and all sub-folders) to `C:\xmatters\integrationagent-5.2.0\integrationservices\applications\`.</summary>
+   <kbd>
+   <img src="media/ia-UnzippedIntegrationAgent5.png">
+   </kbd>
+   </details>
 
 ### <a name="iris2"></a>Create the encrypted password files
 The xMatters Integration Agent creates several utilities, one in particular ("iapassword.bat") is useful for encrypting sensitive information, like passwords.  The documentation for the "iapassword.bat" utility is located [here](https://help.xmatters.com/ondemand/iaguide/iapasswordutility.htm).  But we'll cover examples of how to create them for this integration via a few screen shots.
@@ -253,18 +270,27 @@ The xMatters Integration Agent creates several utilities, one in particular ("ia
 1. Open up a Windows Command Prompt (Click the "Start Button", select "All Programs", select "Accessories", then click "Command Prompt".), and change directory to your xMatters Integration Agent's `bin\` folder.
 2. If you do a `dir` command, you will see the contents, including the `iapassword.bat` utility.
 3. Typing in the command name and pressing Enter will show you the command usage.
-<kbd>
-	<img src="media/cp1.png">
-</kbd>
+   <details><summary>Click here for an example</summary>
+   <kbd>
+   <img src="media/cp1.png">
+   </kbd>
+   </details>
+   
 4. We want our two passwords to go into the `conf` directory, so we will specify that on the command line.
-5. The format for the "iapassword" command we can use to create the encrypted password for the xMatters User that is the Integration User we created previoustly (svc-rest-remedy-incident), is as follows:<br>`iapassword --new <password> --file <relative-path-and-name>`.<br>The actual command would look something like this:<br>`iapassword --new xM@tt3rs --file conf\xm_initiator.pwd`<br>In this example, the unencrypted password is `xM@tt3rs` with the encrypted version in `conf\xm_initiator.pwd` is `niuVvodM3AaaM/8Sn+jqiw==`.<br>The screenshot below shows us creating this file in the `conf` directory.  There is a before and after view of the `conf` directory, as well as the command we ran to create the encrypted file, as well as a display of the encrypted value.
-<kbd>
-  <img src="media/cp2.png">
-</kbd>
-6. Let's follow up with creating the encrypted password for the Remedy 9 Incident user (typically with a Login ID of `xmatters`), created previously.<br>As before, we'll user the same format of command line, but replace the password and file names, as follows:<br>`iapassword --new Remedy9! --file conf\rem_rest_user.pwd`<br>In this example, the unencrypted password is `xM@tt3rs` with the encrypted version in `conf\rem_rest_user.pwd` is `R5UMpF4Zeb2aM/8Sn+jqiw==`.<br>The screenshot below shows us creating this file in the `conf` directory.  There is a before and after view of the `conf` directory, as well as the command we ran to create the encrypted file, as well as a display of the encrypted value.
-<kbd>
-  <img src="media/cp3.png">
-</kbd>
+5. The format for the "iapassword" command we can use to create the encrypted password for the xMatters User that is the Integration User we created previoustly (svc-rest-remedy-incident), is as follows:<br>`iapassword --new <password> --file <relative-path-and-name>`.<br>The actual command would look something like this:<br>`iapassword --new xM@tt3rs --file conf\xm_initiator.pwd`<br>In this example, the unencrypted password is `xM@tt3rs` with the encrypted version in `conf\xm_initiator.pwd` is `niuVvodM3AaaM/8Sn+jqiw==`.
+   <details><summary>Click here to display a screenshot of creating this file in the `conf` directory.  There is a before and after view of the `conf` directory, as well as the command we ran to create the encrypted file, as well as a display of the encrypted value.</summary>
+   <kbd>
+   <img src="media/cp2.png">
+   </kbd>
+   </details>
+   
+6. Let's follow up with creating the encrypted password for the Remedy 9 Incident user (typically with a Login ID of `xmatters`), created previously.<br>As before, we'll user the same format of command line, but replace the password and file names, as follows:<br>`iapassword --new Remedy9! --file conf\rem_rest_user.pwd`<br>In this example, the unencrypted password is `xM@tt3rs` with the encrypted version in `conf\rem_rest_user.pwd` is `R5UMpF4Zeb2aM/8Sn+jqiw==`.
+   <details><summary>Click here for a screenshot of creating this file in the `conf` directory.  There is a before and after view of the `conf` directory, as well as the command we ran to create the encrypted file, as well as a display of the encrypted value.</summary>
+   <kbd>
+   <img src="media/cp3.png">
+   </kbd>
+   </details>
+   
 7. Keep track of the encrypted password for the Remedy User, as we will need to use that value when configuring the `REMEDY_WS_PASSWORD` constant in [Configure Integration Builder Constants](#cibc1) below.
 
 ### <a name="iris3"></a>Add the Deduplicator Filter for Remedy 9 Incident
