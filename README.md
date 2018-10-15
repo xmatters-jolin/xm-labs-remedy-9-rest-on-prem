@@ -107,11 +107,11 @@ To view the state of the running agents:
    * Go to the `DEVELOPER` section
    * On the left hand context menu, click on `Agents` (directly underneath `XMATTERS AGENTS`)
    * The default view on the right is called `AVAILABLE`, you need to click on the next link `INSTALLED`
-   <details><summary>Click here to see an example</summary><img src="media/xMViewAgents1.png"></details>
+      <details><summary>Click here to see an example</summary><img src="media/xMViewAgents1.png"></details>
    
    * After clicking `INSTALLED`, you should see a list of agents.
    * Click on the "Connected" filter in the upper right side of the display, and you should at least see one connected (green and white checkmark under STATUS) `xMatters Agent` in the upper list, and one connected `Integration Agent` in the lower list
-   <details><summary>Click here to see an example</summary><img src="media/xMViewAgents2.png"></details>
+      <details><summary>Click here to see an example</summary><img src="media/xMViewAgents2.png"></details>
 
 
 ## <a name="xaset"></a>xMatters Agent Additional Setup
