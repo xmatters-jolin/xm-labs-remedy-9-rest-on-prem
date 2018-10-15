@@ -141,15 +141,15 @@ The following steps will guide you in adding this library:
    When you open the `xerus-service.conf` file, you will want to find the last occurance of a line beginning with `wrapper.java.classpath.nn` where `.nn` is going to be a number like 29 as the example shows here.
 
    ```
-wrapper.java.classpath.29=${wrapper.working.dir}\\service-installer\\lib\\xercesImpl-2.9.1.jar
-```
+   wrapper.java.classpath.29=${wrapper.working.dir}\\service-installer\\lib\\xercesImpl-2.9.1.jar
+   ```
 
    Paste the two lines from `xerus-service.conf.additions` directly after the last occurance of the line starting with `wrapper.java.classpath.nn`, and make sure that the new line has a number that is one more than the previous line.  So, if the last occurance you find is `.29`, than make the new line that refers to `EncryptionUtils.jar` have `.30`.
 
    ```
-# Include the xMatters Encryption utility claseses
-wrapper.java.classpath.30=${wrapper.working.dir}\\applib\\EncryptionUtils.jar
-```
+   # Include the xMatters Encryption utility claseses
+   wrapper.java.classpath.30=${wrapper.working.dir}\\applib\\EncryptionUtils.jar
+   ```
 
    <details><summary>Click here for an example of `xerus-service.conf` after the change has been made. `DON'T FORGET TO SAVE THIS FILE AFTER MAKING YOUR CHANGES!`</summary>
    <img src="media/xA-3-Updatexerus-service.conf.png">
