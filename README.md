@@ -201,27 +201,27 @@ Before we can install and configure the Remedy Integration Service into the xMat
 
 * On the Communication Plans page, click the Edit drop-down menu for the "**BMC Remedy ITSM - Incident - REST**" communication plan then select Integration Builder
    <details><summary>Click here for an example</summary>
-![Integration Builder](media/xMOpenIntegrationBuilder.png)
+   <img alt="Integration Builder" src="media/xMOpenIntegrationBuilder.png">
    </details>
    
 * Click the "**3 Configured**" link (blue text) to the right of Inbound Integrations
    <details><summary>Click here for an example</summary>
-![3 Configured](media/xM3Configured.png)
+   <img alt="3 Configured" src="media/xM3Configured.png">
    </details>
 
 * Click the "**Trigger Remedy Alert - Inbound WebHook**" link (blue text)
    <details><summary>Click here for an example</summary>
-![Initiate Incident Alerts Form](media/xMTriggerRemedyAlert.png)
+   <img alt="Initiate Incident Alerts Form" src="media/xMTriggerRemedyAlert.png">
    </details>
 
 * Scroll to the **How to trigger the integration** section, and click on "**Select Method**", and then "**Basic Authentication**".
    <details><summary>Click here for an example</summary>
-![How to trigger the integration](media/xMHowToTrigger2.png)
+   <img alt="How to trigger the integration" src="media/xMHowToTrigger2.png">
    </details>
 
 * Click the *Copy Url* link to the right of the Trigger, and save that value in a text file to use later on when setting up `configuration.js` [below](#iris4).
    <details><summary>Click here for an example</summary>
-![URL Authentication](media/xMBasicAuthCopyURL.png)
+   <img alt="URL Authentication" src="media/xMBasicAuthCopyURL.png">
    </details>
 
 ## <a name="iris"></a>Install the Remedy Integration Service (on Integration Agent)
