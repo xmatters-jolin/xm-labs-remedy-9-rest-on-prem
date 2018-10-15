@@ -121,43 +121,44 @@ The following steps will guide you in adding this library:
 
 1. Download the file [xMattersAgent.zip](xMattersAgent.zip) to the server where your xMatters Agent is installed and running.
 2. Unzip the file into a temporary directory (e.g. C:\temp).  Check out [this article](https://support.microsoft.com/en-gb/help/4028088/windows-zip-and-unzip-files) if you need help with unzipping compressed files in Windows.
-The following images show an example of what you should find if you performed those operations in your C:\temp folder.
-<kbd>
-  <img src="media/xa-UnzippedxMattersAgent1.png">
-</kbd>
-<kbd>
-  <img src="media/xa-UnzippedxMattersAgent2.png">
-</kbd>
-<kbd>
-  <img src="media/xa-UnzippedxMattersAgent3.png">
-</kbd>
-3. Move (or copy) the `EncryptionUtils.jar` file to the `applib` folder of your xMatters Agent installation.  Typically this will be `C:\Program Files\xa\applib`.
-<kbd>
-  <img src="media/xA-1-AddEncryptionUtils.jarHere.png">
-</kbd>
-4. Update the existing xerus-service.conf (`C:\Program Files\xa\config\xerus-service.conf`) file to refer to the new EncryptionUtils.jar file.<br>We have included a filed called `xerus-servcie.conf.additions` that is an example of the change you need to make to `xerus-service.conf`.
-<kbd>
-  <img src="media/xA-2-LocationOfxerus-service.conf.png">
-</kbd>
-When you open the `xerus-service.conf` file, you will want to find the last occurance of a line beginning with `wrapper.java.classpath.nn` where `.nn` is going to be a number like 29 as the example shows here.
 
-	```
+   <details><summary>Click here for examples of what you should find if you performed those operations in your C:\temp folder.</summary>
+   <kbd><img src="media/xa-UnzippedxMattersAgent1.png"></kbd>
+   <kbd><img src="media/xa-UnzippedxMattersAgent2.png"></kbd>
+   <kbd><img src="media/xa-UnzippedxMattersAgent3.png"></kbd>
+   </details>
+
+3. Move (or copy) the `EncryptionUtils.jar` file to the `applib` folder of your xMatters Agent installation.  Typically this will be `C:\Program Files\xa\applib`.
+   <details><summary>Click here for an example</summary>
+   <img src="media/xA-1-AddEncryptionUtils.jarHere.png">
+   </details>
+   
+4. Update the existing xerus-service.conf (`C:\Program Files\xa\config\xerus-service.conf`) file to refer to the new EncryptionUtils.jar file.<br>We have included a filed called `xerus-servcie.conf.additions` that is an example of the change you need to make to `xerus-service.conf`.
+   <details><summary>Click here for an example</summary>
+   <img src="media/xA-2-LocationOfxerus-service.conf.png">
+   </details>
+
+   When you open the `xerus-service.conf` file, you will want to find the last occurance of a line beginning with `wrapper.java.classpath.nn` where `.nn` is going to be a number like 29 as the example shows here.
+
+   ```
 wrapper.java.classpath.29=${wrapper.working.dir}\\service-installer\\lib\\xercesImpl-2.9.1.jar
 ```
-Paste the two lines from `xerus-service.conf.additions` directly after the last occurance of the line starting with `wrapper.java.classpath.nn`, and make sure that the new line has a number that is one more than the previous line.  So, if the last occurance you find is `.29`, than make the new line that refers to `EncryptionUtils.jar` have `.30`.
 
-	```
+   Paste the two lines from `xerus-service.conf.additions` directly after the last occurance of the line starting with `wrapper.java.classpath.nn`, and make sure that the new line has a number that is one more than the previous line.  So, if the last occurance you find is `.29`, than make the new line that refers to `EncryptionUtils.jar` have `.30`.
+
+   ```
 # Include the xMatters Encryption utility claseses
 wrapper.java.classpath.30=${wrapper.working.dir}\\applib\\EncryptionUtils.jar
 ```
-Here's an example of `xerus-service.conf` after the change has been made. `DON'T FORGET TO SAVE THIS FILE AFTER MAKING YOUR CHANGES!`
-<kbd>
-  <img src="media/xA-3-Updatexerus-service.conf.png">
-</kbd>
+
+   <details><summary>Click here for an example of `xerus-service.conf` after the change has been made. `DON'T FORGET TO SAVE THIS FILE AFTER MAKING YOUR CHANGES!`</summary>
+   <img src="media/xA-3-Updatexerus-service.conf.png">
+   </details>
+
 5. Once you have saved the changes, the last step is to restart the xMatters Agent.  This is done from the Services applet.
-<kbd>
-  <img src="media/xA-4-RestartAgent.png">
-</kbd>
+   <details><summary>Click here for an example</summary>
+   <img src="media/xA-4-RestartAgent.png">
+   </details>
 
 
 ## <a name="ciru"></a>Create the xMatters Integration and Remedy Users
