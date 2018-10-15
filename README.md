@@ -1030,6 +1030,11 @@ In the following example, the notification is received on an Apple iPhone, but t
   <img src="media/RemiPhone04.png" width=236 height=420>
 </kbd>  
 
+* Here's a view of the same information via Email Notification:
+
+<kbd>
+  <img src="media/RemEmail.png">
+</kbd>
 
 # <a name="tshoot"></a>6. Troubleshooting
 If an xMatters notification was not received you can work backwards to determine where the issue may be:  
