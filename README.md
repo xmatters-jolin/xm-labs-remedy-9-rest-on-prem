@@ -219,7 +219,7 @@ Before we can install and configure the Remedy Integration Service into the xMat
    <img alt="How to trigger the integration" src="media/xMHowToTrigger2.png">
    </details>
 
-* Click the *Copy Url* link to the right of the Trigger, and save that value in a text file to use later on when setting up `configuration.js` [below](#iris4).
+* Click the *Copy* link to the right of the Trigger, and save that value in a text file to use later on when setting up `configuration.js` [below](#iris4).
    <details><summary>Click here for an example</summary>
    <img alt="URL Authentication" src="media/xMBasicAuthCopyURL.png">
    </details>
@@ -294,7 +294,7 @@ The xMatters Integration Agent creates several utilities, one in particular ("ia
 7. Keep track of the encrypted password for the Remedy User, as we will need to use that value when configuring the `REMEDY_WS_PASSWORD` constant in [Configure Integration Builder Constants](#cibc1) below.
 
 ### <a name="iris3"></a>Add the Deduplicator Filter for Remedy 9 Incident
-The xMatters Integration Agent includes the capability to deduplicate Events as they are attempting to be injected into your xMatters environment.  This is a pre-cursor to the Flood Control features that are startig to be introduced in future releases of xMatters.  Eventually, this will not be required, but for now we will configure it.<br>The file that includes this information is in the `<IAHome>\conf\` directory and is called `deduplicator-filter.xml]`.  We have included a filter to add into this file that was expanded when we added the new files [above](#iris1).<br>If you followed the naming conventions we used previously, you will want to open the file `C:\temp\IntegrationAgent\conf\deduplicator-filter.xml` and copy the lines starting with `<filter>` and continuing through `</filter>` to the clipboard.<br>The part to copy will look something lide this:
+The xMatters Integration Agent includes the capability to deduplicate Events as they are attempting to be injected into your xMatters environment.  This is a pre-cursor to the Flood Control features that are startig to be introduced in future releases of xMatters.  Eventually, this will not be required, but for now we will configure it.<br>The file that includes this information is in the `<IAHome>\conf\` directory and is called `deduplicator-filter.xml`.  We have included a filter to add into this file that was expanded when we added the new files [above](#iris1).<br>If you followed the naming conventions we used previously, you will want to open the file `C:\temp\IntegrationAgent\conf\deduplicator-filter.xml` and copy the lines starting with `<filter>` and continuing through `</filter>` to the clipboard.<br>The part to copy will look something lide this:
 
 ```
   <!-- Filter to prevent duplicate BMC Remedy Incident events injecting more often than once every 3 mins -->
@@ -823,7 +823,7 @@ Here is how we lookup the values to put into the "triggerURL":
 * Once we have the URL, we want to past everything starting with `/api...` into the `"triggerURL"` field for the `"pos":0` element.
    * We do this by editing the Constant like so:
     ![URL Authentication](media/xMUpdateFormInfo.png)
-* Now, do the same thing for the "Initiate Incident Alerts with Bridge Form" Inbound Integration, and update the `"pos":`` element.
+* Now, do the same thing for the "Initiate Incident Alerts with Bridge Form" Inbound Integration, and update the `"pos":` element.
 * Be sure to click the "Save Changes" button.
 * When you are done, you're `REMEDY_FORM_INFO` should contain something like this:
 
@@ -955,9 +955,9 @@ If you want to add or modify the existing elements, the field definitions are as
 | `"type"` | (Required if `"hasBridge"` is `true`, must be `"BRIDGE"` or `"EXTERNAL"`)  If a conference bridge is required, then we need to know if we are configuring an xMatters Hosted Bridge (`"BRIDGE"`), or an External Bridge (`"EXTERNAL"`).  See [this](https://help.xmatters.com/ondemand/userguide/conferencebridging/create-conference-bridge.htm) page for information on creating Conference Bridges. |
 | `"subType"` | (Required if `"type"` is `"EXTERNAL"`, and must be `"STATIC"` or `"DYNAMIC"`)  This identifies it the externally defined bridge information has a Bridge Number defined in it's definition (`"STATIC"`), or if thte Bridge Number is to be specified at run-time (`"DYNAMIC"`) |
 | `"bridgeId"` | (Required if `"type"` is `"EXTERNAL"`) Name of pre-defined 3rd-party Conference Bridge object (e.g. "My Skype Priority 1 Bridge"). |
-| `"bridgeNumber"` | (Required if `"subType"` is `"DYNAMIC"`, string) Digits representing bridge number (e.g. "13849348". |
+| `"bridgeNumber"` | (Required if `"subType"` is `"DYNAMIC"`, string) Digits representing bridge number (e.g. "13849348"). |
 | `"dialAfter"` | (Optional: string) digits or characters to dial after the bridgeNumber (e.g. "#" or ",,,#", etc). |
-| `"useExisting"` | (Optional: boolean, `true` or `false`)  If present and `"hasBridge"` is `true`, then you can specify values for `"existingEventPropFieldName "` and `"existingEventValueFieldName"` to allow the script to lookup the information related to an exissting/running Conference Bridge. |
+| `"useExisting"` | (Optional: boolean, `true` or `false`)  If present and `"hasBridge"` is `true`, then you can specify values for `"existingEventPropFieldName"` and `"existingEventValueFieldName"` to allow the script to lookup the information related to an exissting/running Conference Bridge. |
 | `"existingEventPropFieldName"` | (Optional: string)  If present and `"useExisting"` is `true`, then you can specify either `"eventId"` or the name of a property in the incoming payload from Remedy to get the Event Id for an existing event that will contain the running Conference Bridges details. |
 | `"existingEventValueFieldName"` | (Optional: string)  If present and `"useExisting"` is `true`, then you use this field to specify the name of the field that can be used to lookup the running Event.<br>If `"existingEventPropFieldName"` = `eventId`, then the contents of the field named in `"existingEventValueFieldName"` will be an active xMatters Event Id.<br>Othewise, `"existingEventPropFieldName"` is the name of a Property in a running xMatters Event, and `"existingEventValueFieldName"` is the value to campare it to.<br>For example, `"existingEventPropFieldName"` may be "Incident ID" (the name of a Property in the Event to search for), and `"existingEventValueFieldName"` may be "incident_number" which will contain a Remedy Incident Number at runtime to search with (i.e. value of "incident_number" will match the value of "Incident ID" if found). |
 
@@ -1107,4 +1107,4 @@ If an xMatters notification was not received you can work backwards to determine
 * Review the xMatters Reports tab and the specific [Event Log](http://help.xmatters.com/OnDemand/installadmin/reporting/eventlogreport.htm)
 * If no Event was created, review the [xMatters Inbound Integration Activity Stream](http://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)
 * If no activity was recorded, review the Remedy logs for a POST to xMatters
-* If you see that Remedy POSTed to xmatters, next, inspect the logs from the Integration Agent that is listening for those requesets. (Search for "Exception", as well as "202" to detect if the integration was submitted to xMatters.
+* If you see that Remedy POSTed to xmatters, next, inspect the logs from the Integration Agent that is listening for those requesets. (Search for "Exception", as well as "202" to detect if the integration was submitted to xMatters.)
