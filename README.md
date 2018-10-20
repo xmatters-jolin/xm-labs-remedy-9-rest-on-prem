@@ -636,7 +636,7 @@ Be sure to Save your updates!
 ### <a name="iris6"></a>Restart the Integration Agent
 The last step is to stop and restart the xMatters Integration Agent.  If you followed the recommendations in the out-of-the-box installation guide for the Integration Agent under Windows, then you can control it with the Services applet (as we did before with the xMatters Agent).
    <details><summary>Click here to display a screenshot of clicking "Restart" in the Services applet for the xMatters Integration Agent.</summary>
-   <img src="media/ia-restart.png">
+   <img src="media/ia-Restart.png">
    </details>
 
 ### <a name="iris7"></a>Verify that the Integration Service is loaded and running
