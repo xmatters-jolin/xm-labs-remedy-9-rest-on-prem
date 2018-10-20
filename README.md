@@ -57,20 +57,20 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
     
     *THIS MUST BE DONE BEFORE ANY OTHER INSTALLATION ACTIVITIES*
     
- * xMatters Agent (for communications back to Remedy from xMatters)
-     * Overall information about the xMatters Agent is [here](https://help.xmatters.com/ondemand/xmodwelcome/xmattersagent/xmatters-agent-topic.htm)
-     * Installation instructions for the xMatters Agent is [here](https://help.xmatters.com/ondemand/xmodwelcome/xmattersagent/install-xmatters-agent.htm)  
- * xMatters Integration Agent (for communications to xMatters from Remedy)
-     * Overall information about the xMatters Integration Agent is [here](https://help.xmatters.com/ondemand/iaguide/integration-agent-overview.htm)
-     * Installation instructions for the xMatters Integration Agent is [here](https://help.xmatters.com/ondemand/iaguide/integration-agent.htm)
-     * You will also need to
-         * Install the Integration Agent Utilities (instructions are also on the above reference page).
-         * Request an `Integration Agent ID` from Support as part of the installation of the xMatters Integration Agent.
-         * Add a Web Service User (see the section called "Create a web service user" on [this](https://help.xmatters.com/ondemand/iaguide/integration-agent.htm) page)
-         * Update the default Integration Service listening port:<br>
-             * Open up the installed Integration Agent's `<IAHome>\conf\IAConfig.xml` file and change the `service-gateway` listening port from its default `8081` to something else (e.g. `8181`), as this will conflict with the default listening port that the xMatters Agent is configured on as part of its out-of-the-box configuration.
-             * Alternatively, you can change the default listening port for the xMatters Agent by setting a Windows Environment variable called `SERVER_PORT` to something other than `8081`.
-             * Be sure to restart either the Integeation Agent or the xMatters Agent depending on where you decide to make that change.
+     * xMatters Agent (for communications back to Remedy from xMatters)
+         * Overall information about the xMatters Agent is [here](https://help.xmatters.com/ondemand/xmodwelcome/xmattersagent/xmatters-agent-topic.htm)
+         * Installation instructions for the xMatters Agent is [here](https://help.xmatters.com/ondemand/xmodwelcome/xmattersagent/install-xmatters-agent.htm)  
+     * xMatters Integration Agent (for communications to xMatters from Remedy)
+         * Overall information about the xMatters Integration Agent is [here](https://help.xmatters.com/ondemand/iaguide/integration-agent-overview.htm)
+         * Installation instructions for the xMatters Integration Agent is [here](https://help.xmatters.com/ondemand/iaguide/integration-agent.htm)
+         * You will also need to
+             * Install the Integration Agent Utilities (instructions are also on the above reference page).
+             * Request an `Integration Agent ID` from Support as part of the installation of the xMatters Integration Agent.
+             * Add a Web Service User (see the section called "Create a web service user" on [this](https://help.xmatters.com/ondemand/iaguide/integration-agent.htm) page)
+             * Update the default Integration Service listening port:<br>
+                 * Open up the installed Integration Agent's `<IAHome>\conf\IAConfig.xml` file and change the `service-gateway` listening port from its default `8081` to something else (e.g. `8181`), as this will conflict with the default listening port that the xMatters Agent is configured on as part of its out-of-the-box configuration.
+                 * Alternatively, you can change the default listening port for the xMatters Agent by setting a Windows Environment variable called `SERVER_PORT` to something other than `8081`.
+                 * Be sure to restart either the Integeation Agent or the xMatters Agent depending on where you decide to make that change.
 
 # <a name="Files"></a>2. Files
 The following are the files that makeup the Remedy 9 Incident integration.  Each of these are installed and configured into a combination of Remedy, the Agents, and your xMatters On-Demand instance.  The [Installation](#inst) section covers this in detail.
