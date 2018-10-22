@@ -24,7 +24,7 @@
  *  Remedy Rest Util Mocked [Optional] - If present, and mock-mode is enabled, will override functions with these versions.
  *
  * Hisory
- *  Version: 1.0 (2018-10-11)
+ *  Version: 1.0 (2018-10-22)
  *
  * ---------------------------------------------------------------------------------------------------------------------
  */
@@ -1108,7 +1108,7 @@ function decryptPW(password) {
     try {
         pw = EncryptionUtils.decrypt(password);
     } catch (e) {
-        console.log('Remedy Rest Util.decryptPW - Caught exception trying to decrypt ' + path + '\n' + e);
+        console.log('Remedy Rest Util.decryptPW - Caught exception trying to decrypt ' + password + '\n' + e);
     }
     return pw;
 }
