@@ -22,7 +22,7 @@ var INITIATOR_PASSWORD = getPassword(INITIATOR_PASSWORD_FILE);
 var DEDUPLICATION_FILTER_NAME = "bmc-remedy-9-incident-6-0-1";
 
 //----------------------------------------------------------------------------------------------------
-// Callbacks are now handled by the xMatters Agent, so do not include them int the APXML
+// Callbacks are now handled by the xMatters Agent, so do not include them in the APXML
 //----------------------------------------------------------------------------------------------------
 CALLBACKS = false;
 
