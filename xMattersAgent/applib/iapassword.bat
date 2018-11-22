@@ -3,21 +3,21 @@
 rem Keep environment variables local to this script (not supported in all versions of Windows)
 IF (%OS%) == (Windows_NT) SETLOCAL
 
-rem Get SFN path to install directory.
-rem A bug in some versions of Windows makes %~dsp0 append the filename, so use this workaround.
-rem Note: correct to append .. instead of \ since %~dsp0 ends with \
-for %%i in (%~sf0) do set INSTALL_DIR=%%~dspi..
+rem JAVA_HOME must exist
+IF ("%JAVA_HOME%") == ("") (
+	ECHO "JAVA_HOME IS NOT SET AND MUST BE.  UNABLE TO CONTINUE.  EXITING APPLICATION."
+	EXIT /B -1
+)
 
-rem Run iapassword from the install directory so that log files appear in <install>/log
-rem and to keep classpath as short as possible (Windows 2K "The input line is too long" bug).
-set ORIG_DIR=%CD%
-cd %INSTALL_DIR%
-
-rem Find the Java command to execute
-for /r %%G in (*.exe) do if ("%%~nxG") == ("java.exe") set JC="%%~fG"
+REM Create the command to execute
+set JC="%JAVA_HOME%\bin\java.exe"
+IF NOT EXIST %JC% (
+	ECHO "THE JAVA COMMAND DOES NOT EXIST IN JAVA_HOME, AND MUST.  UNABLE TO CONTINUE.  EXITING APPLICATION."
+	EXIT /B -2
+)
 
 rem Set the library path
-set CP=applib\EncryptionUtils.jar
+set CP=.\EncryptionUtils.jar
 
 %JC% -cp "%CP%" com.alarmpoint.integrationagent.cli.iapasswd.IAPassword %1 %2 %3 %4 %5 %6
 
