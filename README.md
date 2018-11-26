@@ -490,7 +490,7 @@ Here is how we lookup the values to put into the "triggerURL":
 * When you are done, your `REMEDY_FORM_INFO` should contain something like this:
 
 
-    ```javascript
+   ```javascript
 [
   {
     "pos": 0,
@@ -511,7 +511,6 @@ Here is how we lookup the values to put into the "triggerURL":
     "URLUser": "svc-rest-remedy-incident"
   }
 ]
-    ```
     
 #### Configure REMEDY\_FORM\_CRITERIA (Advanced, Optional Configuration)
 **NOTE: THIS IS AN ADVANCED TOPIC, AND THE DEFAULT/OUT-OF-THE-BOX `REMEDY_FORM_CRITERIA` MAY BE SUITABLE TO START WITH**<br>
