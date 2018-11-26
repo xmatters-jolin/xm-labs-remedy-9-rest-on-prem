@@ -425,7 +425,7 @@ The contents of this constant is a JSON (JavaScript Object Notation) array of ob
 Each element has a particular format and fields.  The only two fields of each element that you will need to configure are the `"triggerURL"` and `"URLUser"` fields.  They represent the Inbound Integration address and the user that will be authenticating to call that trigger.
 Here is the out-of-the-box, unconfigured version of `REMEDY_FORM_INFO`.
 
-    ```javascript
+   ```javascript
 [
   {
     "pos": 0,
@@ -446,7 +446,7 @@ Here is the out-of-the-box, unconfigured version of `REMEDY_FORM_INFO`.
     "URLUser": "<YOUR-XMATTERS-REMEDY-REST-USER>"
   }
 ]
-    ```
+   ```
 
 The value to put into `"URLUser"` is simply the xMatters User ID for the REST User that you created previously (e.g. "svc-rest-remedy-incident").
 
@@ -488,7 +488,6 @@ Here is how we lookup the values to put into the "triggerURL":
 * Now, do the same thing for the "Initiate Incident Alerts with Bridge Form" Inbound Integration, and update the `"pos":1` element.
 * Be sure to click the "Save Changes" button.
 * When you are done, your `REMEDY_FORM_INFO` should contain something like this:
-
 
    ```javascript
 [
@@ -534,7 +533,7 @@ The default configuration operates as follows:
 
 Here is what the out-of-the-box contents of `REMEDY_FORM_CRITERIA` looks like:
 
-    ```javascript
+   ```javascript
 [
     {
         "defaultForm":0,
@@ -599,7 +598,7 @@ Here is what the out-of-the-box contents of `REMEDY_FORM_CRITERIA` looks like:
         "hasBridge":false
     }
 ]
-    ```
+   ```
 
 It basically says to use Form 0 as the default Form if nothing matches the definitions that follow.
 
