@@ -87,10 +87,10 @@ The notified resolver responds with:
 The closed loop integration annotates the incident's Work Info log with xMatters event status, notification delivery status, annotations/comments, and user responses. Additionally, an ACCEPT response assigns the user to the incident and updates the incident status to In Progress. A RESOLVE response updates the incident status to Resolved.
 
 <details>
-<summary>Click here to display a diagram that shows the relationship and data flow between the components for a typical Incident process.  A PDF version is available [here](media/RemedyIncidentRESTSequenceDiagram.pdf)</summary>
-
+<summary>Click here to display a diagram that shows the relationship and data flow between the components for a typical Incident process.  A PDF version is available [here](media/RemedyIncidentRESTSequenceDiagram.pdf).</summary>
   <img src="media/RemedyIncidentRESTSequenceDiagram.png">
 </details>
+
 
 Additional details about this Integration may be found in the previous SOAP-based on-prem Integration Guide for BMC Remedy Incident [here](media/xM-BMC-Remedy_Incident_Management_5_1_2.pdf).
 
@@ -125,11 +125,12 @@ The following steps will guide you in adding this library:
     * Results<br><kbd><img src="media/xa-UnzippedxMattersAgent3.png"></kbd><br>Contents of C:\Temp\xMattersAgent\applib<br><kbd><img src="media/xa-UnzippedxMattersAgent4.png"></kbd><br>Contents of C:\Temp\xMattersAgent\conf<br><kbd><img src="media/xa-UnzippedxMattersAgent5.png"></kbd>
    </details><br>
 
-3. Move (or copy) the `EncryptionUtils.jar`, `iapassword.bat` (or `iapassword.sh` if on Linux) file to the `applib` folder (or `/opt/xmatters/xa/bin` if on Linux) of your xMatters Agent installation.  Typically this will be `C:\Program Files\xa\applib`.
+3. Move (or copy) the `EncryptionUtils.jar`, `iapassword.bat` (or `iapassword.sh` if on Linux) file to the `C:\Program Files\xa\applib` folder (or `/opt/xmatters/xa/bin` if on Linux) of your xMatters Agent installation.
    <details><summary>Click here for an example</summary>
    <img src="media/xA-1-AddEncryptionUtils.jarHere.png">
    </details>
    
+
 4. * Under Windows, update the existing xerus-service.conf (`C:\Program Files\xa\config\xagent-service.conf`) file to refer to the new EncryptionUtils.jar file.<br>We have included a filed called `xagent-service.conf.additions` that is an example of the change you need to make to `xagent-service.conf`.
    <details><summary>Click here for an example</summary>
    <img src="media/xA-2-LocationOfxagent-service.conf.png">
@@ -150,10 +151,9 @@ The following steps will guide you in adding this library:
 
      <details><summary>Click here for an example of `xagent-service.conf` after the change has been made. `DON'T FORGET TO SAVE THIS FILE AFTER MAKING YOUR CHANGES!`</summary>
    Before:<br><img src="media/xA-3A-Updatexagent-service.conf.png"><br>After:<br><img src="media/xA-3B-Updatexagent-service.conf.png">
-
    </details>
    
-    * Under Linux, we only need to update the command line arguments in `systemd.start.sh`.  This file is located under (`/opt/xmatters/xa/bin`).
+   * Under Linux, we only need to update the command line arguments in `systemd.start.sh`.  This file is located under (`/opt/xmatters/xa/bin`).
    <details><summary>Click here for an example</summary>
    <img src="media/xA-2-LocationOfsystemd.start.sh.png">
    </details>
@@ -266,13 +266,13 @@ Before we can install and configure the Remedy Integration Service into the xMat
 * Now we need to enable the Inbound Integration in order to be able to receive inbound requests.The final step is to now go back and enable the integration.
     * Click on the blue breadcrump near the top of the page above "Trigger Remedy Alert - From xMatters Agent" that has "< BMC Remedy ITSM - Incident - REST - v6.1.1" in blue writing.  This will take you back to the "3 Configured" Inbound Integrations.
     * Notice that the "Trigger Remedy Alert - From xMatters Agent" Inbound Integration is disabled.
-   <details><summary>Click here for an example</summary>
-   3 Configured before enabling "Trigger Remedy Alert - From xMatters Agent"<br><img alt="3 Configured" src="media/xM3ConfiguredBefore.png">
-   </details>
+       <details><summary>Click here for an example</summary>
+       3 Configured before enabling "Trigger Remedy Alert - From xMatters Agent"<br><img alt="3 Configured" src="media/xM3ConfiguredBefore.png">
+       </details>
     * Click and slide the button to the right to enable the "Trigger Remedy Alert - From xMatters Agent" Integration.
-   <details><summary>Click here for an example</summary>
-   3 Configured after enabling "Trigger Remedy Alert - From xMatters Agent"<br><img alt="3 Configured" src="media/xM3ConfiguredAfter.png">
-   </details>
+       <details><summary>Click here for an example</summary>
+       3 Configured after enabling "Trigger Remedy Alert - From xMatters Agent"<br><img alt="3 Configured" src="media/xM3ConfiguredAfter.png">
+       </details>
 
 ### <a name="iris2"></a>Encrypt the Remedy User password
 This integration includes a utility that is required to encrypt the password that will be used for sending REST calls to Remedy.  That utility is called `iapassword.bat` (Windows) or `iapassword.sh` (Linux), and was installed with the EncryptionUtils.jar [previously](#xaset).<br>The documentation for the `iapassword.bat | iapassword.sh` utility is located [here](https://help.xmatters.com/ondemand/iaguide/iapasswordutility.htm).<br>As an example, here are the steps to create the encrypted password under Windows.
@@ -425,7 +425,7 @@ The contents of this constant is a JSON (JavaScript Object Notation) array of ob
 Each element has a particular format and fields.  The only two fields of each element that you will need to configure are the `"triggerURL"` and `"URLUser"` fields.  They represent the Inbound Integration address and the user that will be authenticating to call that trigger.
 Here is the out-of-the-box, unconfigured version of `REMEDY_FORM_INFO`.
 
-```javascript
+    ```javascript
 [
   {
     "pos": 0,
@@ -446,7 +446,7 @@ Here is the out-of-the-box, unconfigured version of `REMEDY_FORM_INFO`.
     "URLUser": "<YOUR-XMATTERS-REMEDY-REST-USER>"
   }
 ]
-```
+    ```
 
 The value to put into `"URLUser"` is simply the xMatters User ID for the REST User that you created previously (e.g. "svc-rest-remedy-incident").
 
@@ -490,7 +490,7 @@ Here is how we lookup the values to put into the "triggerURL":
 * When you are done, your `REMEDY_FORM_INFO` should contain something like this:
 
 
-```javascript
+    ```javascript
 [
   {
     "pos": 0,
@@ -511,7 +511,8 @@ Here is how we lookup the values to put into the "triggerURL":
     "URLUser": "svc-rest-remedy-incident"
   }
 ]
-```
+    ```
+    
 #### Configure REMEDY\_FORM\_CRITERIA (Advanced, Optional Configuration)
 **NOTE: THIS IS AN ADVANCED TOPIC, AND THE DEFAULT/OUT-OF-THE-BOX `REMEDY_FORM_CRITERIA` MAY BE SUITABLE TO START WITH**<br>
 `REMEDY_FORM_CRITERIA` is used to decide at runtime what Form to initiate based on the value(s) of any named properties that are coming in from Remedy.  It relies on the information from `REMEDY_FORM_INFO` to know how to initiate a given Form by referencing the position of the specific form in the Array.
@@ -533,7 +534,7 @@ The default configuration operates as follows:
 
 Here is what the out-of-the-box contents of `REMEDY_FORM_CRITERIA` looks like:
 
-```javascript
+    ```javascript
 [
     {
         "defaultForm":0,
@@ -598,7 +599,7 @@ Here is what the out-of-the-box contents of `REMEDY_FORM_CRITERIA` looks like:
         "hasBridge":false
     }
 ]
-```
+    ```
 
 It basically says to use Form 0 as the default Form if nothing matches the definitions that follow.
 
