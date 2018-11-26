@@ -489,6 +489,7 @@ Here is how we lookup the values to put into the "triggerURL":
 * Be sure to click the "Save Changes" button.
 * When you are done, your `REMEDY_FORM_INFO` should contain something like this:
 
+
    ```javascript
 [
   {
@@ -511,6 +512,7 @@ Here is how we lookup the values to put into the "triggerURL":
   }
 ]
    ```
+
     
 #### Configure REMEDY\_FORM\_CRITERIA (Advanced, Optional Configuration)
 **NOTE: THIS IS AN ADVANCED TOPIC, AND THE DEFAULT/OUT-OF-THE-BOX `REMEDY_FORM_CRITERIA` MAY BE SUITABLE TO START WITH**<br>
@@ -598,6 +600,7 @@ Here is what the out-of-the-box contents of `REMEDY_FORM_CRITERIA` looks like:
         "hasBridge":false
     }
 ]
+   
    ```
 
 It basically says to use Form 0 as the default Form if nothing matches the definitions that follow.
