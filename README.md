@@ -43,7 +43,7 @@ Notify on-call response teams when critical incidents are reported in Remedy. Wi
 * Version 9.1.003 and above of Remedy Incident (on-premises, or on-demand via VPN).
 * Account in Remedy capable of making REST (GET/PUT/POST) calls back into Remedy Incident.
 * xMatters User account - If you don't have one, [get one](https://www.xmatters.com)!
-* An installation of the xMatters Agent installed and connected to your target xMatters instance (for secure communications between Remedy from xMatters).
+* An installation of the xMatters Agent (`v1.3.0-93` or above) installed and connected to your target xMatters instance (for secure communications between Remedy from xMatters).
 
     The xMatters Agent *MUST* be installed on a server (or VM) on-premises (your data center, or a VM in the cloud) that has the ability to connect to both your xMatters instance, and your Remedy instance.<br>
     
