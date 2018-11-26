@@ -24,7 +24,7 @@
  *  Remedy Rest Util Mocked [Optional] - If present, and mock-mode is enabled, will override functions with these versions.
  *
  * Hisory
- *  Version: 1.0 (2018-10-22)
+ *  Version: 1.1 (2018-11-25)
  *
  * ---------------------------------------------------------------------------------------------------------------------
  */
@@ -60,7 +60,7 @@ function createRemedyIncident(jwt, values) {
     // Send request to Remedy
     var response = callRemedy(jwt, "POST", "/api/arsys/v1/entry/HPD%3AIncidentInterface_Create", true, values);
 
-    console.log("Exit " + funcName + " - Repsonse: " + JSON.stringify(response,null,4));
+    // console.log("Exit " + funcName + " - Repsonse: " + JSON.stringify(response,null,4));
     return response;
 }
 
@@ -86,7 +86,7 @@ function modifyRemedyIncident(jwt, requestId, values) {
     var path = "/api/arsys/v1/entry/HPD%3AIncidentInterface/" + requestId;
     var response = callRemedy(jwt, "PUT", path, true, values);
 
-    console.log("Exit " + funcName + " - Repsonse: " + JSON.stringify(response,null,4));
+    // console.log("Exit " + funcName + " - Repsonse: " + JSON.stringify(response,null,4));
     return response;
 }
 
@@ -123,7 +123,7 @@ function addRemedyIncidentWorkInfo(jwt, requestId, workNote) {
     // Modify the incident
     var response = modifyRemedyIncident(jwt, requestId, values);
 
-    console.log("Exit " + funcName + " - Repsonse: " + JSON.stringify(response,null,4));
+    // console.log("Exit " + funcName + " - Repsonse: " + JSON.stringify(response,null,4));
     return response;
 }
 
@@ -162,7 +162,7 @@ function addWorkInfoToRemedyIncident(jwt, requestId, incidentId, workNote) {
     // Modify the incident
     var response = modifyRemedyIncident(jwt, requestId, values);
 
-    console.log("Exit " + funcName + " - Repsonse: " + JSON.stringify(response,null,4));
+    // console.log("Exit " + funcName + " - Repsonse: " + JSON.stringify(response,null,4));
     return response;
 }
 
@@ -179,15 +179,9 @@ function addWorkInfoToRemedyIncident(jwt, requestId, incidentId, workNote) {
  * ---------------------------------------------------------------------------------------------------------------------
  */
 function retrieveRequestIdByLocation(Location) {
-	var funcName = "retrieveRequestIdByLocation";
-    console.log("Enter " + funcName + " - Location: " + Location);
-    
     // Parse the path from the Location
     var locationParts = Location.split("/");
-    var requestId = locationParts[locationParts.length-1];
-    
-    console.log("Exit " + funcName + " - requestId: " + requestId);
-    return requestId;
+    return locationParts[locationParts.length-1];
 }
 
 
@@ -223,8 +217,7 @@ function retrieveRemedyIncident(jwt, requestId, fields) {
 
     // Send request to Remedy
     var response = callRemedy(jwt, "GET", path, false);
-    console.log(funcName + " - REMEDY REST API: received " + JSON.stringify(response,null,4));
-    
+
     // Verify that a 200 was returned (success)
     var entry = null;
     if (200 === response.statusCode) {
@@ -266,7 +259,7 @@ function retrieveRemedyIncidentByLocation(jwt, Location) {
     
     // Send request to Remedy
     var response = callRemedy(jwt, "GET", path);
-    console.log(funcName + " - REMEDY REST API: received " + JSON.stringify(response,null,4));
+    // console.log(funcName + " - REMEDY REST API: received " + JSON.stringify(response,null,4));
     
     // Verify that a 200 was returned (success)
     var entry = null;
@@ -310,7 +303,7 @@ function retrieveRemedyIncidentByField(jwt, fieldName, fieldValue, fields) {
 
     // Send request to Remedy
     var response = callRemedy(jwt, "GET", path, false);
-    console.log(funcName + " - REMEDY REST API: received " + JSON.stringify(response,null,4));
+    // console.log(funcName + " - REMEDY REST API: received " + JSON.stringify(response,null,4));
 
     // Verify that a 200 was returned (success)
     var entry = null;
@@ -370,7 +363,7 @@ function retrieveRemedyIncidentByIncidentNumber(jwt, incidentNumber, fields) {
     console.log("Enter " + funcName + " - incidentNumber: " + incidentNumber);
     
     // Request the Incident details
-    var entry = retrieveRemedyIncidentByField(jwt, "Incident Number", requestId, fields);
+    var entry = retrieveRemedyIncidentByField(jwt, "Incident Number", incidentNumber, fields);
 
     console.log("Exit " + funcName + " - Entry is " + ((null === entry)?"null":"not null"));
     return entry;
@@ -446,7 +439,6 @@ function retrieveRemedySupportGrpAssoc(jwt, Assignee_Login_ID, Assigned_Support_
     console.log("retrieveRemedySupportGrpAssoc - path: " + path);
 
     var response = callRemedy(jwt, "GET", path, false);
-    console.log(funcName + " - REMEDY REST API: received " + JSON.stringify(response,null,4));
 
     // Verify that a 200 was returned (success)
     var results = null;
@@ -507,7 +499,6 @@ function generateRemedyApiToken( ) {
     var payload = "username=" + constants.REMEDY_WS_USERNAME + "&password=" + remPw;
     
     var response = request.write( payload );
-    console.log(funcName + " - REMEDY REST API: received " + JSON.stringify(response,null,4));
 
     console.log("Exit " + funcName);
     return response.body;
@@ -726,6 +717,80 @@ function constructTicketSearchLink(serverAddress, serverName, ticketNumber) {
 };
 
 
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * 
+ * parseCheckRequestBody
+ *
+ * Parse the request body, check that the expected parameters were found and return a Javascript object that
+ * contains the request parameters.
+ * 
+ * @param {object} The incoming request from Remedy
+ * 
+ * @returns {object} A JSON Object that contains the fields retrieved from the inbound XML.
+ * 
+ * ---------------------------------------------------------------------------------------------------------------------
+ */
+function parseCheckRequestBody(requestBody) {
+    var funcName = "parseCheckRequestBody";
+    console.log("Enter " + funcName + " - requestBody is a " + (typeof requestBody));
+    var request = {};
+
+    var triggerRequest = requestBody["soapenv:envelope"]["soapenv:body"]["ns0:triggerrequest"];
+    request.action = triggerRequest["ns0:action"];
+    request.incidentId = triggerRequest["ns0:id"];
+    request.form = triggerRequest["ns0:form"];
+    request.logMessage = (typeof triggerRequest["ns0:message"] !== "undefined")?triggerRequest["ns0:message"]:"";
+
+    // console.log(funcName + " - Received action=" + request.action + ", incidentId=" + request.incidentId + ", form=" + request.form + ", logMessage=" + request.logMessage);
+
+    if ((typeof request.action !== "string") || request.action.length === 0) {
+        console.log(funcName + " - Request action not found.")
+        throw "Request action not found."
+    }
+
+    if ((typeof request.incidentId !== "string") || request.incidentId.length === 0) {
+        console.log(funcName + "- Request action not found.")
+        throw "Request incidentId not found."
+    }
+    
+    // console.log("Exit " + funcName);
+    return request;
+};
+
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * 
+ * updateWorkInfo
+ *
+ * Convenience function used by IB scripts to update the Work Info in a Remedy Incident
+ * 
+ * @param {String} The Remedy Request ID identifying the Incident to update
+ * @param {String} The text to add to the Work Info
+ * 
+ * @returns nothing.
+ * 
+ * ---------------------------------------------------------------------------------------------------------------------
+ */
+function updateWorkInfo(requestId, workInfo) {
+    
+    // Generate the API token (essentially login to Remedy ARS)
+    var token = generateRemedyApiToken();
+    if (null === token) {
+        console.log('updateWorkInfo - !!! UNABLE TO RETRIEVE JWT Token from Remedy !!!');
+        throw 'updateWorkInfo - !!! UNABLE TO RETRIEVE JWT Token from Remedy !!!';
+    }
+
+    // Update the Work Info
+    var results = addRemedyIncidentWorkInfo(token, requestId, workInfo);
+    // console.log("updateWorkInfo - results: " + JSON.stringify(results,null,4));
+        
+    // Logout of Remedy via the Token
+    logoutRemedyApiToken(token);
+    
+}
+
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------
@@ -819,7 +884,8 @@ var varRetrieveRemedySupportGrpAssoc = null;
 var varGenerateRemedyApiToken = null;
 var varGenerateHeaderForApiRequest = null;
 var varLogoutRemedyApiToken = null;
-
+var varParseCheckRequestBody = null;
+var varUpdateWorkInfo = null;
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------
@@ -939,6 +1005,18 @@ function _init(mockMode) {
             varLogoutRemedyApiToken = mockLogoutRemedyApiToken;
         }
 
+        if (hasMockLib && (typeof remMockLib.mockParseCheckRequestBody === "function")) {
+            varParseCheckRequestBody = remMockLib.mockParseCheckRequestBody;
+        } else {
+            varParseCheckRequestBody = parseCheckRequestBody;
+        }
+
+        if (hasMockLib && (typeof remMockLib.mockUpdateWorkInfo === "function")) {
+            varUpdateWorkInfo = remMockLib.mockUpdateWorkInfo;
+        } else {
+            varUpdateWorkInfo = updateWorkInfo;
+        }
+
     } else {
         
         // Non-mocked function varirables
@@ -957,6 +1035,8 @@ function _init(mockMode) {
         varGenerateRemedyApiToken = generateRemedyApiToken;
         varGenerateHeaderForApiRequest = generateHeaderForApiRequest;
         varLogoutRemedyApiToken = logoutRemedyApiToken;
+        varParseCheckRequestBody = parseCheckRequestBody;
+        varUpdateWorkInfo = updateWorkInfo;
 
     }
     
@@ -979,7 +1059,9 @@ function _init(mockMode) {
     exports.buildXmattersGroupName = buildXmattersGroupName;
     exports.constructTicketLink = constructTicketLink;
     exports.constructTicketSearchLink = constructTicketSearchLink;
-
+    exports.parseCheckRequestBody = parseCheckRequestBody;
+    exports.updateWorkInfo = updateWorkInfo;
+    
 }
 
 
@@ -1042,11 +1124,11 @@ function callRemedy(jwt, method, path, autoEncodeURI, payload) {
 
     // Setup the Auth headers    
     requestObj.headers = generateHeaderForApiRequest(jwt);
-    console.log(funcName + " - requestObj before calling http.request(): " + JSON.stringify(requestObj,null,4));
+    // console.log(funcName + " - requestObj before calling http.request(): " + JSON.stringify(requestObj,null,4));
 
     // Create the request
     var request = http.request(requestObj);
-    console.log(funcName + " - request before calling write(): " + JSON.stringify(request,null,4));
+    // console.log(funcName + " - request before calling write(): " + JSON.stringify(request,null,4));
     
     // Send request to Remedy
     var response;
@@ -1068,7 +1150,7 @@ function callRemedy(jwt, method, path, autoEncodeURI, payload) {
         response.body = JSON.stringify(errBody);
     }
 
-    console.log("Exit " + funcName + " - response: " + JSON.stringify(response));
+    // console.log("Exit " + funcName + " - response: " + JSON.stringify(response));
     return response;   
 }
 
@@ -1282,5 +1364,38 @@ function mockLogoutRemedyApiToken(jwt) {
 		"body": ""
 	}
 
+    console.log("Exit " + funcName);
+}
+
+function mockParseCheckRequestBody(requestBody) {
+    var funcName = "mockParseCheckRequestBody";
+    console.log("Enter " + funcName + " - requestBody is a " + (typeof requestBody));
+    var request = {};
+
+    request.action = triggerRequest["ns0:action"];
+    request.incidentId = triggerRequest["ns0:id"];
+    request.form = triggerRequest["ns0:form"];
+    request.logMessage = (typeof triggerRequest["ns0:message"] !== "undefined")?triggerRequest["ns0:message"]:"";
+
+    // console.log(funcName + " - Received action=" + request.action + ", incidentId=" + request.incidentId + ", form=" + request.form + ", logMessage=" + request.logMessage);
+
+    if ((typeof request.action !== "string") || request.action.length === 0) {
+        console.log(funcName + " - Request action not found.")
+        throw "Request action not found."
+    }
+
+    if ((typeof request.incidentId !== "string") || request.incidentId.length === 0) {
+        console.log(funcName + "- Request action not found.")
+        throw "Request incidentId not found."
+    }
+    
+    // console.log("Exit " + funcName);
+    return request;
+
+}
+
+function mockUpdateWorkInfo(requestId, workInfo) {
+    var funcName = "mockUpdateWorkInfo";
+    console.log("Enter " + funcName + " - requestId: [" + requestId + "], workInfo: [" + workInfo "].");
     console.log("Exit " + funcName);
 }
